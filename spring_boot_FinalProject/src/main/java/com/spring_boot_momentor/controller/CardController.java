@@ -21,15 +21,12 @@ public class CardController {
 	@RequestMapping("/card")
     public String insertCard() {
        // 원하는곳 URL 입력 
-       String hyundaiURL = "https://www.hyundaicard.com/cpc/ma/CPCMA0101_01.hc";
+      String hyundaiURL = "https://www.hyundaicard.com/cpc/ma/CPCMA0101_01.hc";
       Connection conn = Jsoup.connect(hyundaiURL);
       CardVO vo = new CardVO();
       try {
          Document doc = conn.get();
-         // card_section 전체 class
-//         Elements hyundaiCardAll = doc.getElementsByClass("card_section");
-         // h2_b_lt 카드 타이틀 
-//         Elements hyundaiCardtitle = doc.getElementsByClass("h2_b_lt");
+
          // h4_b_lt 카드 이름
          Elements hyundaiCardName = doc.getElementsByClass("h4_b_lt");
          // p2_m_2ln mt12 설명 
@@ -39,31 +36,19 @@ public class CardController {
          // main-txt 연회비
          Elements hyundaiCardFee = doc.select("ul.memberFee > ul.info2 > li.main-txt");
          
-         // 테스트용
-//         for (Element element : hyundaiCardAll) {
-//            System.out.println(element);
-//         }
-//         for (Element element : hyundaiCardImgUrl) {
-//            System.out.println(element);
-//         }
-         
-      
          for (int i = 0; i < hyundaiCardName.size()-7; i++) {
                 
                 final String name = hyundaiCardName.get(i).text();
                 final String des = hyundaiCardDescribed.get(i).text();
                 String img = hyundaiCardImgUrl.get(i).attr("abs:src");
-               
-                
                 final String fee = hyundaiCardFee.get(i).text();
-                System.out.println(i+". 카드명: " + name);
-                System.out.println(i+". 카드설명: " + des);
-                System.out.println(i+". 이미지 URL: " + img);
-                System.out.println(i+". 연회비: " + fee);
+
+                // 카드 URL뽑기  
                 String imgUrl = img.substring( 46, img.length());
                 imgUrl = imgUrl.substring( 0, imgUrl.length()-6);
                 // https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=imgUrl
-                System.out.println(i+". 상세피이지 링크:" + imgUrl);
+
+                // 데이터 저장 
                 vo.setCardName(name);
                 vo.setCardDes(des);
                 vo.setCardImgUrl(img);
