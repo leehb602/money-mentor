@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'CookieRunOTF-Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	margin: 0 auto;
+}
+
+body {
+	background-color: rgba(218, 233, 244, 0.8);
+}
+
+.backimg {
+	margin-top: 5%;
+	padding-bottom : 2%;
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 500px;
+	border-radius: 20px;
+}
+
+#wrap {
+	text-align: center;
+}
+
+table {
+	width: 410px;
+}
+
+table thead{
+	height: 100px;
+}
+
+th {
+	font-size: 30px;
+	color: #274c5e;
+	padding: 10px;
+}
+
+td {
+	float: left;
+	padding: 10px;
+}
+
+.input {
+	height: 5px;
+	line-height: 5px;
+	float: left;
+	color: #3E3E3E;
+	font-weight: bold;
+	font-family: 'LeferiPoint-WhiteObliqueA'
+}
+
+/* 조건에 일치하지 않았을 경우 */
+.error {
+	float: left;
+	color: red;
+	font-size: small;
+}
+
+.possibility {
+	float: left;
+	color: blue;
+	font-size: small;
+}
+
+input {
+	height: 30px;
+	border: solid 1px gray;
+	border-radius: 5px;
+}
+
+#id {
+	float: left;
+	width: 300px;
+}
+
+#password {
+	float: left;
+	width: 370px;
+}
+
+#passwordcheck {
+	float: left;
+	width: 370px;
+}
+
+#name {
+	float: left;
+	width: 370px;
+}
+
+select {
+	width: 175px;
+	height: 33px;
+	border-radius: 5px;
+}
+
+#gender {
+	float: left;
+}
+
+button {
+	height: 33px;
+	line-height: 33px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+	background-color: lightblue;
+	color: #ffffff;
+	font-family: 'LeferiPoint-WhiteObliqueA'
+}
+
+#joinBtn {
+	width: 375px;
+}
+
+#idcheck {
+	font-size: 12px;
+}
+
+#idcheck:hover {
+	cursor: pointer;
+	background-color: #77919d;
+}
+
+#joinBtn:hover {
+	cursor: pointer;
+	background-color: #77919d;
+}
