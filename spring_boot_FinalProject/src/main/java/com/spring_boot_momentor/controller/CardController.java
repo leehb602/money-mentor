@@ -59,14 +59,41 @@ public class CardController {
 	            vo.setComCtg("현대");
                 service.insertCard(vo);
             }
-         
-      } catch (IOException e) {
-         // TODO Auto-generated catch block
-         e.printStackTrace();
-      }
+         for (int i = 0; i < hyundaiCardFee.size(); i++) {
+				final String fee = hyundaiCardFee.get(i).text();
+				if (fee.indexOf("국내전용")==-1) {
+					continue;
+				}
+//				System.out.println(i+". 연회비: " + fee);
+				
+				String newFee = fee.substring( 5);
+				newFee = newFee.replace(",", "");
+				newFee = newFee.replace("원", "");
+//				System.out.println(i+". 2연회비: " + newFee);
+				String intFee = "";
+				if (newFee.equals("연회비 없음")) {
+					intFee = "-";	
+					vo.setCardFee(intFee);
+					service.updateCardFee(vo);
+				}else {
+					intFee = hyundaiCardFee.get(i).text();
+					vo.setCardFee(intFee);
+					service.updateCardFee(vo);
+				}
+				System.out.println(i+". int: " + intFee);
+				
+			}
+      
+   } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+   }
       
       return "index";
     }
+	
+	
+	
 	@RequestMapping("/card/KB")
     public String insertKBCard() {
 		try {

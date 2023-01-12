@@ -17,5 +17,11 @@ public class CardService implements ICardService{
 	public void insertCard(CardVO vo) {
 		dao.insertCard(vo);	
 	}
+
+	@Override
+	public void updateCardFee(CardVO vo) {
+		dao.updateCardFee(vo);
+		
+	}
 	
 }
