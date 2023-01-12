@@ -8,4 +8,7 @@
   		insert into cards (cardName, cardDes, cardImgUrl, cardFee, cardUrl, comCtg)
   		values (#{cardName},#{cardDes},#{cardImgUrl},#{cardFee},#{cardUrl},#{comCtg})
   	</insert>
+  	<update id="updateCardFee">
+  		UPDATE cards SET cardFee=#{cardFee}
+  	</update>
   </mapper>
