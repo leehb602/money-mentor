@@ -4,7 +4,7 @@ public class CardVO {
 	private String cardName;
 	private String cardDes;
 	private String cardImgUrl;
-	private String cardFee;
+	private int cardFee;
 	private String cardUrl;
 	private String comCtg;
 
@@ -40,11 +40,11 @@ public class CardVO {
 		this.cardImgUrl = cardImgUrl;
 	}
 
-	public String getCardFee() {
+	public int getCardFee() {
 		return cardFee;
 	}
 
-	public void setCardFee(String cardFee) {
+	public void setCardFee(int cardFee) {
 		this.cardFee = cardFee;
 	}
 
