@@ -6,6 +6,15 @@ public class CardVO {
 	private String cardImgUrl;
 	private String cardFee;
 	private String cardUrl;
+	private String comCtg;
+
+	public String getComCtg() {
+		return comCtg;
+	}
+
+	public void setComCtg(String comCtg) {
+		this.comCtg = comCtg;
+	}
 
 	public String getCardName() {
 		return cardName;
