@@ -25,69 +25,73 @@ public class CardController {
        // 원하는곳 URL 입력 
       String hyundaiURL = "https://www.hyundaicard.com/cpc/ma/CPCMA0101_01.hc";
       Connection conn = Jsoup.connect(hyundaiURL);
-      CardVO vo = new CardVO();
       try {
-         Document doc = conn.get();
+    	  	Document doc = conn.get();
 
-         // h4_b_lt 카드 이름
-         Elements hyundaiCardName = doc.getElementsByClass("h4_b_lt");
-         // p2_m_2ln mt12 설명 
-         Elements hyundaiCardDescribed = doc.getElementsByClass("p2_m_2ln mt12");
-         //img url 이미지 url
-         Elements hyundaiCardImgUrl = doc.select("a > .img > img");
-         // main-txt 연회비
-         Elements hyundaiCardFee = doc.select("ul.memberFee > ul.info2 > li.main-txt");
+		 	Elements hyundaiCardList = doc.getElementsByClass("list05");
+
+			for(int idx = 0; idx < hyundaiCardList.size(); idx++) {
+             	 CardVO vo = new CardVO();
+             	
+				 Elements cardInfos = hyundaiCardList.get(idx).getElementsByClass("info2");
+
+				 for(int cnt = 0; cnt < cardInfos.size(); cnt++) {
+					 Elements cardInfo = cardInfos.get(cnt).select("li");
+					 
+					 Element cardLists = hyundaiCardList.get(idx).getElementsByClass("card_plt").get(cnt);
+					 
+			         // h4_b_lt 카드 이름
+			         Elements hyundaiCardName = cardLists.getElementsByClass("h4_b_lt");
+			         // p2_m_2ln mt12 설명 
+			         Elements hyundaiCardDescribed = cardLists.getElementsByClass("p2_m_2ln mt12");
+			         //img url 이미지 url
+			         Element hyundaiCardImgUrl = cardLists.getElementsByClass("img").get(0);
+
+			         
+			         final String name = hyundaiCardName.text();
+	                 final String des = hyundaiCardDescribed.text();
+	                 String img = hyundaiCardImgUrl.select("img").attr("src");
+	                 
+	                // 카드 URL뽑기  
+	                String imgUrl = img.substring( 46, img.length());
+	                imgUrl = imgUrl.substring( 0, imgUrl.length()-6);
+	                // https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=imgUrl
+	                 
+	                 
+					 String fee = "";
+					 int intFee = 0;
+					 for(int list = 0; list < cardInfo.size(); list++) {
+						 if(cardInfo.get(list).text().indexOf("국내전용") != -1) {
+							 fee = cardInfo.get(list).text();
+							 fee = fee.substring(5);
+							 fee = fee.replace(",", "");;
+							 fee = fee.replace("원", "");
+							 
+							 if (fee.equals("연회비 없음")) {
+								 intFee = 0;
+								continue;
+							}
+							 
+							 intFee = Integer.parseInt(fee);
+						 }
+					 }
+					 
+			        vo.setCardName(name);
+	                vo.setCardDes(des);
+	                vo.setCardImgUrl(img);
+	                vo.setCardFee(intFee);
+	                vo.setCardUrl(imgUrl);
+		            vo.setComCtg("현대");
+		            service.insertCard(vo);
+				 }
+			 }
          
-         for (int i = 0; i < hyundaiCardName.size()-7; i++) {
-                
-                final String name = hyundaiCardName.get(i).text();
-                final String des = hyundaiCardDescribed.get(i).text();
-                String img = hyundaiCardImgUrl.get(i).attr("abs:src");
-                final String fee = hyundaiCardFee.get(i).text();
+         
+      } catch (IOException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
 
-                // 카드 URL뽑기  
-                String imgUrl = img.substring( 46, img.length());
-                imgUrl = imgUrl.substring( 0, imgUrl.length()-6);
-                // https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=imgUrl
-
-                // 데이터 저장 
-                vo.setCardName(name);
-                vo.setCardDes(des);
-                vo.setCardImgUrl(img);
-                vo.setCardFee(fee);
-                vo.setCardUrl(imgUrl);
-	            vo.setComCtg("현대");
-                service.insertCard(vo);
-            }
-         for (int i = 0; i < hyundaiCardFee.size(); i++) {
-				final String fee = hyundaiCardFee.get(i).text();
-				if (fee.indexOf("국내전용")==-1) {
-					continue;
-				}
-//				System.out.println(i+". 연회비: " + fee);
-				
-				String newFee = fee.substring( 5);
-				newFee = newFee.replace(",", "");
-				newFee = newFee.replace("원", "");
-//				System.out.println(i+". 2연회비: " + newFee);
-				String intFee = "";
-				if (newFee.equals("연회비 없음")) {
-					intFee = "-";	
-					vo.setCardFee(intFee);
-					service.updateCardFee(vo);
-				}else {
-					intFee = hyundaiCardFee.get(i).text();
-					vo.setCardFee(intFee);
-					service.updateCardFee(vo);
-				}
-				System.out.println(i+". int: " + intFee);
-				
-			}
-      
-   } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-   }
       
       return "index";
     }
@@ -125,6 +129,8 @@ public class CardController {
 					//카드 설명
 					String des = card.select("p").text();
 					String imgUrl = cardBefore.select("img").get(0).attr("src");
+					String cardUrl = imgUrl.substring(61, 66);
+					//https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=cardUrl
 					
 					String annulKind = "";
 					String annulPrice = "";
@@ -142,8 +148,9 @@ public class CardController {
 			            vo.setCardImgUrl(imgUrl);
 			            
 			            //fee String -> int
-			            vo.setCardFee("0");
-			            vo.setCardUrl(URL);
+			            vo.setCardFee(0);
+			            vo.setCardUrl(cardUrl);
+			            vo.setComCtg("KB");
 			            service.insertCard(vo);
 					}
 					else {
@@ -167,8 +174,8 @@ public class CardController {
 					            vo.setCardImgUrl(imgUrl);
 					            
 					            //fee String -> int
-					            vo.setCardFee(annulPrice);
-					            vo.setCardUrl(URL);
+					            vo.setCardFee(price);
+					            vo.setCardUrl(cardUrl);
 					            vo.setComCtg("KB");
 					            service.insertCard(vo);
 							}
