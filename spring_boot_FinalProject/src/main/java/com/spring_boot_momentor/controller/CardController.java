@@ -1,10 +1,12 @@
 package com.spring_boot_momentor.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,5 +66,94 @@ public class CardController {
       
       return "index";
     }
+	@RequestMapping("/card/KB")
+    public String insertKBCard() {
+		try {
+			String URL = "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0047";
+		    
+			//카드 페이지 받아옴
+	        Document doc = Jsoup.connect(URL).get();
+	        
+			//페이지에 있는 카테고리를 토대로 몇 번 반복할 건지 정함
+			Elements tabsMenu = doc.getElementsByClass("tabs__menu");
+			int tabsMenuIndexs = tabsMenu.select("li").size();
+			
+			//첫 카테고리부터 반복해 크롤링
+			for(int index = 1; index <= tabsMenuIndexs; index++) {
+				URL = "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0047?pageNo=1&cateIdx=" + index + "";
+				doc = Jsoup.connect(URL).get();
+			    CardVO vo = new CardVO();	
+				
+				//card-box__after class를 가진 div 박스를 전부 긁어옴
+				Elements cards = doc.getElementsByClass("card-box__after");
+				Elements cardsBefore = doc.getElementsByClass("card-box__before");
+				int cardValues = cards.size();
+				//div 박스를 하나하나 읽어와 안쪽에 있는 요소를 받아옴
+				for(int value = 0; value < cardValues; value++) {
+					Element card = cards.get(value);
+					Element cardBefore = cardsBefore.get(value);
+					//카드 이름
+					String name = card.select("h3").text();
+					//카드 설명
+					String des = card.select("p").text();
+					String imgUrl = cardBefore.select("img").get(0).attr("src");
+					
+					String annulKind = "";
+					String annulPrice = "";
+					
+					// 기본값은 0
+					int price = 0;
+					
+					//연회비(국내인지 비자인지 어떤 연회비인지 따로 설정하기 위해 for문을 씀
+					int annualValue = card.select("em").size();
+					
+					if(annualValue == 0) {
+						// 데이터 저장 
+			            vo.setCardName(name);
+			            vo.setCardDes(des);
+			            vo.setCardImgUrl(imgUrl);
+			            
+			            //fee String -> int
+			            vo.setCardFee("0");
+			            vo.setCardUrl(URL);
+			            service.insertCard(vo);
+					}
+					else {
+						for(int annual = 0; annual < annualValue; annual++) {
+							// img의 alt 값을 저장
+							annulKind = cards.select("img").get(annual).attr("alt");
+							// alt 값이 국내 전용이면 연회비를 가져옴
+							if(annulKind.equals("국내전용")) {
+								annulPrice = cards.select("em").get(annual).text();
+								
+								// 연회비가 있으면 그 연회비를 저장하고
+								if(!(annulPrice.equals("연회비 없음"))) {
+									annulPrice = annulPrice.replace(",", "");
+									price = Integer.parseInt(annulPrice);	
+								}
+								
+								// 아니면 0인 그대로 저장
+								// 데이터 저장 
+					            vo.setCardName(name);
+					            vo.setCardDes(des);
+					            vo.setCardImgUrl(imgUrl);
+					            
+					            //fee String -> int
+					            vo.setCardFee(annulPrice);
+					            vo.setCardUrl(URL);
+					            service.insertCard(vo);
+							}
+						}
+					}
+				}
+			}
+			System.out.println("success");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+      return "index";
+    }
+	
 
+	
 }
