@@ -56,6 +56,7 @@ public class CardController {
                 vo.setCardImgUrl(img);
                 vo.setCardFee(fee);
                 vo.setCardUrl(imgUrl);
+	            vo.setComCtg("현대");
                 service.insertCard(vo);
             }
          
@@ -141,6 +142,7 @@ public class CardController {
 					            //fee String -> int
 					            vo.setCardFee(annulPrice);
 					            vo.setCardUrl(URL);
+					            vo.setComCtg("KB");
 					            service.insertCard(vo);
 							}
 						}
