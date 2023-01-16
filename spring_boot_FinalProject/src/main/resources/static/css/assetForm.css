@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+* {
+	margin: 0 auto;
+}
+
+table {
+	width: 500px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin-top: 5%;
+}
+
+table th {
+	font-size: 20px;
+}
+
+.text {
+	width: 80%;
+	height : 30px;
+	line-height : 30px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+#savingBtn {
+	width : 80%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+}
+
+button:hover {
+	
+}

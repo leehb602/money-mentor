@@ -127,13 +127,15 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="2"><button id="joinBtn">가입하기</button></td>
+						<td colspan="2">
+							<button id="joinBtn">가입하기</button>
+						</td>
 					</tr>
 				</tfoot>
 			</table>
 		</form>
 		<!-- 모달창 띄우는 부분 -->
-		<c:import url="/WEB-INF/views/join/layout/modal.jsp"/>
+		<c:import url="/WEB-INF/views/user/layout/modal.jsp"/>
 		<!-- 종료 -->
 		</div>
 		</div>

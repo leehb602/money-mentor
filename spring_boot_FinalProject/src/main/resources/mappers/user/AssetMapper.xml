@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_momentor.dao.IUserDAO">
+	 <!-- 회원 자산 저장 -->
+	 <insert id="userAssetInsert">
+	 	insert into property (userProperty, userSalary, userDeposit, userSavings, userLoans, userInterest, userId)
+	 	values (#{userProperty},#{userSalary},#{userDeposit},#{userSavings},#{userLoans},#{userInterest},#{userId})
+	 </insert>
+	 
+	 <!-- 자산 정보 가져오기 -->
+	 <!-- 총 가입자 수 -->
+	 <select id="getTotalUserCnt" resultType="int">
+	 	select count(*)
+	 	from joinUserList
+	 </select>
+	 
+	 <!-- 유저 나이 -->
+	 <select id="getUserAge" parameterType="string" resultType="string">
+	 	select userAge
+	 	from joinUserList
+	 	where userId=#{userId}
+	 </select>
+	 
+	 <!-- 해당 나이 가입자 수 -->
+	 <select id="getAgeUserCnt" parameterType="string" resultType="int">
+	 	select count(*)
+	 	from joinUserList
+	 	where userAge=#{userAge}
+	 </select>
+	 
+	 <!-- 재산 순위 -->
+	 <select id="getPropertyRank" parameterType="string" resultType="int">
+		select count(*)
+		from joinUserList j, property p
+		where j.userId=p.userId and p.userProperty >= (select userProperty
+													   from property
+													   where userId=#{userId}) and j.userAge = (select userAge
+																								from joinUserList
+																								where userId=#{userId})
+	 </select>
+  </mapper>
