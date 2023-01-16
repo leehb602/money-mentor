@@ -64,6 +64,13 @@
 			$('#passwordcheck').focus();
 			return false;
 		}
+		
+		if ($('#password').val() != $('#passwordcheck').val()) {
+			$('#passcheckEmpty').text('비밀번호가 일치하지 않습니다');
+			$('#passcheckEmpty').addClass('error');
+			$('#passwordcheck').focus();
+			return false;
+		}
 
 		if ($('#name').val() == "") {
 			$('#nameEmpty').text('이름을 입력해주세요');
