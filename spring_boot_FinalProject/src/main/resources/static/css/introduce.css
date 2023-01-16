@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.intro_sec{
+	margin-top:100px;
+}
+.intro_div{
+	width:100%;
+	height:100%;
+}
+.sec_box{
+	width:70%;
+	margin:auto;
+}
