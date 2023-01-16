@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_momentor.dao.IUserDAO">
+	 <!-- 로그인 판별 -->
+     <select id="loginCheck" parameterType="string" resultType="string">
+  		select userPassword
+  		from joinUserList
+  		where userId=#{id}
+  	</select>
+  	
+  	<!-- 로그인 시 userNmae 가져오기 -->
+  	<select id="getUserName" parameterType="string" resultType="string">
+  		select userName
+  		from joinUserList
+  		where userId=#{id}
+  	</select>
+  </mapper>

@@ -20,7 +20,7 @@
 		} else {
 			$.ajax({
 			type:"post",
-			url:"idCheck",
+			url:"/user/idCheck",
 			data:{"userId":$('#id').val()},
 			dataType:"text",
 			success:function(result){
@@ -97,11 +97,12 @@
 	})
 
 	$('#consent').on('click', function() {
+		
 		var formData = new FormData($('#joinForm')[0]);
 		
 		$.ajax({
 		type:"post",
-		url:"/join/userJoin",
+		url:"/user/userJoin",
 		processData:false,
 		contentType:false,
 		data:formData,

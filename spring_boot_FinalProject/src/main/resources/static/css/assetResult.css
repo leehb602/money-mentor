@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+* {
+	margin: 0 auto;
+}
+
+table {
+	width: 600px;
+	height : 70px;
+	line-height : 70px;
+	text-align: center;
+	margin-top: 10%;
+}
+
+table th {
+	font-size: 20px;
+}
+
+span {
+	font-size: 18px;
+	font-weight: bold;
+}

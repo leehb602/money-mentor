@@ -10,4 +10,10 @@
   		values (#{userId},#{userPassword},#{userName},#{userAge},#{userPhone},#{userEmail})
   	</insert>
   	
+  	<!-- ID 중복확인 -->
+  	<select id="idCheck" parameterType="string" resultType="string">
+     	select userId
+     	from joinUserList
+     	where userId=#{userId}
+     </select>
   </mapper>
