@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+* {
+	margin: 0 auto;
+}
+
+table {
+	width: 400px;
+	height : 40px;
+	line-height : 40px;
+	text-align: center;
+	margin-top: 5%;
+}
+
+table th {
+	font-size: 20px;
+	padding-bottom: 30px;
+}
+
+#userName {
+	width: 80%;
+	height : 30px;
+	line-height : 30px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+#userId {
+	width: 80%;
+	height : 30px;
+	line-height : 30px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+#userPassword {
+	width: 80%;
+	height : 30px;
+	line-height : 30px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+#pwCheck {
+	width: 80%;
+	height : 30px;
+	line-height : 30px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+input {
+	width : 21%;
+	height : 25px;
+	line-height : 25px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+#findBtn {
+	width: 80%;
+	height : 40px;
+	line-height : 40px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+	margin-top: 10%;
+}
+
+#changeBtn {
+	width: 80%;
+	height : 40px;
+	line-height : 40px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+	margin-top: 10%;
+}
+
+button:hover {
+	
+}

@@ -35,4 +35,13 @@ public interface IUserDAO {
 	public int getAgeUserCnt(String userAge);
 	// 해당 나이 중 재산 순위
 	public int getPropertyRank(String userId);
+	
+	// 아이디 찾기
+	public String findId(UserVO vo);
+	
+	// 비밀번호 찾기
+	public String findPw(UserVO vo);
+	
+	// 비밀번호 변경
+	public void PwChange(UserVO vo);
 }

@@ -83,4 +83,21 @@ public class UserService implements IUserService {
 	public int getPropertyRank(String userId) {
 		return dao.getPropertyRank(userId);
 	}
+
+	@Override
+	public String findId(UserVO vo) {
+		return dao.findId(vo);
+	}
+
+	@Override
+	public String findPw(UserVO vo) {
+		return dao.findPw(vo);
+	}
+
+	@Override
+	public void PwChange(UserVO vo) {
+		String encodedPassword = passwordEncoder.encode(vo.getUserPassword());
+		vo.setUserPassword(encodedPassword);
+		dao.PwChange(vo);
+	}
 }

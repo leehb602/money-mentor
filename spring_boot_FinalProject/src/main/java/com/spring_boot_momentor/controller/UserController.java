@@ -77,15 +77,61 @@ public class UserController {
 		return result;
 	}
 	
-	// 아이디 찾기 폼 이동(임시)
+	// 아이디 찾기 폼 이동
 	@RequestMapping("/user/findIdForm")
 	public String findIdForm() {
-		return "user/loginForm";
+		return "user/findIdForm";
 	}
 	
-	// 비밀번호 찾기(임시)
+	// 아이디 찾기
+	@RequestMapping("/user/findId")
+	public String findId(UserVO vo,
+						 @RequestParam("hp1") String userHp1,
+			   			 @RequestParam("hp2") String userHp2,
+			   			 @RequestParam("hp3") String userHp3,
+			   			 Model model) {
+		vo.setUserPhone(userHp1 + "-" + userHp2 + "-" + userHp3);
+		String userId = service.findId(vo);
+		String result ="";
+		if(userId == null) {
+			result="user/findIdPwFail";
+		}else {
+			result="user/findIdSuccess";
+		}
+		model.addAttribute("userName", vo.getUserName());
+		model.addAttribute("userId", userId);
+		return result;
+	}
+	
+	// 비밀번호 찾기 폼 이동
 	@RequestMapping("/user/findPasswordForm")
 	public String findPasswordForm() {
+		return "user/findPasswordForm";
+	}
+	
+	// 비밀번호 찾기
+	@RequestMapping("/user/findPassword")
+	public String findPassword(UserVO vo,
+			 				   @RequestParam("hp1") String userHp1,
+			 				   @RequestParam("hp2") String userHp2,
+			 				   @RequestParam("hp3") String userHp3,
+			 				   Model model) {
+		vo.setUserPhone(userHp1 + "-" + userHp2 + "-" + userHp3);
+		String userPassword = service.findPw(vo);
+		String result ="";
+		if(userPassword == null) {
+			result="user/findIdPwFail";
+		}else {
+			model.addAttribute("userId", vo.getUserId());
+			result="user/findPwSuccess";
+		}
+		return result;
+	}
+	
+	// 비밀번호 변경
+	@RequestMapping("/user/pwChange")
+	public String pwChange(UserVO vo) {
+		service.PwChange(vo);
 		return "user/loginForm";
 	}
 	
