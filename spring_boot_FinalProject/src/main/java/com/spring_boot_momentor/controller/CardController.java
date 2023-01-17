@@ -1,7 +1,7 @@
 package com.spring_boot_momentor.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -10,7 +10,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_momentor.model.CardVO;
 import com.spring_boot_momentor.service.CardService;
@@ -190,6 +192,27 @@ public class CardController {
       return "index";
     }
 	
+	@RequestMapping("/CardList")
+	public String CardList() {
+		return "list/CardList";
+	}
+	
+	// 카드 전체 리스트
+	@RequestMapping("/cardallList")
+	public String CardAllList(Model model) {
+		ArrayList<CardVO> cardList =service.listAllCard();
+		 model.addAttribute("cardList",cardList);
+		return "list/cardSearchResultView";
+		
+	}
+	  @RequestMapping("/cardsearch")
+	  public String CardAllSearch(@RequestParam String cardId, Model model) {
+		
+		  ArrayList<CardVO> cardList = service.CardAllSearch(cardId);
+		  model.addAttribute("cardList", cardList);
+		  System.out.println(cardList.size());
+		 return "list/cardSearchResultView";
+	  }
 
 	
 }
