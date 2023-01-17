@@ -4,7 +4,7 @@
 
 $(document).ready(function(){
     $('.fin_see').hide();
-    $('#fin_card').css('color', 'blue');
+    $('#fin_card').css('color', 'red');
     $('.cardSee').show();
     $finBtn = $('.finBtn');
 
@@ -12,7 +12,7 @@ $(document).ready(function(){
     $finBtn.each(function(e){
         $(this).on('click',function(){
             $('.finBtn').css('color', 'black');
-            $(this).css('color', 'blue');
+            $(this).css('color', 'red');
             $('.fin_see').hide();
             $('.'+fin_see[e]).show();
         })
