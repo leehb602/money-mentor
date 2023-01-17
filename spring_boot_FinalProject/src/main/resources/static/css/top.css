@@ -82,7 +82,7 @@
 	line-height: 0;
 }
 #momentor_loge{
-	color: blue;
+	color: blue !important;
 }
 
 #menu1_2 > div, #menu1_3 > div, #menu1_4 > div{
@@ -90,7 +90,7 @@
 	text-align: center;
 }
 
-.hd_menu1 > li > div > a:after{
+.hd_menu1 > li > div:after{
    display:block;
    content: '';
    border-bottom: solid 2px black;
@@ -100,7 +100,7 @@
 .hd_menu_sub > li > a:hover {
 	color: skyblue;
 }
-.hd_menu1 > li > div > a:hover:after{
+.hd_menu1 > li > div:hover:after{
    transform: scaleX(1);
 }
 
@@ -119,7 +119,6 @@
 	color: black;
 	font-size: 15px;
     font-weight: initial;
-    padding-left: 15%;
 }
 .hd_menu1 > li:hover > .hd_menu_sub{
 	display: block;
@@ -128,7 +127,7 @@
 	display: block;
     margin: 10px 0px;
     width: 150px;
-    text-align: left;
+    text-align: center;
     margin-left: 10px;
 }
 /* 반응형 부분 */
@@ -137,10 +136,11 @@
 }
 .menu_under1100 {
     width: auto;
+    height:90px;
     display: flex;
     justify-content: space-around;
 }
-.menu_under1100 > span > a{
+.menu_under1100 > div > a, #under_span > a{
 	text-decoration : none;
 	color: black;
 	font-size: 20px;
@@ -167,4 +167,28 @@
 		display: block;
 	}
 	
+}
+#under_span a ion-icon{
+	width:60px;
+	height:45px;
+}
+.underList{
+	position: relative;
+}
+.under_span_ul{
+    list-style: none;
+    position: absolute;
+    margin-top: 31px;
+    width: 150px;
+    padding-left: 0px;
+    margin-left: -50px;
+    background-color: rgba(  199, 209, 220, 0.55);
+    text-align: center;
+}
+.under_span_ul > li{
+	margin-top:5px;
+	margin-bottom:10px;
+}
+.under_span_ul > li > a:hover{
+	color:red;
 }
