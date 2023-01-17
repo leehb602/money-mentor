@@ -9,4 +9,12 @@ public class HanController {
 	public String introduce() {
 		return "/introduce/introduce";
 	}
+	@RequestMapping("/all/chatbot")
+	public String chatBot() {
+		return "/chat/chatBot";
+	}
+	@RequestMapping("/all/chatguide")
+	public String chatGuide() {
+		return "/chat/chatBotGuide";
+	}
 }

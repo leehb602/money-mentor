@@ -28,30 +28,29 @@
 							<li id="menu1_1"><a id="momentor_loge" href="<c:url value='/'/>">Momentor</a></li>
 						</ul>
 						<ul class="hd_menu1">
-							<li id="menu1_2"><div><a href="<c:url value='/#'/>">고객센터</a></div>
+							<li id="menu1_2"><div>고객센터</div>
 								<ul class="hd_menu_sub">
-									<li><a href="<c:url value='/#'/>">챗봇</a></li>
-									<li><a href="<c:url value='/#'/>">챗봇 가이드</a></li>
+									<li><a href="<c:url value='/all/chatbot'/>">챗봇</a></li>
+									<li><a href="<c:url value='/all/chatguide'/>">챗봇 가이드</a></li>
 									<li><a href="<c:url value='/#'/>">계산기</a></li>
 									<li><a href="<c:url value='/#'/>">자주하는 Q&A</a></li>
 								</ul>
 							</li>
-							<li id="menu1_2"><div><a href="<c:url value='/#'/>">사업소개</a></div>
+							<li id="menu1_2"><div>사업소개</div>
 								<ul class="hd_menu_sub">
 									<li><a href="<c:url value='/all/introduce'/>">모멘토란</a></li>
-									<li><a href="<c:url value='/#'/>">~~</a></li>
 								</ul>
 							</li>
-							<li id="menu1_3"><div><a href="<c:url value='/#'/>">비교 & 추천</a></div>
+							<li id="menu1_3"><div>비교 & 추천</div>
 								<ul class="hd_menu_sub">
-									<li><a href="<c:url value='/#'/>">카드</a></li>
-									<li><a href="<c:url value='/#'/>">적금</a></li>
-									<li><a href="<c:url value='/#'/>">예금</a></li>
-									<li><a href="<c:url value='/#'/>">대출</a></li>
-									<li><a href="<c:url value='/#'/>">연금</a></li>
+									<li><a href="<c:url value='/#'/>">카드 상품</a></li>
+									<li><a href="<c:url value='/#'/>">적금 상품</a></li>
+									<li><a href="<c:url value='/#'/>">예금 상품</a></li>
+									<li><a href="<c:url value='/#'/>">대출 상품</a></li>
+									<li><a href="<c:url value='/#'/>">연금 상품</a></li>
 								</ul>
 							</li>
-							<li id="menu1_4"><div><a href="<c:url value='/#'/>">My Momentor</a></div>
+							<li id="menu1_4"><div>My Momentor</div>
 								<ul class="hd_menu_sub">
 									<li><a href="<c:url value='/#'/>">캘린더</a></li>
 									<li><a href="<c:url value='/user/assetInfoForm'/>">정보입력</a></li>
@@ -64,11 +63,27 @@
 				<!-- width1150이하 -->
 				<div class="hd_div2">
 					<div class="menu_under1100">
-						<span id="under_span"><a href="<c:url value='/#'/>">목록</a></span>
-						<span id="under_span"><a id="momentor_loge" href="<c:url value='/#'/>">Momentor</a></span>
-						<span id="under_span"><a href="<c:url value='/#'/>"><img id="lockimg"src="<c:url value='/images/lock.png'/>" ></a>
-						
-						</span>
+						<div id="under_span"><a  class="underList" href="<c:url value='/#'/>">목록</a>
+							<ul class="under_span_ul">
+								<li><a href="<c:url value='/all/introduce'/>">모멘토란</a></li>
+								<li><a href="<c:url value='/#'/>">카드 상품</a></li>
+								<li><a href="<c:url value='/#'/>">적금 상품</a></li>
+								<li><a href="<c:url value='/#'/>">예금 상품</a></li>
+								<li><a href="<c:url value='/#'/>">대출 상품</a></li>
+								<li><a href="<c:url value='/#'/>">연금 상품</a></li>
+								<li><a href="<c:url value='/#'/>">캘린더</a></li>
+								<li><a href="<c:url value='/all/chatbot'/>">챗봇</a></li>
+							</ul>
+						</div>
+						<div id="under_span"><a id="momentor_loge" href="<c:url value='/#'/>">Momentor</a></div>
+						<c:if test="${empty sessionScope.sid}">
+							<div id="under_span"><a href="<c:url value='/user/loginForm'/>"><ion-icon name="lock-closed-outline" /></a>
+							</div>
+						</c:if>
+						<c:if test="${not empty sessionScope.sid}">
+							<div id="under_span"><a href="<c:url value='/user/logout'/>"><ion-icon name="lock-open-outline" /></a>
+							</div>
+						</c:if>
 					</div>
 				</div>				
 			</div>

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/*footer*/
+.footer_main{
+	width:100%;
+	height: 400px;
+	background: gray;
+}
+.footer_main_div{
+	width:70%;
+	margin: 0 auto;
+	height: 95%;
+	border: 1px solid blue;
+	display: flex;
+}
+.fo_text_div{
+	margin-top:50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width:80%;
+}
+.fo_div1{
+	font-size:30px;
+	color:blue;
+	font-weight: bold;
+	margin:20px;
+}
+.fo_div1 > span{
+	font-size: 16px;
+	color:black;
+	font-weight: normal;
+	margin:15px;
+}
+
+.fo_div2 > ul > li {
+	display: inline-block;
+	text-align: left;
+}
+.fo_div3 {
+    padding-bottom: 3%;
+}
+.fo_div3 > ul > li {
+	display: inline-block;
+	text-align: left;
+}
+.fo_div4 > ul > li {
+	display: inline-block;
+	text-align: left;
+}
+.fo_other{
+	display: flex;
+	flex-direction: column;
+	width:20%;
+	margin-top:70px;
+}
+hr{
+/* 	height: 0.5px; */
+	background-color: #fff;
+  	width:95%;
+}
+
+div ul li a{
+	text-decoration: none;
+	color:black;
+}
+.fo_other{
+	text-align: center;
+}
+.fo_other div a ion-icon{
+	width:50px;
+	height:50px;
+	color:gray;
+	filter: brightness(0.5);
+}
+#git_img:hover{
+	filter: brightness(0);
+}
