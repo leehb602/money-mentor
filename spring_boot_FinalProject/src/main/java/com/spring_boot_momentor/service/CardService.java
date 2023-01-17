@@ -1,5 +1,7 @@
 package com.spring_boot_momentor.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,4 +26,16 @@ public class CardService implements ICardService{
 		
 	}
 	
+	@Override
+	public ArrayList<CardVO> listAllCard() {
+
+		return dao.listAllCard();
+	}
+
+	// 게시물 목록 + 페이징 + 검색
+	public ArrayList<CardVO> CardAllSearch(String cardId) {
+		
+		return dao.CardAllSearch(cardId);
+		
+	}
 }
