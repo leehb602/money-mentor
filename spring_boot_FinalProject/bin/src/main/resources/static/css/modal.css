@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#modal-overlay {
+	font-family: 'LeferiPoint-WhiteObliqueA';
+	position: absolute;
+	background: rgba(0, 0, 0, 0.5);
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#modal-window {
+	width: 300px;
+	height: 200px;
+	background: #F2F8F8;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+#coment {
+	background-color: rgb(219, 232, 232);
+	padding-left: 0px;
+	margin: 0;
+	padding-top: 0px;
+	padding-left: 100;
+	border-radius: 10px;
+	height: 80px;
+	line-height : 80px;
+	width: 100%;
+	text-align: center;
+}
+
+#YorN {
+	height: 33px;
+	line-height: 33px;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	float: right;
+	margin-top: 85px;
+}
+
+#YorN button {
+	background-color : lightblue;
+	border : solid 1px black;
+	width: 75px;
+	line-height: 10px;
+}
+
+#YorN button:hover {
+	cursor: pointer;
+	background-color: #77919d;
+}
