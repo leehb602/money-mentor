@@ -197,25 +197,26 @@ public class CardController {
 	
 	@RequestMapping("/CardList")
 	public String CardList() {
-		return "list/CardList";
+		return "list/cardList";
 	}
 	
 	// 카드 전체 리스트
 	@RequestMapping("/cardallList")
-	public String CardAllList(Model model) {
-		ArrayList<CardVO> cardList =service.listAllCard();
-		 model.addAttribute("cardList",cardList);
+	public String listAllCard(Model model) {
+		ArrayList<CardVO> cardList1 =service.listAllCard();
+		 model.addAttribute("cardList1",cardList1);
 		return "list/cardSearchResultView";
 		
 	}
 	  @RequestMapping("/cardsearch")
 	  public String CardAllSearch(@RequestParam String cardId, Model model) {
 		
-		  ArrayList<CardVO> cardList = service.CardAllSearch(cardId);
-		  model.addAttribute("cardList", cardList);
-		  System.out.println(cardList.size());
+		  ArrayList<CardVO> cardList1 = service.CardAllSearch(cardId);
+		  model.addAttribute("cardList1", cardList1);
+		  System.out.println(cardList1.size());
 		 return "list/cardSearchResultView";
 	  }
 
 	
 }
+

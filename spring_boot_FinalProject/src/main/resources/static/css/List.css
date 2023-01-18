@@ -24,7 +24,9 @@ body {
 }
 
 .table {
-	
+	max-width: 1072px;
+	margin-left: auto;
+	margin-right: auto;
 	flex-wrap: wrap;
 	position: relative;
 	border-radius: 10px;
@@ -53,6 +55,13 @@ body {
     line-height: 1.47;
     letter-spacing: -.62px;
 }
+
+.filters [aria-selected=true] .cardbtnImg {
+    border-color: #bfceee;
+    background-color: #f0f5ff;
+}
+
+
 
 li.item {
 	width: 1000px;
@@ -88,6 +97,33 @@ h5 {
     border-bottom-left-radius: inherit;
     background-image: -webkit-linear-gradient(right,hsla(0,0%,100%,0),hsla(0,0%,100%,.95) 44px);
     background-image: linear-gradient(270deg,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.95) 44px);
+}
+
+#CardList{
+text-align: -webkit-center;
+}
+.search {
+  position: relative;
+  max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input#cardId  {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+img.searchImg {
+  position : absolute;
+  width: 17px;
+  top: 20px;
+  right: 12px;
+  
+  margin: 0;
 }
 
 .btncontainer {
@@ -166,6 +202,7 @@ button {
 }
 
 .cards{
+	
 	max-width: 1072px;
 	margin-left: auto;
 	margin-right: auto;
@@ -203,11 +240,24 @@ button {
 
 
 
+.lists__item {
+    display: none;
+    
+}
+
+.dd{
+    display: flex;
+    
+}
+
+li{
+	list-style:none;
+}
+
 
 .cardImg{
 	width: 150px;
 	height: 220px;
-	
 	transition: all 0.2s linear;
 }
 
@@ -217,7 +267,7 @@ button {
 
 .list {
 	
-    display: block;
+  
     list-style-type: disc;
     margin-block-start:1em;
     margin-block-end: 1em;
@@ -227,17 +277,109 @@ button {
       padding-inline-end: 20px;
 }
 
+.lists__item{
+	
+	container-type: inline-size;
+	cursor: pointer;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 
 .info{
-	max-width: 700px;
-    margin-left: 20px;
+	width: 1000px;
+	max-width: 1072px;
+	margin-left: 20px;
     margin-right: auto;
 }
 
 .preview {
-    align-self: center;
+    align-self: flex-start;
 }
 
 .name{
 	font-size: 40px;
+}
+
+a .button{
+	
+}
+
+.btn-wrap {
+    text-align: center;
+}
+
+button:after{
+	
+}
+
+
+
+
+/* 상품비교 창 */
+
+h4 {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1054px;
+}
+
+.comp_prod_selector {
+    position: fixed;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1054px;
+    z-index: 999;
+    border-radius: 10px;
+    
+  
+}
+
+.comp_prod_selector .compsel_head {
+    height: 38px;
+    line-height: 38px;
+    background: #33383e;
+    color: #fff;
+    overflow: hidden;
+    padding: 0 20px 0 15px;
+       border-radius: 10px;
+}
+
+.comp_prod_selector .compsel_body {
+    position: relative;
+    background: #fff;
+    border: solid #b3b3b3;
+    border-width: 0 1px;
+}
+
+.comp_prod_selector .compsel_prods {
+	background-color:#fff;
+    width: 1054px;
+    overflow: auto;
+    float: left;
+}
+.comp_prod_selector .compsel_opt_area {
+    position: absolute;
+    width: 178px;
+   height: 1000px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #f4f4f4;
+    float: right;
+    padding: 15px 37px 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.comp_prod_selector .compsel_body:after {
+    display: block;
+    clear: both;
+    content: "";
 }

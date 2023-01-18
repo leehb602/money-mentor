@@ -1,35 +1,18 @@
 @charset "UTF-8";
 
-.js-load {
-    display: none;
-}
-.js-load.active {
+ .js-load{
+     display: none; 
+   
+   
+ } 
+ 
+ .js-load .active{
 	width: 1000px;
     position: relative;
-  
 	padding-top: 10px;
 	padding-bottom: 10px;
-    display: inline-flex;
-}
-.is_comp.js-load:after {
-    display: none;
+ /*   display: inline-flex;  */
+   display: block;
 }
 
-.btn-wrap, .lists, .main {
-    display: block;
-}
 
-.lists__item {
-  margin: 0;
-  padding: 0;
-   
-}
-/* .lists__item:nth-child(2n) {
-    background: #59b1eb;
-    color: #fff;
-}
- */
- 
- .btn-wrap {
-    text-align: center;
-}
