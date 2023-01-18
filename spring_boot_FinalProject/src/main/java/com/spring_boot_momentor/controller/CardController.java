@@ -139,9 +139,11 @@ public class CardController {
 					
 					// 기본값은 0
 					int price = 0;
-					
+
 					//연회비(국내인지 비자인지 어떤 연회비인지 따로 설정하기 위해 for문을 씀
-					int annualValue = card.select("em").size();
+					int annualValue = card.getElementsByClass("card-type__item").size();
+					
+					System.out.println();
 					
 					if(annualValue == 0) {
 						// 데이터 저장 
@@ -158,10 +160,11 @@ public class CardController {
 					else {
 						for(int annual = 0; annual < annualValue; annual++) {
 							// img의 alt 값을 저장
-							annulKind = cards.select("img").get(annual).attr("alt");
+							annulKind = card.getElementsByClass("card-type__item").get(annual).getElementsByClass("card-type__logo").select("img").attr("alt");
+
 							// alt 값이 국내 전용이면 연회비를 가져옴
 							if(annulKind.equals("국내전용")) {
-								annulPrice = cards.select("em").get(annual).text();
+								annulPrice = card.getElementsByClass("card-type__item").get(annual).getElementsByClass("card-type__money").text();
 								
 								// 연회비가 있으면 그 연회비를 저장하고
 								if(!(annulPrice.equals("연회비 없음"))) {
