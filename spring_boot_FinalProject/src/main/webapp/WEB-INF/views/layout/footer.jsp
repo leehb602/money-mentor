@@ -13,7 +13,7 @@
 						<ul>
 							<li><a href="<c:url value='/all/introduce'/>">모멘토 소개</a></li>
 							<li>ㅣ</li>
-							<li><a href="<c:url value='/all/chatguide'/>">챗봇 가이드</a></li>
+							<li><a href="javascript:void(0);" onclick="chatFunction(); return false;">챗봇 가이드</a></li>
 							<li>ㅣ</li>
 							<li><a href="<c:url value='/#'/>">비교 & 추천</a></li>
 							<li>ㅣ</li>
