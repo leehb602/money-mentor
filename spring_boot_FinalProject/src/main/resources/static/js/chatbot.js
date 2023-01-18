@@ -35,7 +35,7 @@
           data: {"message" : $("#message").val()},
           success:function(result){
              // 챗봇 창에 받은 메시지 추가
-             $("#chatBox").append("<div class='msgBox receive'><span id='in'><span>챗봇</span><br><span>" + 
+             $("#chatBox").append("<div class='msgBox receive'><span id='in'><span>" + 
                              result + "</span></span></div><br>");
              
              // 스크롤해서 올리기 : 스크롤 높이 값으로 scrollTop 설정
