@@ -9,4 +9,9 @@ public class MainController {
 	public String main() {
 		return "index";
 	}
+	
+	@RequestMapping("/calculator")
+	public String calculator() {
+		return "calculator";
+	}
 }
