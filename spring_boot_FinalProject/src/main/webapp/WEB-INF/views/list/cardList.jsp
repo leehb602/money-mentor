@@ -13,6 +13,7 @@
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>	
 		<script src="<c:url value='/js/more.js' />"></script>	
 		<script src="<c:url value='/js/cardSearch.js' />"></script>	
+		<script src="<c:url value='/js/none.js' />"></script>	
 		
 	</head>
 	<body>
@@ -21,12 +22,12 @@
 		<div class="table">
 			<div class="category">
 				<form id="CardList">
-					
+					<div class="search ">
 					<input id="cardId" type="text" name="keyword" 
 					class="input-search-word" placeholder="카드이름을 입력해주세요.">
-					<input type="submit" class="header-item" value="검색" />
-						<i class="fa fa-search"></i>
-					
+					 <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+						
+					</div>
 					
 				</form>
 			</div>
@@ -101,102 +102,67 @@
 				</div>
 			</div>
 
-			<div class="category">
-
-				<button class="item2" type="button" value="">
-					<h5 class="comparison">카드 비교하기</h5>
-				</button>
-			</div>
+			
 		</div>
 	</div>
- <%--	<div class="cards">
-			<div class="table">
-				<div class="orders">
-					<button class="order">어떤순 버튼</button>
-					<button class="order">어떤순 버튼....</button>
-				</div>
-				
-			  	<div id="js-load" class="main">
-				  <ul class="list">
-				<c:forEach var="card" items="${cardList}">
-					<li class="lists__item js-load" OnClick="location.href ='http://URL주소'" style="cursor:pointer;">
-					 <!-- 위에 상세주소  -->
-						<a class="anchor" href=""> <!-- 상세페이지 url 넣기 -->
-						 <img class="cardImg" src="<c:url value='${card.cardImgUrl}'/>">
-						</a> 
-						<div class="info" ><!-- 상세페이지 url 넣기 -->
-							<a class="anchor"  > <!-- 상세페이지 url 넣기 -->
-								<b class="name">${card.cardName}</b>
-							</a>
-							<p class="desc">${card.cardDes}</p>
-							<i class="annual_fee"><fmt:formatNumber value="${card.cardFee}" pattern="#,###"/> ₩</i>
-							
-						</div>
-						<div class="preview">
-							<!-- 기본구문법1 -->
-							<c:if test="${card.comCtg eq '현대'}">
-							<a class="button button--wayra button--border-thick button--text-upper button--size-s" href="https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=${card.cardUrl}">카드신청</a>
-							</c:if>
-							<!-- 기본구문법2 -->
-							<c:if test="${card.comCtg eq 'KB'}">
-							<a class="button button--wayra button--border-thick button--text-upper button--size-s" href="https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${card.cardUrl}">카드신청</a>						
-							</c:if>	
-						</div><br>	
-					</li>
-					
-					
-				
-				</c:forEach> 
-			
-				
-				</ul>  --%>
-				
-				
-				<%-- <ul class="list">
-					<c:choose>
-						<c:when test="${empty cardList}">
-							찾는 상품이 없습니다
-						</c:when>
-						<c:otherwise>
-							    <c:forEach var="card" items="${cardList}">
-					<li class="lists__item js-load" OnClick="location.href ='http://URL주소'" style="cursor:pointer;">
-					 <!-- 위에 상세주소  -->
-						<a class="anchor" href=""> <!-- 상세페이지 url 넣기 -->
-						 <img class="cardImg" src="<c:url value='${card.cardImgUrl}'/>">
-						</a> 
-						<div class="info" ><!-- 상세페이지 url 넣기 -->
-							<a class="anchor"  > <!-- 상세페이지 url 넣기 -->
-								<b class="name">${card.cardName}</b>
-							</a>
-							<p class="desc">${card.cardDes}</p>
-							<i class="annual_fee"><fmt:formatNumber value="${card.cardFee}" pattern="#,###"/> ₩</i>
-							
-						</div>
-						<div class="preview">
-							<!-- 기본구문법1 -->
-							<c:if test="${card.comCtg eq '현대'}">
-							<a class="button button--wayra button--border-thick button--text-upper button--size-s" href="https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=${card.cardUrl}">카드신청</a>
-							</c:if>
-							<!-- 기본구문법2 -->
-							<c:if test="${card.comCtg eq 'KB'}">
-							<a class="button button--wayra button--border-thick button--text-upper button--size-s" href="https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${card.cardUrl}">카드신청</a>						
-							</c:if>	
-						</div><br>	
-					</li>
-				</c:forEach>
-			         	</c:otherwise>
-			   		</c:choose>  	
-				</ul>   
-					<!-- 검색 결과 출력  -->
-				
-			 <div id="js-btn-wrap" class="btn-wrap"> <a href="javascript:;" class="morebutton">더보기 ( / )</a> </div>
-			</div>
-			 </div>
-			
-	
-		
-		</div>
-		 --%>
+		<!-- cardSearchResultView -->
 		<div id="searchResultBox"></div>
+		
+		
+		<div class="comp_prod_selector" onclick='toggleBtn1()' style="display: none" id='btn1'>
+			<!-- compsel_head -->
+			<div class="compsel_head compsel_show">
+				<h4 class="compsel_title">상품비교<span class="comp_num"></span></h4>
+				<!-- head_opt -->
+				<div class="head_opt">
+					<button type="button" onclick="productCompare.close();" class="btn_layer_toggle">닫기</button>
+				</div>
+				<!-- //head_opt -->
+			</div>
+			<!-- //compsel_head -->
+
+			<!-- compsel_body -->
+			<div class="compsel_body" style="" >
+				<!-- compsel_prods -->
+				<div class="compsel_prods">
+					<!-- 안에 li 개수에 따라 ul.prod_list의 너비 값을 주어야 함 (li개수 x 140) li 개수 최대 10개 -->
+					<ul class="prod_list" style="width: 280px;">
+					<li class="prod_item" id="compareProduct_18039356">
+					<div class="prod_info" >
+					
+					
+			
+					<a class="anchor" href=""> <!-- 상세페이지 url 넣기 -->
+								<img class="cardImg" src="<c:url value='${card.cardImgUrl}'/>">
+						</a>
+					
+				
+					
+					
+					
+					
+					</div></li></ul>
+				</div>
+				<!-- //compsel_prods -->
+
+				<!-- compsel_opt_area -->
+				<div class="compsel_opt_area">
+					<div class="opt_select">
+						<button type="button" class="btn_compsel" onclick="productCompare.checkAll();" onmousedown="gtagSend('PC견적메인','상품비교레이어','전체선택/해제')">전체선택/해제</button>
+						<button type="button" class="btn_compsel sel_prod_comp" onclick="productCompare.compare();">선택상품비교</button>
+					</div>
+					<!-- //opt_select -->
+					<!-- opt_delete -->
+					<div class="opt_delete">
+						<button type="button" class="btn_compsel" onclick="productCompare.cart();" onmousedown="gtagSend('PC견적메인','상품비교레이어','선택상품담기')">선택상품 담기</button>
+						<button type="button" class="btn_compsel" onclick="productCompare.remove(null);" onmousedown="gtagSend('PC견적메인','상품비교레이어','선택상품삭제')">선택상품 삭제</button>
+					</div>
+					<!-- //opt_delete -->
+				</div>
+				<!-- //compsel_opt_area -->
+			</div>
+			<!-- //compsel_body -->
+		</div>
+		
 	</body>
 </html>
