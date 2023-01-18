@@ -30,9 +30,9 @@
 						<ul class="hd_menu1">
 							<li id="menu1_2"><div>고객센터</div>
 								<ul class="hd_menu_sub">
-									<li><a href="<c:url value='/all/chatbot'/>">챗봇</a></li>
+									<li><a href="<c:url value='/chatbotForm'/>" onclick="window.open(this.href, '_blank', 'width=450,height=650,toolbars=no,scrollbars=no'); return false;" >챗봇</a></li>
 									<li><a href="<c:url value='/all/chatguide'/>">챗봇 가이드</a></li>
-									<li><a href="<c:url value='/#'/>">계산기</a></li>
+									<li><a href="<c:url value='/calculator'/>" onclick="window.open(this.href, '_blank', 'width=850,height=400,toolbars=no,scrollbars=no'); return false;">계산기</a></li>
 									<li><a href="<c:url value='/#'/>">자주하는 Q&A</a></li>
 								</ul>
 							</li>
@@ -52,7 +52,7 @@
 							</li>
 							<li id="menu1_4"><div>My Momentor</div>
 								<ul class="hd_menu_sub">
-									<li><a href="<c:url value='/#'/>">캘린더</a></li>
+									<li><a href="<c:url value='/profile/calender'/>">캘린더</a></li>
 									<li><a href="<c:url value='/user/assetInfoForm'/>">정보입력</a></li>
 									<li><a href="<c:url value='/user/assetResultForm/${sessionScope.sid }'/>">자산결과</a></li>
 								</ul>
