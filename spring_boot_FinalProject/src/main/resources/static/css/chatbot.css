@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+#wrap {
+	margin: 0 auto;
+	width: 500px;
+	height: 800px;
+}
+
+#chatHeader {
+	padding: 10px 15px;
+	border-bottom: 1px solid #95a6b4;
+}
+
+#btnClose {
+	border: none;
+	background: none;
+	float: right;
+}
+
+#chatBox {
+	height: 600px;
+	width: 500px;
+	overflow-y: scroll;
+	padding: 10px 15px;
+	background: #9bbbd4;
+}
+
+#message {
+	width: 440px;
+}
+
+#btnSubmit {
+	float: right;
+	background: #eeeeee;
+	height: 28px;
+	padding-right: 0;
+}
+
+.msgBox  span {
+	padding: 3px 5px;
+	word-break: break-all;
+	display: block;
+	max-width: 300px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+/* word-break : 단어 분리 결정하여 줄 바꿈 처리
+            - 줄바꿈 할때 단어 기준인지, 글자 기준인지 정하는 속성
+         normal : 한중일 문자는 글자 기준, 이외에는 단어 기준으로 줄바꿈
+         break-all : 글자 기준으로 줄 바꿈
+         keep-all : 단어 기준으로 줄 바꿈 
+*/
+
+.msgBox.send  span {
+	background: #fef01b;
+	float: right;
+}
+
+.msgBox #in {
+	width: 480px;
+	background: #9bbbd4;
+}
+
+.msgBox.receive  span {
+	background: #ffffff;
+	float: left;
+}

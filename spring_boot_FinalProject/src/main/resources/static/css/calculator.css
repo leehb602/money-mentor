@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+* {
+	margin: 0 auto;
+}
+
+#wrap {
+	text-align: center;
+}
+
+#container {
+	width: 70%;
+	margin-top: 5%;
+}
+
+.list_tab {
+	width: 100%;
+}
+
+.tabBtn {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+}
+
+.tabBtn:hover {
+	cursor: pointer;
+}
+
+.menu_info {
+	width: 60%;
+	height: 150px;
+}
+
+.write {
+	width: 100%;
+	height : 25px;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+.menu_Btn {
+	width: 30%;
+	height: 50px;
+}
+
+.input_data {
+	width: 80%;
+	height: 20px;
+	line-height: 20px;
+	border: none;
+}
+
+.btn {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+div {
+	border: solid 1px black;
+}
