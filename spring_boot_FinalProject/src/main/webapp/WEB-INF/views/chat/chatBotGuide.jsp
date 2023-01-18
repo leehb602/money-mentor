@@ -10,6 +10,6 @@
 	
 	<body>
 		챗봇가이드 넣을자리
-		<a href="<c:url value='/all/chatBot'/>">챗봇 가이드</a>
+		<a href="<c:url value='/chatbotForm'/>">챗봇</a>
 	</body>
 </html>

@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>챗봇 폼</title>
+		<title>Momentor 챗봇</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/chatbot.css'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 		<script src="<c:url value='/js/chatbot.js'/>"></script>
@@ -13,13 +13,14 @@
 	<body>
 		<div id="wrap">
 			<!-- Header -->
-			<div id="chatHeader">
-				<span>챗봇</span>
-				<button id="btnClose">X</button>
-			</div>
+<!-- 			<div id="chatHeader"> -->
+<!-- 				<span>챗봇</span> -->
+<!-- 				<button id="btnClose">X</button> -->
+<!-- 			</div> -->
 			
 			<!-- 채팅 답변 출력 -->
 			<div id="chatBox">
+				<div class="chat_title">Momentor</div>
 				
 			</div>
 			<form id="chatbotForm">
