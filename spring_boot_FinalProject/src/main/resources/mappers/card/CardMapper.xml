@@ -36,6 +36,7 @@
 	<![CDATA[
 	  SELECT * FROM cards
 	  where cardName like CONCAT('%',#{cardId},'%')
+	 
 	  ]]>
 	</select>
 
