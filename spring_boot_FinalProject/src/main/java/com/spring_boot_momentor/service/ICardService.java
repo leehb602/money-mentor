@@ -9,4 +9,5 @@ public interface ICardService {
 	public void updateCardFee(CardVO vo);
 	public ArrayList<CardVO> listAllCard();
 	public ArrayList<CardVO> CardAllSearch(String cardId); //검색
+	public CardVO CardCompare(String cardId); //카드비교 넣기
 }

@@ -32,10 +32,15 @@ public class CardService implements ICardService{
 		return dao.listAllCard();
 	}
 
-	// 게시물 목록 + 페이징 + 검색
+	// 검색
 	public ArrayList<CardVO> CardAllSearch(String cardId) {
 		
 		return dao.CardAllSearch(cardId);
 		
+	}
+
+	// 카드비교 넣기
+	public CardVO CardCompare(String cardId) {
+		return dao.CardCompare(cardId);
 	}
 }

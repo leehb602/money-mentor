@@ -25,7 +25,7 @@
 					<div class="search ">
 					<input id="cardId" type="text" name="keyword" 
 					class="input-search-word" placeholder="카드이름을 입력해주세요.">
-					 <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+					 <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" id="sreachimg">
 						
 					</div>
 					
@@ -109,7 +109,7 @@
 		<div id="searchResultBox"></div>
 		
 		
-		<div class="comp_prod_selector" onclick='toggleBtn1()' style="display: none" id='btn1'>
+		<div class="comp_prod_selector" style="display: none" id='btn1'>
 			<!-- compsel_head -->
 			<div class="compsel_head compsel_show">
 				<h4 class="compsel_title">상품비교<span class="comp_num"></span></h4>
@@ -127,21 +127,10 @@
 				<div class="compsel_prods">
 					<!-- 안에 li 개수에 따라 ul.prod_list의 너비 값을 주어야 함 (li개수 x 140) li 개수 최대 10개 -->
 					<ul class="prod_list" style="width: 280px;">
-					<li class="prod_item" id="compareProduct_18039356">
-					<div class="prod_info" >
 					
 					
-			
-					<a class="anchor" href=""> <!-- 상세페이지 url 넣기 -->
-								<img class="cardImg" src="<c:url value='${card.cardImgUrl}'/>">
-						</a>
-					
-				
-					
-					
-					
-					
-					</div></li></ul>
+						
+					</ul>
 				</div>
 				<!-- //compsel_prods -->
 
