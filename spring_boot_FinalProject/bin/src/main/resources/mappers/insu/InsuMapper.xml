@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_momentor.dao.IInsuDAO">
+  	
+  	<insert id="insertInsu" parameterType="com.spring_boot_momentor.model.InsuVO">
+		INSERT INTO insu(prdName, prdLogo, insuCtg, insuDes, insuPrice,
+		male, female, insuIndex, age, insuNote, insuJoinURL, insuPhoneNumber, insuName)
+		VALUES (#{prdName}, #{prdLogo}, #{insuCtg}, #{insuDes}, 
+		#{insuPrice}, #{male}, #{female}, #{insuIndex}, #{age},
+		#{insuNote}, #{insuJoinURL}, #{insuPhoneNumber}, #{insuName})
+	</insert>
+	
+  </mapper>

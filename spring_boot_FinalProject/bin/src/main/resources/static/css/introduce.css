@@ -1,0 +1,186 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding:0;
+}
+@font-face {
+    font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+.intro_sec{
+	width:100%;
+	height:100%;
+}
+.intro_div{
+	width:100%;
+	height:100%;
+}
+.sec_box1, .sec_box2, .sec_box3, .sec_box4{
+	padding-top:100px;
+	width:70%;
+	margin:auto;
+}
+.momentor{
+	width: 100%;
+	height: 1080px;
+	background-position: center;
+}
+#momentor_sec1{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.2) 10%,
+	rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.75) 100%), url(/image/introduce1.jpg);
+	background-size: cover;
+}
+.sec_box1_title1{
+	color: white;
+	padding-top: 200px;
+	text-align: center;
+	font-size:55px;
+	font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+.sec_box1_title2{
+	margin-top:20px;
+	color: white;
+	text-align: center;
+	font-size:40px;
+	font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: inherit;
+    font-style: normal;
+}
+.black_div{
+	width: 100%;
+	height: 100px;
+	background-position: center;
+	background-image: linear-gradient(rgb(4, 5, 6 , 100%) 10%,
+ 			rgb(45, 42, 39,100%) 75%);
+}
+.black_div1{
+	width: 100%;
+	height: 100px;
+	background-position: center;
+	background-image: linear-gradient(rgb(50, 45, 40 , 100%) 50%,
+ 			rgb(4, 5, 6 ,100%) 100%);
+}
+#momentor_sec2{
+	height: 1200px;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.80) 10%,
+	rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0.75) 90%), url(/image/teammission.jpg);
+	background-size: cover;
+}
+.sec_box_div{
+	margin:360px auto 0px auto;
+	height:300px;
+	width:600px;
+	background-color: rgba(67, 67, 67, 0.8);
+	border-radius: 15px;
+	text-align: center;
+}
+.sec_box2_title1{
+	padding-top: 25px;
+	color:rgb(156 156 156);
+	font-size:45px;
+	font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}	
+.sec_box2_title2{
+	padding-top: 32px;
+	color:white;
+	font-size:23px;
+	font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: lighter;
+    font-style: normal;
+    line-height: 1.6;
+}
+#momentor_sec3{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7) 10%,
+	rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.75) 100%), url(/image/introduce1.jpg);
+	background-size: cover;
+}
+.box3_title{
+	padding-top:100px;
+	color:white;
+	font-size:50px;
+	font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+}
+.box3_all{
+	padding-top:100px;
+	
+}
+.box3_year{
+	list-style : none;
+	position: relative;
+	width: 600px;
+    margin: 0 auto;
+}
+#year23, #year22{
+	font-size:30px;
+	color:rgb(112,112,112);
+	border: none;
+	background-color: transparent;
+}
+.box3_y{
+	list-style : none;
+	position:absolute;
+	font-size:20px;
+	padding-left:90px;
+	color:white !important;
+    margin-top: -18px;
+}
+.box3_y li{
+	width:300px;
+}
+.box3_date{
+	color:gray;
+	font-size:17px;
+	margin-bottom: 5px;
+}
+.box3_text{
+	font-size:21px;
+}
+#momentor_sec4{
+	height: 650px;
+	background-color: rgb(249, 250, 251);
+	text-align: center;
+}
+.sec_box4_title{
+	padding-top:100px;
+	color:black;
+	font-size:45px;
+	font-family: 'MICEGothic Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+}
+.alliance_div{
+	padding-top:130px;
+	display: flex;
+	text-align: center;
+    justify-content: space-evenly;
+}
+.alliance_div > div{
+	width:300px;
+}
+.alliance_div > div > img{
+	width:250px;
+	border-radius: 20px;
+}
+.alliance_div_M{
+    font-size: 45px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: blue;
+    font-weight: 600;
+}

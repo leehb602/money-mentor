@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="com.spring_boot_momentor.dao.IDepositDAO">
+  	<insert id="insertDepositBase" parameterType="com.spring_boot_momentor.model.DepositBaseVO" timeout="3">
+  		insert into DepositBase (comNum, prdNum, comName, prdName, interest, spclCnd, maxLimit, joinMember)
+  		values (#{comNum}, #{prdNum}, #{comName}, #{prdName}, #{interest}, #{spclCnd}, #{maxLimit}, #{joinMember})
+  	</insert>
+  	<insert id="insertDepositOption" parameterType="com.spring_boot_momentor.model.DepositOptionVO">
+  		insert into DepositOption (comNum, prdNum, intrRate, intrRate2, saveTrm, intrRateTypeName)
+  		values (#{comNum}, #{prdNum}, #{intrRate}, #{intrRate2}, #{saveTrm}, #{intrRateTypeName})
+  	</insert>
+  </mapper>
+  
+		
