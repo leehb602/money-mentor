@@ -123,11 +123,12 @@
 
 			<!-- compsel_body -->
 			<div class="compsel_body" style="" >
+			
 				<!-- compsel_prods -->
 				<div class="compsel_prods">
 					<!-- 안에 li 개수에 따라 ul.prod_list의 너비 값을 주어야 함 (li개수 x 140) li 개수 최대 10개 -->
 					<ul class="prod_list" style="width: 280px;">
-					
+					<!--  -->
 					
 						
 					</ul>
