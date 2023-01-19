@@ -13,9 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_momentor.model.CardVO;
 import com.spring_boot_momentor.service.CardService;
+
 
 @Controller
 public class CardController {
@@ -208,13 +210,21 @@ public class CardController {
 		return "list/cardSearchResultView";
 		
 	}
-	  @RequestMapping("/cardsearch")
-	  public String CardAllSearch(@RequestParam String cardId, Model model) {
-		
-		  ArrayList<CardVO> cardList1 = service.CardAllSearch(cardId);
+	
+	@RequestMapping("/cardsearch")
+	public String CardAllSearch(@RequestParam String cardId, Model model) {
+    ArrayList<CardVO> cardList1 = service.CardAllSearch(cardId);
+    model.addAttribute("cardList1", cardList1);
+    System.out.println(cardList1.size());
+    return "list/cardSearchResultView";
+  }
+
+	  @ResponseBody
+	  @RequestMapping("/CardCompare")
+	  public CardVO CardCompare(@RequestParam String cardId, Model model) {
+		  CardVO cardList1 = service.CardCompare(cardId);
 		  model.addAttribute("cardList1", cardList1);
-		  System.out.println(cardList1.size());
-		 return "list/cardSearchResultView";
+		 return cardList1;
 	  }
 
 	
