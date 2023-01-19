@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring_boot_momentor.dao.ICardDAO">
+	<resultMap type="com.spring_boot_momentor.model.CardVO" id="cardResult">
+		<result column="cardName" property="cardName"/>
+		<result column="cardDes" property="cardDes"/>
+		<result column="cardImgUrl" property="cardImgUrl"/>
+		<result column="cardFee" property="cardFee"/>
+		<result column="cardUrl" property="cardUrl"/>
+		<result column="comCtg" property="comCtg"/>
+	</resultMap>
+
+	<insert id="insertCard">
+		insert into cards (cardName, cardDes, cardImgUrl, cardFee, cardUrl, comCtg)
+		values (#{cardName},#{cardDes},#{cardImgUrl},#{cardFee},#{cardUrl},#{comCtg}) 
+	</insert>
+	<update id="updateCardFee">
+		UPDATE cards SET cardFee=#{cardFee} 
+	</update>
+	<select id="listAllCard" resultMap="cardResult">
+		SELECT * FROM cards 
+	</select>
+
+	<!-- <select id="listPageSearch" parameterType="hashmap" resultMap="cardResult">
+		SELECT * FROM cards<if test='searchType.equals("cardName")'>
+		WHERE cardName LIKE concat('%', #{keyword}, '%')</if>
+	</select> -->
+
+
+
+	<select id="CardAllSearch" resultType="com.spring_boot_momentor.model.CardVO" parameterType="string">
+
+	<![CDATA[
+	  SELECT * FROM cards
+	  where cardName like CONCAT('%',#{cardId},'%')
+	 
+	  ]]>
+	</select>
+
+</mapper>

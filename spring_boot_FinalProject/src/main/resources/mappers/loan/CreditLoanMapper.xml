@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+    <mapper namespace="com.spring_boot_momentor.dao.ICreditLoanDAO">
+  	<insert id="insertCreditLoanBase" parameterType="com.spring_boot_momentor.model.CreditLoanBaseVO" timeout="3">
+  		insert into CreditLoanBase (comNum, prdNum, comName, prdName, crdtTypeName, cbName, dclsStart)
+  		values (#{comNum}, #{prdNum}, #{comName}, #{prdName}, #{crdtTypeName}, #{cbName}, #{dclsStart})
+  	</insert>
+  	<insert id="insertCreditLoanOption" parameterType="com.spring_boot_momentor.model.CreditLoanOptionVO">
+  		insert into CreditLoanOption (comNum, prdNum, crdtLendRateTypeName, crdtGrade9Up, crdtGrade8Up,
+  									  crdtGrade7Up, crdtGrade6Up, crdtGrade5Up, crdtGrade4Up, crdtGrade3Up, crdtGrade3Down, crdtGradeAvg)
+  		values (#{comNum}, #{prdNum}, #{crdtLendRateTypeName}, #{crdtGrade9Up}, #{crdtGrade8Up}, 
+  				#{crdtGrade7Up}, #{crdtGrade6Up}, #{crdtGrade5Up}, #{crdtGrade4Up}, #{crdtGrade3Up}, #{crdtGrade3Down}, #{crdtGradeAvg})
+  	</insert>
+  	</mapper>
+  	
+ 

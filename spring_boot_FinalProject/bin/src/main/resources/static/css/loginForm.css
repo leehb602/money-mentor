@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+* {
+	margin: 0 auto;
+}
+
+table {
+	width: 600px;
+	height : 70px;
+	line-height : 70px;
+	text-align: center;
+	margin-top: 5%;
+}
+
+table th {
+	font-size: 20px;
+}
+
+input {
+	width: 80%;
+	height : 40px;
+	line-height : 40px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+button {
+	width: 82%;
+	height : 40px;
+	line-height : 40px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+}
+
+button:hover {
+	
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 에러메시지 */
+.error {
+	color: red;
+	font-size: small;
+}
