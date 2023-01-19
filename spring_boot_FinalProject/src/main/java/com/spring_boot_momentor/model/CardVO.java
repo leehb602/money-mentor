@@ -7,6 +7,15 @@ public class CardVO {
 	private int cardFee;
 	private String cardUrl;
 	private String comCtg;
+	private String cardId;
+
+	public String getCardId() {
+		return cardId;
+	}
+
+	public void setCardId(String cardId) {
+		this.cardId = cardId;
+	}
 
 	public String getComCtg() {
 		return comCtg;

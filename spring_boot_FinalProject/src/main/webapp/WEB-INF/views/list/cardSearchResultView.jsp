@@ -23,9 +23,9 @@ $(function(){
 				</div>
 			  	<div id="js-load" class="main">
 				  <ul class="list">
-				<c:forEach var="card" items="${cardList1}">
+				<c:forEach var="card" items="${cardList1}" varStatus="status">
 				
-						<li class="lists__item js-load" style="cursor: pointer;"> <!-- OnClick="location.href ='http://URL주소'" -->  
+						<li value="${card.cardId}" id="${card.cardId}" class="lists__item js-load"  style="cursor: pointer;"> <!-- OnClick="location.href ='http://URL주소'" -->  
 							
 							<div class = "dd">
 							<!-- 위에 상세주소  --> <a class="anchor" href=""> <!-- 상세페이지 url 넣기 -->
@@ -35,7 +35,12 @@ $(function(){
 							
 						<a class="anchor"> <!-- 상세페이지 url 넣기 --> <b class="name">${card.cardName}</b>
 						</a>
+						
+						
+					
 						<p class="desc">${card.cardDes}</p>
+						
+						
 						<i class="annual_fee"><fmt:formatNumber value="${card.cardFee}"
 								pattern="#,###" /> ₩</i>
 	
@@ -51,7 +56,8 @@ $(function(){
 							<a class="button button--wayra button--border-thick button--text-upper button--size-s"
 							href="https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${card.cardUrl}">카드신청</a>
 						</c:if>
-						<a class="button button--wayra button--border-thick button--text-upper button--size-s" onclick="toggleBtn1()">
+						<a class="button button--wayra button--border-thick button--text-upper button--size-s"
+						 id="compare" onclick="toggleBtn1(${card.cardId})">
 							<span class="icon"></span>
 							<span class="compare_txt">상품비교</span>
 						</a>
@@ -65,8 +71,6 @@ $(function(){
 						</li>
 
 				</c:forEach>
-
-
 
 			</ul>
 				 <div id="js-btn-wrap" class="btn-wrap"> <a href="#" class="morebutton">

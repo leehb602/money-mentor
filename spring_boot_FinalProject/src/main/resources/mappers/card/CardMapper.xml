@@ -39,5 +39,12 @@
 	 
 	  ]]>
 	</select>
+	
+	<select id="CardCompare" resultMap="cardResult" parameterType="string">
+		SELECT * FROM cards 
+		where cardId = #{cardId}
+		 
+	</select>
+	
 
 </mapper>
