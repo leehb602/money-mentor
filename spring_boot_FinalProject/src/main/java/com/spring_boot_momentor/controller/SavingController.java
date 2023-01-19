@@ -18,6 +18,7 @@ import com.spring_boot_momentor.model.SavingOptionVO;
 import com.spring_boot_momentor.model.SearchVO;
 import com.spring_boot_momentor.service.SavingService;
 
+//테스트
 @Controller
 public class SavingController {
 	@Autowired
