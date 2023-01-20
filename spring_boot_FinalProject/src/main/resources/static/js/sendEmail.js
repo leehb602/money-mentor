@@ -1,10 +1,9 @@
 /**
- * idFind.js
+ * sendEmail.js
  */
  
  $(document).ready(function() {
  	var userPhone;
- 	var authCheck = "N";
  	
  	// 인증번호 받기 버튼 눌렀을 때
  	$('#authBtn').on('click', function() {
@@ -48,7 +47,6 @@
 				dataType:"text",
 				success:function(result){
 					if(result == "success") {
-						authCheck = "Y";
 						alert("인증되었습니다");
 					} else {
 						alert("인증번호가 일치하지 않습니다");
@@ -60,43 +58,4 @@
 			}); // ajax 종료
  		}
  	});
- 	
- 	// 찾기 버튼 눌렀을 때
- 	$('#idFindForm').on('submit', function() {
- 		event.preventDefault();
- 		
- 		var formData = $(this).serialize();
- 		
- 		if(authCheck == "N") {
- 			alert("이메일 인증을 진행해주세요");
- 		} else {
- 			$.ajax({
-			type:"post",
-			url:"/user/findId",
-			data:formData,
-			success:function(result){
-				$('.textBox').val("");
-				$('#findIdBox').html(result);
-			},
-			error:function(){
-				alert("오류발생! 관리자에게 문의 바랍니다.");
-			}
-		}); // ajax 끝
- 		}
-		
- 	});
- 	
- 	$('#hp1').on('keyup', function() {
-		if ($(this).val().length == 3) {
-			$(this).next().focus();
-		}
-	});
-
-
-	$('#hp2').on('keyup', function() {
-		if ($(this).val().length == 4) {
-			$('#hp3').focus();
-		}
-	});
- 
  });

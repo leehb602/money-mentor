@@ -5,7 +5,7 @@
  $(document).ready(function() {
 	$('.menu').hide();
 	$('.salaryTab').css('color','blue');
-	$('.salary').show();
+	$('.aboutMe').show();
 	$btn = $('.tabBtn');
 
 	var menu = ["salary", "deposit", "saving", "loan"];
