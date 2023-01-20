@@ -5,9 +5,9 @@
 }
 
 table {
-	width: 400px;
-	height : 40px;
-	line-height : 40px;
+	width: 450px;
+	height : 45px;
+	line-height : 45px;
 	text-align: center;
 	margin-top: 5%;
 }
@@ -15,6 +15,11 @@ table {
 table th {
 	font-size: 20px;
 	padding-bottom: 30px;
+}
+
+.title {
+	width: 100px;
+	text-align: left;
 }
 
 #userName {
@@ -53,13 +58,53 @@ table th {
 	font-size: 15px;
 }
 
+#userEmail {
+	width: 42.5%;
+	height : 30px;
+	line-height : 30px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+#emailCheck {
+	width: 57.5%;
+	height : 30px;
+	line-height : 30px;
+	border-radius: 5px;
+	border: solid 1px gray;
+	font-size: 15px;
+}
+
+#checkBtn {
+	width: 20%;
+	height : 35px;
+	line-height : 35px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+	margin-left: 1%;
+}
+
 input {
-	width : 21%;
+	width : 22.1%;
 	height : 25px;
 	line-height : 25px;
 	border-radius: 5px;
 	border: solid 1px gray;
 	font-size: 15px;
+}
+
+#authBtn {
+	width: 35%;
+	height : 35px;
+	line-height : 35px;
+	font-size: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+	margin-left: 1%;
 }
 
 #findBtn {
@@ -84,6 +129,6 @@ input {
 	margin-top: 10%;
 }
 
-button:hover {
-	
+.btn:hover {
+	cursor: pointer;
 }
