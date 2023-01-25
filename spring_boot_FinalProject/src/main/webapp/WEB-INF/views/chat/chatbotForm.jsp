@@ -13,23 +13,27 @@
 	<body>
 		<div id="wrap">
 			<!-- Header -->
-<!-- 			<div id="chatHeader"> -->
-<!-- 				<span>챗봇</span> -->
-<!-- 				<button id="btnClose">X</button> -->
-<!-- 			</div> -->
+			<div id="chatHeader">
+				<div class="chat_title">Momentor</div>
+			</div>
 			
 			<!-- 채팅 답변 출력 -->
 			<div id="chatBox">
-				<div class="chat_title">Momentor</div>
+				
 				
 			</div>
 			<form id="chatbotForm">
-				<input type="text" id="message" name="message" size="30" placeholder="질문을 입력하세요">
-				<input type="submit" value="전송">
+				<div id="chatform_div">
+				<div class="chatform_text">
+					<input type="text" id="message" name="message" placeholder="질문을 입력하세요">
+				</div>
+				<div class="chatform_btn">
+					<input type="submit" id="btnSubmit" value="➜"> 
+				</div>
+				</div>
 			</form>
-			<hr>
 			
-			<a href="<c:url value='/'/>">index 페이지로 이동</a>
+		
 		</div>
 	</body>
 </html>
