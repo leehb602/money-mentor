@@ -65,7 +65,7 @@ public class ChatbotService {
                 // chatnotMessage : 서버에서 응답 받은 메시지 (JSON 형식의 문자열)
                 
                 // 응답 메시지 JSON 파싱 메소드 호출
-                chatbotMessage = jsonToString(chatbotMessage);
+                //chatbotMessage = jsonToString(chatbotMessage);
                 // JSON 파싱 결과 추출된 답변 메시지
 
 			} else { // Error occurred
