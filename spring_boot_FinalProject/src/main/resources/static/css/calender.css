@@ -34,109 +34,144 @@ button{
 button:hover{
 	cursor: pointer;
 }
-.dateView, .btnCommon{
+
+body {
+	margin:0px;
+}
+.calender-date-view, .btnCommon{
 	display:flex;
 	align-items:center;
 }
-
-.calenderTitleText{
+.calender-date-view{
+	width:70%;
+	justify-content:space-between;	
+}
+.calender-head-text{
 	margin:0px 10px;
 	color:white;
 	font-weight: bold;
-	font-size:20px;
+	font-size:24px;
 }
 
-#planView, #calender, #productView, #viewOption {
-	width:80%;
-	height:70%;
+#calender{
+	padding:20px;
+	width:70%;
+	height:100%;
 	justify-content:space-between;
 	align-items: center;
 }
-#planView{
-	width:20%;
-	height:30%;
+#plan-view-header{
+	height:500px;
+	padding:40px 20px;
+	border-bottom:1px dashed black;
+}
+#plan-list-view-box{
+	padding:40px 20px;
 	min-width:300px;
 }
-#body{
+#main{
 	display:flex;
 }
-#searchOption {
+#body{
+	position:relative;
+	top:90px;
+	margin-bottom:120px;
+}
+header, footer{
+	z-index:1;
+}
+#all-delete{
+	display:flex;
+	justify-content:end;
+}
+#search-option, .plan-title {
 	display:flex;
 	align-items: center;
 }
-#productView{
+#prd-list-box{
+	overflow:auto;
+	height:1280px;
 	display:flex;
-	justify-content:space-around;
+	justify-content:space-evenly;
 	flex-wrap: wrap;
 }
-.prdItem{
+.prd-item{
 	padding:20px;
-	margin:10px;
-	height:520px;
 	width:300px;
 	min-height:150px;
 	min-width:100px;
 	text-align:center;
+	margin:0 auto;
 }
 
-.prdItem:hover{
+.prd-item:hover{
 	opacity:70%;
 	cursor:pointer;
 }
 
-.prdItem button{
+.prd-item button{
 	border:2px solid black;
 	padding:5px;
-	font-size:20px;
+	font-size:18px;
 }
-#searchBox{
+#search-box{
 	margin-right:20px;
 }
-#searchBox input, #searchBox button{
+
+#search-box button{
 	font-size:20px;
 	padding:8px;
 	border:0.5px solid white;
 }
-#searchBox input{
+#search-box input{
+	font-size:20px;
+	padding:8px;
 	border:0px;
 }
-#searchBox input:focus{
+#search-box input:focus{
 	outline-color:var(--main-color);
 }
-#searchBox button:hover{
+#search-box button:hover{
 	color:white;
 	background-color:var(--main-color);
 	border:0.5px solid var(--main-color);
 }
-#viewOption{
+#plan-list-view, #prd-items-view, .all-plans{
+	justify-content:space-between;
 	display:flex;
 	align-items: center;
 	padding:20px 0px;
 }	
-#searchOption select[name=prdKind], #searchOption select[name=prdKindOption]{
+#plan-list-view{
+	position:sticky;
+	top:120px;
+	left:0;
+}
+#search-option select[name=prd-kind-select], #search-option select[name=prd-kind-selectOption], .prev-month-btn{
 	margin-right:10px;
 }
-#addItems button{	
+
+#prd-items-view button, #plan-list-view button, #list-nextBtn, #list-prev-btn	{	
 	border-radius:10px;
 	padding:15px 10px;
 	color:black;
 	font-size:20px;
 }
-#calenderHead{
+#calender-head{
 	display:flex;
 	background-color:var(--main-color);
 	text-align:center;
 	align-items:center;
 	justify-content:space-between;
-	padding:0px 20px;
+	padding:20px 20px;
 }
-.calenderHeadItems{
+.calender-head-items{
 	padding:20px;
 }
 
 
 .years, .months {
-	height:160px;
+	height:110px;
 	width:500px;
 	vertical-align:top;
 	font-size:20px;
@@ -145,7 +180,7 @@ button:hover{
 	table-layout:fixed;
 }
 .dates, .now{
-	height:150px;
+	height:110px;
 	width:500px;
 	vertical-align:top;
 	font-size:20px;
@@ -154,17 +189,17 @@ button:hover{
 	table-layout:fixed;
 }
 
-.futDays, .pastDays {
+.fut-dates, .past-dates {
 	opacity:50%;
 }
-.real{
+.real-date{
 	background-color:aliceblue;
 }
 .dates:hover, .years:hover, .months:hover{
 	background-color:rgb(245, 245, 245);
 	cursor: pointer;
 }
-#yearSelectBody{
+#year-select-Box{
 	overflow:scroll;
 }
 
@@ -178,39 +213,101 @@ button:hover{
 	font-size:26px;
 	color:white;
 }
-.datesTitle{
+.dates-head-text{
 	height:80px;
 	color:var(--main-color);
 	font-size:20px;
 }
-.todayBtn{
+.view-today-btn{
 	font-size:20px;
 }
-.prevMonthBtn{
-	margin-right:5px;
-}
-.btnText{
+.today-btn-text{
 	padding-left:10px;
 	font-weight:bold;
 }
-.viewDate{
+.view-date{
 	width:160px;
 }
 
-#searchOption select{
+#search-option select{
 	font-size:20px;
 }
-.imgbox{
+.img-box{
 	width:200px;
 	height:320px;
     overflow:hidden;
     margin:10px auto;
 }
-.imgbox img{
+.img-box img{
 	position:relative;
 	top:70px;
 	right:49px;
 	width:300px;
 	height:180px;
 	transform:rotate(90deg);
+}
+.calender-add-form{
+	display:flex;
+	width:30%;
+	justify-content:space-evenly;
+}
+.prd-detail-view{
+	width:300px;
+	padding:20px;
+	justify-content:center;
+}	
+#prdName{
+	width:120px;
+}
+.prd-table-title {
+	width:70px;
+}	
+.cardDes{
+	display:flex;
+	justify-content:center;
+	height:75px;
+	align-items:center;	
+}
+.prd-title{
+	font-size:24px;
+}
+.deco-btn-box, .item-btn-box{
+	margin:10px;
+	display:flex;
+	justify-content:space-evenly;
+	padding:0px 40px;
+}
+.calender-plan-box{
+	color:black;
+}
+.plan-date, .plan-list-title{
+	font-size:24px;
+}
+.plan-title, .payment{
+	font-size:18px;
+	display:flex;
+	justify-content:space-between;
+}
+.plans{
+	margin: 15px 0px;
+}
+#list-prev-btn{
+	position: relative;
+    top: 680px;
+}
+#plan-view{
+	width:30%;
+}
+.view-header-title{
+	margin-bottom:20px;
+}
+.all-plan-title{
+	width:160px;
+	text-align:center;
+}
+
+.all-payment{
+	width:80px;
+	text-align:center;
+	
 }

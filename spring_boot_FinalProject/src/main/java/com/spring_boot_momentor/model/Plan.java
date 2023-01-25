@@ -2,19 +2,32 @@ package com.spring_boot_momentor.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
-public class CalenderVO {
+public class Plan {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private String calSubDate;
 	private int calTransfer;
 	private int calMaturity;
 	private String userID;
-	private String prdID;
-	private String prdType;
-	private int dataID;
+	private String cardName;
+	private String insuName;
 	private int calPayment;
 	private String prdName;
+	private String prdID;
+	private String prdType;
 	
+	
+	public String getPrdID() {
+		return prdID;
+	}
+	public void setPrdID(String prdID) {
+		this.prdID = prdID;
+	}
+	public String getPrdType() {
+		return prdType;
+	}
+	public void setPrdType(String prdType) {
+		this.prdType = prdType;
+	}
 	public String getPrdName() {
 		return prdName;
 	}
@@ -26,6 +39,12 @@ public class CalenderVO {
 	}
 	public void setCalPayment(int calPayment) {
 		this.calPayment = calPayment;
+	}
+	public String getInsuName() {
+		return insuName;
+	}
+	public void setInsuName(String insuName) {
+		this.insuName = insuName;
 	}
 	public String getCalSubDate() {
 		return calSubDate;
@@ -51,25 +70,13 @@ public class CalenderVO {
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
-	public String getPrdID() {
-		return prdID;
+	public String getcardName() {
+		return cardName;
 	}
-	public void setPrdID(String prdID) {
-		this.prdID = prdID;
-	}
-	public String getPrdType() {
-		return prdType;
-	}
-	public void setPrdType(String prdType) {
-		this.prdType = prdType;
-	}
-	public int getDataID() {
-		return dataID;
-	}
-	public void setDataID(int dataID) {
-		this.dataID = dataID;
+	public void setcardName(String cardName) {
+		this.cardName = cardName;
 	}
 	
 	
-	
+
 }
