@@ -119,12 +119,12 @@ header, footer{
 }
 
 #search-box button{
-	font-size:20px;
+	font-size:18px;
 	padding:8px;
 	border:0.5px solid white;
 }
 #search-box input{
-	font-size:20px;
+	font-size:18px;
 	padding:8px;
 	border:0px;
 }
@@ -155,7 +155,7 @@ header, footer{
 	border-radius:10px;
 	padding:15px 10px;
 	color:black;
-	font-size:20px;
+	font-size:18px;
 }
 #calender-head{
 	display:flex;
@@ -163,7 +163,7 @@ header, footer{
 	text-align:center;
 	align-items:center;
 	justify-content:space-between;
-	padding:20px 20px;
+	padding:5px 20px;
 }
 .calender-head-items{
 	padding:20px;
@@ -174,7 +174,7 @@ header, footer{
 	height:110px;
 	width:500px;
 	vertical-align:top;
-	font-size:20px;
+	font-size:18px;
 	padding:20px;
 	opacity:60%;
 	table-layout:fixed;
@@ -183,7 +183,7 @@ header, footer{
 	height:110px;
 	width:500px;
 	vertical-align:top;
-	font-size:20px;
+	font-size:18px;
 	padding:20px;
 	opacity:100%;
 	table-layout:fixed;

@@ -9,10 +9,6 @@
 
 	$('#prd-list-box').empty();
 	
-	console.log(kind);
-	console.log(kindDetail);
-	console.log(order);
-	
 	$.ajax({
     type: 'POST',
     url: `/profile/calender/getPrdData/${kind}/${kindDetail}/${order}`,
@@ -38,7 +34,7 @@
 			}
 			
 			viewData += `
-								<div>${item.prdName}</div>
+								<div class="prd-name">${item.prdName}</div>
 							</div>`;
 							
 			if(item.prdImg != null){
@@ -51,7 +47,6 @@
 			/*
 			else{
 				let prdDes = item.prdDes;
-				console.log(prdDes)
 				prdDes = prdDes.replace(/#/gi, "<br>")
 				viewData += `
 							<div class="prd-des">
@@ -140,14 +135,12 @@ $(document).ready(function(){
 	$(document).on('change', '#order', function(e){
 	  e.preventDefault();
 	  const option = $('#order option:selected').val();
-	  console.log(option);
 	  jQuery.randerProduct();
 	});
 	
 	$(document).on('change', '#prd-kind-selectOption', function(e){
 	  e.preventDefault();
 	  const option = $('#prd-kind-selectOption option:selected').val();
-	  console.log(option);
 	  jQuery.randerProduct();
 	});
 	
@@ -173,14 +166,17 @@ $(document).ready(function(){
 		const kind = $('#prd-kind-select option:selected').val();
 		const kindDetail = $('#prd-kind-detail-select option:selected').val();
 		const order = $('#prd-order-select option:selected').val();
-		  
+		 
 		$.ajax({
 	        type: 'POST',
-	        url: '/profile/calender/getPrdData/${kind}/${kindDetail}/${order}',
+	        url: `/profile/calender/getPrdData/${kind}/${kindDetail}/${order}`,
 	        dataType: 'json',
 	        success: function(result) {
 	        	const data = result;
 				if(kind == "insu"){
+		        	const prdID = data[clickIndex].prdID;
+		        	const prdType = kind;
+		        	
 		        	let female = data[clickIndex].female;
 		        	female = female.toLocaleString('ko-KR');
 
@@ -188,7 +184,6 @@ $(document).ready(function(){
 		        	male = male.toLocaleString('ko-KR');
 
 		        	$('.prd-detail-view').eq(clickIndex).append(`
-		        											<form id="${data[clickIndex].id}" method="post">
 																<table>
 																	<tbody>
 																		<tr class="prdFee">
@@ -219,20 +214,20 @@ $(document).ready(function(){
 																		<tr><td colspan="2"><button type="submit" class="calender-add-btn" id="${data[clickIndex].id}">추가</button></td></tr>
 																	</tbody>
 																</table>
-															</form>
 					  										`);
 				  
 				  }
 	        	else{
 		        	let prdPrice = data[clickIndex].prdPrice;
+		        	const prdID = data[clickIndex].prdID;
+		        	const prdType = kind;
 		        	prdPrice = prdPrice.toLocaleString('ko-KR');
 		        	$('.prd-detail-view').eq(clickIndex).append(`
-		        											<form id="${data[clickIndex].prdID}" method="post">
 																<table>
 																	<tbody>
 																		<tr class="prdName">
 																			<td class="prd-table-title">별명</td>
-																			<td><input placeholder="미기입시 상품명" type="date" id="calSubDate" class="calSubDate" name="calSubDate"></td>
+																			<td><input placeholder="미기입시 상품명" type="text" id="prdName" class="prdName" name="prdName"></td>
 																		</tr>
 																		<tr class="prdFee">
 																			<td class="prd-table-title">수수료</td>
@@ -254,13 +249,12 @@ $(document).ready(function(){
 																			<td class="prd-table-title">납부금</td>
 																			<td><input type="text" id="calPayment" class="calPayment" name="calPayment"> 원</td>
 																		</tr>
-																		<tr><td colspan="2"><button type="submit" class="calender-add-btn" id="${data[clickIndex].prdID}">추가</button></td></tr>
+																		<tr><td colspan="2"><button type="submit" class="calender-add-btn" id="${prdID}">추가</button></td></tr>
 																	</tbody>
 																</table>
-															</form>
 					  										`);
 				  }
-	  		}
+	  		  }
 	  	});
 	});
 	
@@ -271,7 +265,7 @@ $(document).ready(function(){
 								<option value="KB">국민카드</option>
 							</select>
 	  						`);
-	
+
 	//상품선택 툴 숨기기
 	$(document).on('click', '.close', function(e){
 	  	const clickIndex = $('.add-prd-btn').index(this);

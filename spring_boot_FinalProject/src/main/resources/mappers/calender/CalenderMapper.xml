@@ -61,15 +61,15 @@
 	  		<result property="prdComImg"  column="prdComImg"  />
 	  </resultMap>
 	  <insert id="insertPlan" parameterType="com.spring_boot_momentor.model.CalenderVO">
-			INSERT INTO testcalender(calSubDate, calTransfer, calMaturity, prdID, userID, prdType, prdName)
-			VALUES (#{calSubDate}, #{calTransfer}, #{calMaturity},#{prdID}, #{userID}, #{prdType}, #{prdName})	
+			INSERT INTO calender(calSubDate, calTransfer, calMaturity, prdID, userID, prdType, calPayment, prdName)
+			VALUES (#{calSubDate}, #{calTransfer}, #{calMaturity},#{prdID}, #{userID}, #{prdType}, #{calPayment}, #{prdName})	
 	  </insert>
 		<select id="CalenderlistAllCard" resultMap="cardResult">
 			SELECT * FROM cards 
 		</select>
 	  <select id="calenderView" resultMap="planResult">
 			SELECT a.*, b.cardName
-			FROM testcalender AS a
+			FROM calender AS a
 	        INNER JOIN cards AS b
 	        ON a.prdID = b.cardID WHERE a.userID = #{userID}
 	  </select>
@@ -83,13 +83,13 @@
 			SELECT * FROM insu WHERE insuCtg=#{kindDetail}
 	  </select>
 	  <select id="planDuplicateCheck" resultType="int">
-			SELECT COUNT(*) FROM testcalender 
+			SELECT COUNT(*) FROM calender 
 			WHERE prdID=#{prdID} 
 			AND userID=#{userID} 
 			AND prdType=#{prdType};
 	  </select>
 	  <select id="changePrdName" parameterType="com.spring_boot_momentor.model.CalenderVO">
-			UPDATE testcalender 
+			UPDATE calender 
 			SET prdName = #{prdName}  
 			WHERE prdID=#{prdID} 
 			AND userID=#{userID} 
