@@ -15,18 +15,6 @@ public class CalenderVO {
 	private int calPayment;
 	private String prdName;
 	
-	public String getPrdName() {
-		return prdName;
-	}
-	public void setPrdName(String prdName) {
-		this.prdName = prdName;
-	}
-	public int getCalPayment() {
-		return calPayment;
-	}
-	public void setCalPayment(int calPayment) {
-		this.calPayment = calPayment;
-	}
 	public String getCalSubDate() {
 		return calSubDate;
 	}
@@ -69,6 +57,19 @@ public class CalenderVO {
 	public void setDataID(int dataID) {
 		this.dataID = dataID;
 	}
+	public int getCalPayment() {
+		return calPayment;
+	}
+	public void setCalPayment(int calPayment) {
+		this.calPayment = calPayment;
+	}
+	public String getPrdName() {
+		return prdName;
+	}
+	public void setPrdName(String prdName) {
+		this.prdName = prdName;
+	}
+	
 	
 	
 	
