@@ -8,11 +8,91 @@
 	  		<result property="calSubDate"  column="calSubDate"  />
 	  		<result property="calTransfer"  column="calTransfer"  />
 	  		<result property="calMaturity"  column="calMaturity"  />
-	  		<result property="prdTitle"  column="prdTitle"  />
+	  		<result property="prdID"  column="prdID"  />
 	  		<result property="userID"  column="userID"  />
 	  		<result property="dataID"  column="dataID"  />
+	  		<result property="prdType"  column="prdType"  />
+	  		<result property="calPayment"  column="calPayment"  />
 	  </resultMap>
-	  <select id="calenderView" resultMap="calenderResult">
-		  SELECT * FROM momentordb.testcalender
+	  <resultMap type="com.spring_boot_momentor.model.CardVO" id="cardResult">
+		  <result column="cardId" property="cardId"/>
+		  <result column="cardName" property="cardName"/>
+		  <result column="cardDes" property="cardDes"/>
+		  <result column="cardImgUrl" property="cardImgUrl"/>
+		  <result column="cardFee" property="cardFee"/>
+		  <result column="cardUrl" property="cardUrl"/>
+		  <result column="comCtg" property="comCtg"/>
+	  </resultMap>
+	  <resultMap type="com.spring_boot_momentor.model.InsuVO" id="insuResult">
+		  <result column="id" property="id"/>
+		  <result column="prdName" property="prdName"/>
+		  <result column="prdLogo" property="prdLogo"/>
+		  <result column="insuName" property="insuName"/>
+		  <result column="insuCtg" property="insuCtg"/>
+		  <result column="insuDes" property="insuDes"/>
+		  <result column="insuPrice" property="insuPrice"/>
+		  <result column="male" property="male"/>
+		  <result column="female" property="female"/>
+		  <result column="insuIndex" property="insuIndex"/>
+		  <result column="age" property="age"/>
+		  <result column="insuNote" property="insuNote"/>
+		  <result column="insuJoinURL" property="insuJoinURL"/>
+		  <result column="insuPhoneNumber" property="insuPhoneNumber"/>
+	  </resultMap>
+	  <resultMap id="planResult" type="com.spring_boot_momentor.model.Plan">
+	  		<result property="calSubDate"  column="calSubDate"  />
+	  		<result property="calTransfer"  column="calTransfer"  />
+	  		<result property="calMaturity"  column="calMaturity"  />
+	  		<result property="cardName"  column="cardName"  />
+	  		<result property="insuName"  column="insuName"  />
+	  		<result property="calPayment"  column="calPayment"  />
+	  		<result property="userID"  column="userID"  />
+	  </resultMap>
+	  <resultMap id="prdResult" type="com.spring_boot_momentor.model.CalenderProduct">
+	  		<result property="prdID"  column="prdID"  />
+	  		<result property="prdName"  column="prdName"  />
+	  		<result property="prdDes"  column="prdDes"  />
+	  		<result property="prdImg"  column="prdImg"  />
+	  		<result property="prdPrice"  column="prdPrice"  />
+	  		<result property="male"  column="male"  />
+	  		<result property="female"  column="female"  />
+	  		<result property="prdURL"  column="prdURL"  />
+	  		<result property="prdCom"  column="prdCom"  />
+	  		<result property="prdComImg"  column="prdComImg"  />
+	  </resultMap>
+	  <insert id="insertPlan" parameterType="com.spring_boot_momentor.model.CalenderVO">
+			INSERT INTO testcalender(calSubDate, calTransfer, calMaturity, prdID, userID, prdType, prdName)
+			VALUES (#{calSubDate}, #{calTransfer}, #{calMaturity},#{prdID}, #{userID}, #{prdType}, #{prdName})	
+	  </insert>
+		<select id="CalenderlistAllCard" resultMap="cardResult">
+			SELECT * FROM cards 
+		</select>
+	  <select id="calenderView" resultMap="planResult">
+			SELECT a.*, b.cardName
+			FROM testcalender AS a
+	        INNER JOIN cards AS b
+	        ON a.prdID = b.cardID WHERE a.userID = #{userID}
+	  </select>
+	  <select id="calenderListAllInsu" resultMap="insuResult">
+			SELECT * FROM insu
+	  </select>
+	  <select id="calenderListCard" resultMap="cardResult">
+			SELECT * FROM cards WHERE comCtg=#{kindDetail}
+	  </select>
+	  <select id="calenderListInsu" resultMap="insuResult">
+			SELECT * FROM insu WHERE insuCtg=#{kindDetail}
+	  </select>
+	  <select id="planDuplicateCheck" resultType="int">
+			SELECT COUNT(*) FROM testcalender 
+			WHERE prdID=#{prdID} 
+			AND userID=#{userID} 
+			AND prdType=#{prdType};
+	  </select>
+	  <select id="changePrdName" parameterType="com.spring_boot_momentor.model.CalenderVO">
+			UPDATE testcalender 
+			SET prdName = #{prdName}  
+			WHERE prdID=#{prdID} 
+			AND userID=#{userID} 
+			AND prdType=#{prdType};
 	  </select>
   </mapper>
