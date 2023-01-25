@@ -9,15 +9,13 @@
   <link rel ="stylesheet" type="text/css" href="<c:url value='/css/savingForm.css' />">
     <script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 	<script src="<c:url value='/js/depositSearch.js' />"></script>
-    
+    <c:import url="/WEB-INF/views/layout/head.jsp" />
    
   </head>
   <body>
     <div class="">
     	<div id="wrap">
-    	<header>
-    	
-    	</header>
+    	<c:import url="/WEB-INF/views/layout/top.jsp" />
     		   				
 		<!-- 리스트 -->
 		<div class="prdList">
@@ -93,9 +91,7 @@
 								<a href="javascript:;" id="load">더보기</a>
 							</div>
 						</div>
-				<footer>
-						
-				</footer>	
+				<c:import url="/WEB-INF/views/layout/footer.jsp" />	
     	</div>
     </div>
   </body>
