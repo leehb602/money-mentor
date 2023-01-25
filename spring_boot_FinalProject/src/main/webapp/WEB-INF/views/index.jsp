@@ -117,7 +117,7 @@
 			 			<div class="fin_see annSee">
 			 				<div class="fin_see_title">연금 카테고리</div>
 			 				<div class="see_sec">
-			 					<div  class="see_sec1">이미지or 상품명 들어가고
+			 					<div  class="see_sec1">이미지or 상품명 들어가고2
 				 					<div class="img_section">
 			 						a
 			 						</div>
