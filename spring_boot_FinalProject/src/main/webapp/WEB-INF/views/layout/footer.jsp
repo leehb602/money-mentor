@@ -15,9 +15,9 @@
 							<li>ㅣ</li>
 							<li><a href="javascript:void(0);" onclick="chatFunction(); return false;">챗봇 가이드</a></li>
 							<li>ㅣ</li>
-							<li><a href="<c:url value='/#'/>">비교 & 추천</a></li>
+							<li><a href="<c:url value='/CardList'/>">비교 & 추천</a></li>
 							<li>ㅣ</li>
-							<li><a href="<c:url value='/#'/>">캘린더</a></li>
+							<li><a href="<c:url value='/profile/calender'/>">캘린더</a></li>
 						</ul>
 					</div>
 					<hr />
