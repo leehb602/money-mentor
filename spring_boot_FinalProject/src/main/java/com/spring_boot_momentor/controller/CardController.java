@@ -219,6 +219,7 @@ public class CardController {
     return "list/cardSearchResultView";
   }
 
+	//상품 비교 추가
 	  @ResponseBody
 	  @RequestMapping("/CardCompare")
 	  public CardVO CardCompare(@RequestParam String cardId, Model model) {
@@ -227,6 +228,46 @@ public class CardController {
 		 return cardList1;
 	  }
 
+	  @RequestMapping("/popup")
+		public String popup() {
+			return "list/cardList";
+		}
+	  
+	// 카드비교 모달
+//	  @ResponseBody
+//	  @RequestMapping("/CardComparemodal")
+//	  public CardVO CardComparemodal(@RequestParam String cardId, Model model) {
+//		  CardVO cardList1 = service.CardComparemodal(cardId);
+//		  model.addAttribute("cardList1", cardList1);
+//		 return cardList1;
+//	  }
+	  
+	// 카드비교 모달
+	  @ResponseBody
+	  @RequestMapping("/CardComparemodal")
+	  public String CardComparemodal(@RequestParam String cardId, Model model) {
+		  ArrayList<CardVO> cardList1 =service.CardComparemodal(cardId);
+		  model.addAttribute("cardList1", cardList1);
+		 return "list/cardList";
+	  }
+	  
+	// 비교 데이터 선택 삭제 : carddNoms
+		@ResponseBody
+		@RequestMapping("/deleteCard")
+		public int deleteCard(@RequestParam("chbox[]") ArrayList<String> chkArr) {
+			int result = 0; 
+			
+			// 배열에서 cartNo 추출해서 해당되는 상품 삭제
+			if(chkArr != null) {
+				for(String carddNoms : chkArr) {
+					service.deleteCard(carddNoms);
+				}
+				
+				result = 1; // 성공
+			}
+			
+			return result;
+		}
 	
 }
 

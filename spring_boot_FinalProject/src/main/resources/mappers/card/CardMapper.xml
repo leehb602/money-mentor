@@ -46,5 +46,17 @@
 		 
 	</select>
 	
+	<!-- 비교 데이터 선택 삭제 -->
+	<delete id="deleteCart" parameterType="string">
+  		DELETE FROM cart WHERE cartNo = #{carddNoms}
+  	</delete>
+  	
+  	
+  	<!--  카드비교 모달 -->
+  	<select id="CardComparemodal" resultMap="cardResult" parameterType="string">
+		SELECT * FROM cards 
+		where cardId = #{cardId}
+		 
+	</select>
 
 </mapper>
