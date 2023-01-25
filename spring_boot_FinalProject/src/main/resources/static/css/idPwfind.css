@@ -4,6 +4,10 @@
 	margin: 0 auto;
 }
 
+body {
+	background-color: rgba(246, 246, 246, 0.8);
+}
+
 table {
 	width: 450px;
 	height : 45px;
@@ -15,6 +19,7 @@ table {
 table th {
 	font-size: 20px;
 	padding-bottom: 30px;
+	color : #0F4B81;
 }
 
 .title {
@@ -85,6 +90,8 @@ table th {
 	border: none;
 	border-radius: 15px;
 	margin-left: 1%;
+	background-color : #0F4B81;
+	color: white;
 }
 
 input {
@@ -105,6 +112,8 @@ input {
 	border: none;
 	border-radius: 15px;
 	margin-left: 1%;
+	background-color : #0F4B81;
+	color: white;
 }
 
 #findBtn {
@@ -116,6 +125,8 @@ input {
 	border: none;
 	border-radius: 15px;
 	margin-top: 10%;
+	background-color : #0F4B81;
+	color: white;
 }
 
 #changeBtn {
@@ -127,6 +138,8 @@ input {
 	border: none;
 	border-radius: 15px;
 	margin-top: 10%;
+	background-color : #0F4B81;
+	color: white;
 }
 
 .btn:hover {

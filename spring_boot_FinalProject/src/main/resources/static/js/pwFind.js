@@ -8,18 +8,24 @@
  		
  		var formData = $(this).serialize();
  		
- 		$.ajax({
-			type:"post",
-			url:"/user/findPassword",
-			data:formData,
-			success:function(result){
-				$('.textBox').val("");
-				$('#findPwBox').html(result);
-			},
-			error:function(){
-				alert("오류발생! 관리자에게 문의 바랍니다.");
-			}
-		});
+ 		if($('#userName').val()=="") {
+ 			alert("이름을 입력해주세요");
+ 		} else if($('#userId').val()=="") {
+ 			alert("아이디를 입력해주세요");
+ 		} else {
+ 			$.ajax({
+				type:"post",
+				url:"/user/findPassword",
+				data:formData,
+				success:function(result){
+					$('.textBox').val("");
+					$('#findPwBox').html(result);
+				},
+				error:function(){
+					alert("오류발생! 관리자에게 문의 바랍니다.");
+				}
+			}); // ajax 끝
+ 		}
 		
  	});
  	

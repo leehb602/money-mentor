@@ -11,6 +11,7 @@
 		<script src="<c:url value='/js/pwChange.js'/>"></script>
 	</head>
 	<body>
+		<br><br><hr style="width :30%;">
 		<div id="wrap">
 			<form id="newPwForm">
 				<table>
