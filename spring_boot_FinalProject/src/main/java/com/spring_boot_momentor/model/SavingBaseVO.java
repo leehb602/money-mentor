@@ -1,6 +1,7 @@
 package com.spring_boot_momentor.model;
 
 public class SavingBaseVO {
+	private String dclsMonth;
 	private String comNum;
 	private String prdNum;
 	private String comName;
@@ -13,6 +14,12 @@ public class SavingBaseVO {
 	private String etcNote;
 	private String dclsStart;
 	
+	
+	  public String getDclsMonth() { return dclsMonth; } 
+	  
+	  public void
+	  setDclsMonth(String dclsMonth) { this.dclsMonth = dclsMonth; }
+	 
 	public String getComNum() {
 		return comNum;
 	}
@@ -79,6 +86,5 @@ public class SavingBaseVO {
 	public void setDclsStart(String dclsStart) {
 		this.dclsStart = dclsStart;
 	}
-	
 	
 }

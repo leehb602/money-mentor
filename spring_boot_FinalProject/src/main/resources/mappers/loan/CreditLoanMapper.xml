@@ -5,9 +5,21 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
     <mapper namespace="com.spring_boot_momentor.dao.ICreditLoanDAO">
+    <resultMap id="CreditLoanResult" type="com.spring_boot_momentor.model.CreditLoanBaseVO">
+		<result property="dclsMonth" column="dclsMonth"/>
+		<result property="comNum" column="comNum"/>
+		<result property="prdNum" column="prdNum"/>
+		<result property="comName" column="comName"/>
+		<result property="prdName" column="prdName"/>
+		<result property="joinWay" column="joinWay"/>
+		<result property="crdtTypeName" column="crdtTypeName"/>
+		<result property="cbName" column="cbName"/>
+		<result property="dclsStart" column="dclsStart"/>
+	</resultMap>
+	
   	<insert id="insertCreditLoanBase" parameterType="com.spring_boot_momentor.model.CreditLoanBaseVO" timeout="3">
-  		insert into CreditLoanBase (comNum, prdNum, comName, prdName, crdtTypeName, cbName, dclsStart)
-  		values (#{comNum}, #{prdNum}, #{comName}, #{prdName}, #{crdtTypeName}, #{cbName}, #{dclsStart})
+  		insert into CreditLoanBase (dclsMonth, comNum, prdNum, comName, prdName, joinWay, crdtTypeName, cbName, dclsStart)
+  		values (#{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{joinWay}, #{crdtTypeName}, #{cbName}, #{dclsStart})
   	</insert>
   	<insert id="insertCreditLoanOption" parameterType="com.spring_boot_momentor.model.CreditLoanOptionVO">
   		insert into CreditLoanOption (comNum, prdNum, crdtLendRateTypeName, crdtGrade9Up, crdtGrade8Up,
@@ -15,6 +27,22 @@
   		values (#{comNum}, #{prdNum}, #{crdtLendRateTypeName}, #{crdtGrade9Up}, #{crdtGrade8Up}, 
   				#{crdtGrade7Up}, #{crdtGrade6Up}, #{crdtGrade5Up}, #{crdtGrade4Up}, #{crdtGrade3Up}, #{crdtGrade3Down}, #{crdtGradeAvg})
   	</insert>
+  	
+  	<!--  전체 대출 조회  -->
+	<select id="listAllCreditLoan" resultMap="CreditLoanResult"> 
+		SELECT * FROM creditLoanBase ORDER BY prdNum 
+	</select>
+
+	<!--  대출 검색  -->
+	<select id="creditLoanSearch" parameterType="hashmap" resultMap="CreditLoanResult"> 
+		<![CDATA[
+		SELECT * FROM creditLoanBase 
+		WHERE prdName like CONCAT('%', #{prdName}, '%') OR
+			  comName like CONCAT('%', #{prdName}, '%') and 
+			  joinWay like CONCAT('%', #{joinWay}, '%') and
+			  crdtTypeName like CONCAT('%', #{crdtTypeName}, '%')
+		]]> 
+	</select>
   	</mapper>
   	
  

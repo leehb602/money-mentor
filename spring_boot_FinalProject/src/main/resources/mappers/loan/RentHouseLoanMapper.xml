@@ -6,8 +6,8 @@
   
     <mapper namespace="com.spring_boot_momentor.dao.IRentHouseLoanDAO">
   	<insert id="insertRentHouseLoanBase" parameterType="com.spring_boot_momentor.model.RentHouseLoanBaseVO" timeout="3">
-  		insert into RentHouseLoanBase (comNum, prdNum, comName, prdName, loanInciExpn, erlyRpayFee, dlyRate, loanLimit, dclsStart)
-  		values (#{comNum}, #{prdNum}, #{comName}, #{prdName}, #{loanInciExpn}, #{erlyRpayFee}, #{dlyRate}, #{loanLimit}, #{dclsStart})
+  		insert into RentHouseLoanBase (dclsMonth, comNum, prdNum, comName, prdName, joinWay, loanInciExpn, erlyRpayFee, dlyRate, loanLimit, dclsStart)
+  		values (#{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{joinWay}, #{loanInciExpn}, #{erlyRpayFee}, #{dlyRate}, #{loanLimit}, #{dclsStart})
   	</insert>
   	<insert id="insertRentHouseLoanOption" parameterType="com.spring_boot_momentor.model.RentHouseLoanOptionVO">
   		insert into RentHouseLoanOption (comNum, prdNum, rpayTypeName, lendRateTypeName, lendRateMin, lendRateMax, lendRateAvg)

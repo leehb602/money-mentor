@@ -5,17 +5,22 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_momentor.model.AnnuitySavingBaseVO;
 import com.spring_boot_momentor.model.AnnuitySavingOptionVO;
 import com.spring_boot_momentor.service.AnnuitySavingService;
+
 
 // 와이라노
 @Controller
@@ -70,6 +75,8 @@ public class AnnuitySavingController {
 
 				for (int i = 0; i < dataList.size(); i++) {
 					JSONObject jsonObj = (JSONObject) dataList.get(i);
+					//공시 제출월
+					String dclsMonth = (String) jsonObj.get("dcls_month");
 					// 회사명번호, 상품번호
 					String comNum = (String) jsonObj.get("fin_co_no");
 					String prdNum = (String) jsonObj.get("fin_prdt_cd");
@@ -131,7 +138,7 @@ public class AnnuitySavingController {
 					}
 					String dclsStart = (String) jsonObj.get("dcls_strt_day");
 					
-					
+					vo.setDclsMonth(dclsMonth);
 					vo.setComNum(comNum);
 					vo.setPrdNum(prdNum);
 					vo.setComName(comName);
@@ -217,7 +224,35 @@ public class AnnuitySavingController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return "annuitysaving";
+		return "saving/annuitySavingForm";
+	}
+	
+	@RequestMapping("/annuitySavingForm")
+	public String viewAnnuitySavingListAll() {
+		return "saving/annuitySavingForm";
+	}
+	
+	//전체 연금 조회
+	@RequestMapping("/annuitySavingListAll")
+	public String viewAnnuitySavingListAll(Model model) {
+		ArrayList<AnnuitySavingBaseVO> annuitySavingList = service.listAllAnnuitySaving();
+		model.addAttribute("annuitySavingList", annuitySavingList);
+		return "saving/annuitySavingResultForm";
+	}
+	
+	//연금 검색 처리
+	@RequestMapping("/annuitySavingSearch")
+	public String AnnuitySavingSearch(@RequestParam String prdName,
+									  @RequestParam String pnsnKindName,
+									  @RequestParam String prdtTypeName, Model model){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("prdName", prdName);
+		map.put("pnsnKindName", pnsnKindName);
+		map.put("prdtTypeName", prdtTypeName);
+		
+		// 서비스로 전송해서 DB 검색 결과 받아옴
+		ArrayList<AnnuitySavingBaseVO> annuitySavingList = service.AnnuitySavingSearch(map);	
+		model.addAttribute("annuitySavingList", annuitySavingList);
+		return "saving/annuitySavingResultForm";
 	}
 }
-

@@ -4,17 +4,22 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_momentor.model.CreditLoanBaseVO;
 import com.spring_boot_momentor.model.CreditLoanOptionVO;
 import com.spring_boot_momentor.service.CreditLoanService;
+
 
 
 
@@ -72,6 +77,9 @@ public class CreditLoanController {
 
 				for (int i = 0; i < dataList.size(); i++) {
 					JSONObject jsonObj = (JSONObject) dataList.get(i);
+					
+					//공시 제출월
+					String dclsMonth = (String) jsonObj.get("dcls_month");
 					// 회사명번호, 상품번호
 					String comNum = (String) jsonObj.get("fin_co_no");
 					String prdNum = (String) jsonObj.get("fin_prdt_cd");
@@ -79,15 +87,17 @@ public class CreditLoanController {
 					String comName = (String) jsonObj.get("kor_co_nm");
 					String prdName = (String) jsonObj.get("fin_prdt_nm");
 					// 가입방법
-					//String join_way = (String) jsonObj.get("join_way");
+					String joinWay = (String) jsonObj.get("join_way");
 					String crdtTypeName = (String) jsonObj.get("crdt_prdt_type_nm");
 					String cbName = (String) jsonObj.get("cb_name");
 					String dclsStart = (String) jsonObj.get("dcls_strt_day");
 
+					vo.setDclsMonth(dclsMonth);
 					vo.setComNum(comNum);
 					vo.setPrdNum(prdNum);
 					vo.setComName(comName);
 					vo.setPrdName(prdName);
+					vo.setJoinWay(joinWay);
 					vo.setCrdtTypeName(crdtTypeName);
 					vo.setCbName(cbName);
 					vo.setDclsStart(dclsStart);
@@ -213,8 +223,54 @@ public class CreditLoanController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return "creditloan";
+		return "loan/creditLoanForm";
 	}
+	@RequestMapping("/creditLoanForm")
+	public String viewCreditLoanListAll() {
+		return "loan/creditLoanForm";
+	}
+	
+	//전체 대출 조회
+	@RequestMapping("/creditLoanListAll")
+	public String viewCreditLoanListAll(Model model) {
+		ArrayList<CreditLoanBaseVO> creditLoanList = service.listAllCreditLoan();
+		model.addAttribute("creditLoanList", creditLoanList);
+		return "loan/creditLoanResultForm";
+	}
+	
+	//대출 검색 처리
+	@RequestMapping("/creditLoanSearch")
+	public String CreditLoanSearch(@RequestParam String prdName,
+								   @RequestParam String joinWay,
+								   @RequestParam String crdtTypeName,
+								   Model model) {
+		
+		HashMap<String ,Object> map = new HashMap<String, Object>();
+		map.put("prdName", prdName);
+		map.put("joinWay", joinWay);
+		map.put("crdtTypeName", crdtTypeName);
+		
+		// 서비스로 전송해서 DB 검색 결과 받아옴
+		ArrayList<CreditLoanBaseVO> creditLoanList = service.creditLoanSearch(map);	
+		model.addAttribute("creditLoanList", creditLoanList);
+		return "loan/creditLoanResultForm";	
+	}
+//	//연금 검색 처리
+//	@RequestMapping("/annuitySavingSearch")
+//	public String AnnuitySavingSearch(@RequestParam String prdName,
+//									  @RequestParam String pnsnKindName,
+//									  @RequestParam String prdtTypeName, Model model){
+//		HashMap<String, String> map = new HashMap<String, String>();
+//		map.put("prdName", prdName);
+//		map.put("pnsnKindName", pnsnKindName);
+//		map.put("prdtTypeName", prdtTypeName);
+//		
+//		// 서비스로 전송해서 DB 검색 결과 받아옴
+//		ArrayList<AnnuitySavingBaseVO> annuitySavingList = service.AnnuitySavingSearch(map);	
+//		model.addAttribute("annuitySavingList", annuitySavingList);
+//		return "saving/annuitySavingResultForm";
+//	}
 }
+
 
 

@@ -1,6 +1,7 @@
 package com.spring_boot_momentor.model;
 
 public class AnnuitySavingBaseVO {
+	private String dclsMonth;
 	private String comNum;
 	private String prdNum;
 	private String comName;
@@ -17,6 +18,12 @@ public class AnnuitySavingBaseVO {
 	private String saleCom;
 	private String dclsStart;
 	
+	public String getDclsMonth() {
+		return dclsMonth;
+	}
+	public void setDclsMonth(String dclsMonth) {
+		this.dclsMonth = dclsMonth;
+	}
 	public String getComNum() {
 		return comNum;
 	}
@@ -107,6 +114,7 @@ public class AnnuitySavingBaseVO {
 	public void setDclsStart(String dclsStart) {
 		this.dclsStart = dclsStart;
 	}
+	
 	
 }
 

@@ -68,6 +68,8 @@ public class RentHouseLoanController {
 
 				for (int i = 0; i < dataList.size(); i++) {
 					JSONObject jsonObj = (JSONObject) dataList.get(i);
+					//공시 제출월
+					String dclsMonth = (String) jsonObj.get("dcls_month");
 					// 회사명번호, 상품번호
 					String comNum = (String) jsonObj.get("fin_co_no");
 					String prdNum = (String) jsonObj.get("fin_prdt_cd");
@@ -75,7 +77,7 @@ public class RentHouseLoanController {
 					String comName = (String) jsonObj.get("kor_co_nm");
 					String prdName = (String) jsonObj.get("fin_prdt_nm");
 					// 가입방법
-					/* String join_way = (String) jsonObj.get("join_way"); */
+					String joinWay = (String) jsonObj.get("join_way"); 
 					
 					String loanInciExpn = (String) jsonObj.get("loan_inci_expn");
 					
@@ -85,10 +87,12 @@ public class RentHouseLoanController {
 					
 					String dclsStart = (String) jsonObj.get("dcls_strt_day");
 
+					vo.setDclsMonth(dclsMonth);
 					vo.setComNum(comNum);
 					vo.setPrdNum(prdNum);
 					vo.setComName(comName);
 					vo.setPrdName(prdName);
+					vo.setJoinWay(joinWay);
 					/* System.out.println(i + "_ 가입방법: " + join_way); */
 					vo.setLoanInciExpn(loanInciExpn);
 					vo.setErlyRpayFee(erlyRpayFee);
@@ -181,6 +185,6 @@ public class RentHouseLoanController {
 		} catch (Exception e) {
 		System.out.println(e);
 		}
-		return "renthouseloan";
+		return "loan/rentHouseLoanForm";
 	}
 }
