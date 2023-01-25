@@ -4,6 +4,10 @@
 	margin: 0 auto;
 }
 
+body {
+	background-color: rgba(246, 246, 246, 0.8);
+}
+
 table {
 	width: 600px;
 	height : 70px;
@@ -13,7 +17,8 @@ table {
 }
 
 table th {
-	font-size: 20px;
+	font-size: 25px;
+	color : #0F4B81;
 }
 
 input {
@@ -33,6 +38,8 @@ button {
 	font-weight: bold;
 	border: none;
 	border-radius: 15px;
+	background-color : #0F4B81;
+	color: white;
 }
 
 button:hover {

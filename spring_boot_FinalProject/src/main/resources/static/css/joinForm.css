@@ -1,12 +1,10 @@
 @charset "UTF-8";
 
 @font-face {
-	font-family: 'CookieRunOTF-Bold';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'WooridaumB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
 }
 
 * {
@@ -14,13 +12,12 @@
 }
 
 body {
-	background-color: rgba(218, 233, 244, 0.8);
+	background-color: rgba(246, 246, 246, 0.8);
 }
 
 .backimg {
-	margin-top: 5%;
+	margin-top: 2%;
 	padding-bottom : 2%;
-	background-color: rgba(255, 255, 255, 0.8);
 	width: 500px;
 	border-radius: 20px;
 }
@@ -39,7 +36,7 @@ table thead{
 
 th {
 	font-size: 30px;
-	color: #274c5e;
+	color: #0F4B81;
 	padding: 10px;
 }
 
@@ -54,7 +51,7 @@ td {
 	float: left;
 	color: #3E3E3E;
 	font-weight: bold;
-	font-family: 'LeferiPoint-WhiteObliqueA'
+	font-family: 'WooridaumB';
 }
 
 /* 조건에 일치하지 않았을 경우 */
@@ -112,6 +109,8 @@ button {
 	font-weight: bold;
 	border: none;
 	border-radius: 10px;
+	background-color : #0F4B81;
+	color:white;
 	font-family: 'LeferiPoint-WhiteObliqueA'
 }
 
@@ -131,10 +130,8 @@ button {
 
 #idcheck:hover {
 	cursor: pointer;
-	background-color: #77919d;
 }
 
 #joinBtn:hover {
 	cursor: pointer;
-	background-color: #77919d;
 }

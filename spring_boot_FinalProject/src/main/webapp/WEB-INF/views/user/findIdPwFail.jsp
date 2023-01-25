@@ -9,6 +9,7 @@
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/idFindResult.css' />">
 	</head>
 	<body>
+		<br><br><hr style="width :50%;">
 		<div id="wrap">
 			<table>
 				<tr>

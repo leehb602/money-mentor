@@ -67,7 +67,9 @@
  		
  		var formData = $(this).serialize();
  		
- 		if(authCheck == "N") {
+ 		if($('#userName').val()=="") {
+ 			alert("이름을 입력해주세요");
+ 		} else if(authCheck == "N") {
  			alert("이메일 인증을 진행해주세요");
  		} else {
  			$.ajax({
