@@ -1,5 +1,8 @@
 package com.spring_boot_momentor.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,6 +27,16 @@ public class CreditLoanService implements ICreditLoanService {
 	public void insertCreditLoanOption(CreditLoanOptionVO vo) {
 		dao.insertCreditLoanOption(vo);
 
+	}
+	
+	@Override
+	public ArrayList<CreditLoanBaseVO> listAllCreditLoan() {
+		return dao.listAllCreditLoan();
+	}
+	
+	@Override
+	public ArrayList<CreditLoanBaseVO> creditLoanSearch(HashMap<String, Object> map) {
+		return dao.creditLoanSearch(map);
 	}
 
 }

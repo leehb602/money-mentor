@@ -18,7 +18,7 @@ import com.spring_boot_momentor.model.SavingOptionVO;
 import com.spring_boot_momentor.model.SearchVO;
 import com.spring_boot_momentor.service.SavingService;
 
-//테스트
+
 @Controller
 public class SavingController {
 	@Autowired
@@ -27,7 +27,7 @@ public class SavingController {
 	SavingBaseVO vo = new SavingBaseVO();
 	SavingOptionVO vo2 = new SavingOptionVO();
 
-	private static final int FIRST_PAGE_INDEX = 1;
+	private static final int FIRST_PAGE_INDEX = 2;
 	private static final int LAST_PAGE_INDEX = 3;
 	private static String finnum = "";
 
@@ -72,7 +72,8 @@ public class SavingController {
 
 			for (int i = 0; i < dataList.size(); i++) {
 				JSONObject jsonObj = (JSONObject) dataList.get(i);
-
+				//공시 제출월
+				String dclsMonth = (String) jsonObj.get("dcls_month");
 				// 회사명번호, 상품번호
 				String comNum = (String) jsonObj.get("fin_co_no");
 				String prdNum = (String) jsonObj.get("fin_prdt_cd");
@@ -81,7 +82,7 @@ public class SavingController {
 				String prdName = (String) jsonObj.get("fin_prdt_nm");
 				// 가입방법
 				String joinWay = "";
-				if (jsonObj.get("join_way").equals("null")) {
+				if (String.valueOf(jsonObj.get("join_way")).equals("null")) {
 					joinWay = "없음";
 				} else {
 					joinWay = (String) jsonObj.get("join_way");
@@ -104,6 +105,7 @@ public class SavingController {
 				// 공시시작일
 				String dclsStart = (String) jsonObj.get("dcls_strt_day");
 
+				vo.setDclsMonth(dclsMonth);
 				vo.setComNum(comNum);
 				vo.setPrdNum(prdNum);
 				vo.setComName(comName);
@@ -120,6 +122,7 @@ public class SavingController {
 				}
 			}
 			System.out.println("Base성공");
+			
 			for (int k = 0; k < 2; k++) {
 				if (k == 0) {
 					finnum = "020000";

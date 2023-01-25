@@ -1,5 +1,8 @@
 package com.spring_boot_momentor.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.spring_boot_momentor.dao.IAnnuitySavingDAO;
 import com.spring_boot_momentor.model.AnnuitySavingBaseVO;
 import com.spring_boot_momentor.model.AnnuitySavingOptionVO;
+
 
 @Service
 public class AnnuitySavingService implements IAnnuitySavingService {
@@ -25,5 +29,16 @@ public class AnnuitySavingService implements IAnnuitySavingService {
 		dao.insertAnnuitySavingOption(vo);
 
 	}
+	
+	@Override
+	public ArrayList<AnnuitySavingBaseVO> listAllAnnuitySaving() {
+		return dao.listAllAnnuitySaving();
+	}
+	
+	@Override
+	public ArrayList<AnnuitySavingBaseVO> AnnuitySavingSearch(HashMap<String, String> map) {
+		return dao.AnnuitySavingSearch(map);
+	}
+
 
 }

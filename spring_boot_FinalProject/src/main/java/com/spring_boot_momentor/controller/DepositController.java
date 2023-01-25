@@ -3,18 +3,22 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_momentor.model.DepositBaseVO;
 import com.spring_boot_momentor.model.DepositOptionVO;
 import com.spring_boot_momentor.service.DepositService;
-
 
 @Controller
 public class DepositController {
@@ -69,14 +73,18 @@ public class DepositController {
 
 					for (int i = 0; i < dataList.size(); i++) {
 						JSONObject jsonObj = (JSONObject) dataList.get(i);
+						//공시제출월
+						String dclsMonth = (String) jsonObj.get("dcls_month");
 						
-						//회사명, 상품번호
+						//회사번호, 상품번호
 						String comNum = (String) jsonObj.get("fin_co_no");
 						String prdNum = (String) jsonObj.get("fin_prdt_cd");
-
+						//회사명, 상품명
 						String comName = (String) jsonObj.get("kor_co_nm");
 						String prdName = (String) jsonObj.get("fin_prdt_nm");
-
+						// 가입방법
+						String joinWay = (String) jsonObj.get("join_way");
+						
 						String interest = (String) jsonObj.get("mtrt_int");
 						String spclCnd = (String) jsonObj.get("spcl_cnd");
 						String joinMember = (String) jsonObj.get("join_member");
@@ -86,11 +94,12 @@ public class DepositController {
 						} else {
 							maxLimit = Integer.parseInt(String.valueOf(jsonObj.get("max_limit")));
 						}
-
+						vo.setDclsMonth(dclsMonth);
 						vo.setComNum(comNum);
 						vo.setPrdNum(prdNum);
 						vo.setComName(comName);
 						vo.setPrdName(prdName);
+						vo.setJoinWay(joinWay);
 						vo.setInterest(interest);
 						vo.setSpclCnd(spclCnd);
 						vo.setMaxLimit(maxLimit);
@@ -171,8 +180,37 @@ public class DepositController {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return "deposit";
+		return "deposit/depositForm";
 	}
+	
+	@RequestMapping("/depositForm")
+	public String viewDepositListAll() {
+		return "deposit/depositForm";
+	}
+	
+	//전체 예금 조회
+	@RequestMapping("/depositListAll")
+	public String viewDepositListAll(Model model) {
+		ArrayList<DepositBaseVO> depositList = service.listAllDeposit();
+		model.addAttribute("depositList", depositList);
+		return "deposit/depositResultForm";
+	}
+	
+	@RequestMapping("/depositSearch")
+	public String DepositSearch(@RequestParam String prdName,
+								@RequestParam String joinWay,
+								Model model) {
+		
+		HashMap<String ,Object> map = new HashMap<String, Object>();
+		map.put("prdName", prdName);
+		map.put("joinWay", joinWay);
+		
+		// 서비스로 전송해서 DB 검색 결과 받아옴
+		ArrayList<DepositBaseVO> depositList = service.depositSearch(map);	
+		model.addAttribute("depositList", depositList);
+		return "deposit/depositResultForm";	
+	}
+	
 }
-
+	
 
