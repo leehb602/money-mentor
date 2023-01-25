@@ -9,12 +9,11 @@
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/assetForm.css' />">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/assetForm.js'/>"></script>
+		<c:import url="/WEB-INF/views/layout/head.jsp" />
 	</head>
 	<body>
 		<div id="wrap">
-			<div id="header">
-			
-			</div>
+			<c:import url="/WEB-INF/views/layout/top.jsp" />
 			<div id="main">
 				<form id="assetForm">
 					<input type="hidden" id="userId" name="userId" value="${sessionScope.sid}">
