@@ -80,13 +80,9 @@ public class CalenderController {
 													@PathVariable String order) {	
 
 		ArrayList<CalenderProduct> prd = new ArrayList<CalenderProduct>();
-		System.out.println(kind);
-		System.out.println(kindDetail);
-		System.out.println(order);
 		switch(kind) {
 			case "card":
 				if(kindDetail.equals("default")) {
-					System.out.println("여기?");
 					ArrayList<CardVO> cardList = cardService.listAllCard();
 					for(int i = 0; i < cardList.size(); i++) {
 						CalenderProduct vo = new CalenderProduct();
@@ -103,11 +99,8 @@ public class CalenderController {
 
 				}
 				else {
-					System.out.println("저기?");
 					ArrayList<CardVO> cardList = calenderService.calenderListCard(kindDetail);
-					System.out.println("됨?");
 					for(int i = 0; i < cardList.size(); i++) {
-						System.out.println("됨2");
 						CalenderProduct vo = new CalenderProduct();
 						vo.setPrdID(cardList.get(i).getCardId());
 						vo.setPrdName(cardList.get(i).getCardName());
@@ -166,10 +159,19 @@ public class CalenderController {
 		
 	}
 
-	@RequestMapping("/profile/calender/duplicateCheck")
-	public @ResponseBody String duplicateCheck(HttpSession session,
-												@RequestParam("prdID") String prdID,
-												@RequestParam("prdType") String prdType) {
+	
+	@RequestMapping("/profile/calender/sendFormData/{prdType}/{prdID}")
+	public @ResponseBody String sendFormData(CalenderVO vo,
+											@PathVariable String prdID,
+											@PathVariable String prdType,
+											@RequestParam("calSubDate") String calSubDate,
+											@RequestParam("calTransfer") int calTransfer,
+											@RequestParam("calMaturity") int calMaturity,
+											@RequestParam("calPayment") int calPayment,
+											@RequestParam("prdName") String prdName,
+											@RequestParam("product") String product,
+											HttpSession session) {
+		
 		String memId = (String)session.getAttribute("sid");
 		String result = "";
 		//vo에 올리기 전, 중복이 있는지 검사
@@ -177,64 +179,24 @@ public class CalenderController {
 		
 		if(planCount == 0) {
 			result = "ok";
-		}
-		else {
-			result = "fail";
-		}
+			
+			if(prdName.length() == 0)
+				prdName = product;
 
-		return result;
-	}
-	
-
-	
-	@RequestMapping("/profile/calender/sendFormData/{prdType}/{prdID}")
-	public String getFromData(CalenderVO vo,
-											@PathVariable String prdID,
-											@PathVariable String prdType,
-											@RequestParam("calSubDate") String calSubDate,
-											@RequestParam("calTransfer") int calTransfer,
-											@RequestParam("calMaturity") int calMaturity,
-											@RequestParam("calPayment") int calPayment,
-											HttpSession session,
-											Model model) {
-
-		String memId = (String)session.getAttribute("sid");
-
-		//vo에 올리기 전, 중복이 있는지 검사
-		int planCount = calenderService.planDuplicateCheck(memId, prdID, prdType);
-		System.out.println(planCount);
-		
-		if(planCount != 0) {
-			System.out.println("faild");
-		}
-		else {
+			vo.setUserID(memId);
 			vo.setCalMaturity(calMaturity);
 			vo.setCalSubDate(calSubDate);
 			vo.setCalTransfer(calTransfer);
 			vo.setPrdID(prdID);
 			vo.setPrdType(prdType);
-			vo.setUserID(memId);
 			vo.setCalPayment(calPayment);
+			vo.setPrdName(prdName);
 			calenderService.insertPlan(vo);
-			System.out.println("success");
 		}
-		return "redirect:/profile/calender";
+		else {
+			result = "fail";
+		}
+		
+		return result;
 	}
-	
-//	@GetMapping("cardList")
-//	public String calenderList(Model model
-//								, @RequestParam(value="nowPage", required=false)String nowPage
-//								, @RequestParam(value="cntPerPage", required=false)String cntPerPage
-//								, @RequestParam(value="nowPage", required=false)String nowPage) {
-//		int total = calenderservice.countCard();
-//		return "detailProfile/calender/layout/calenderMain";
-//	}
-	
-//	
-//	@RequestMapping("/profile/calender/viewList")
-//	public String itemsView(Model model) {
-//		ArrayList<CardVO> cardList = service.listAllCard();
-//		model.addAttribute("cardList", cardList);
-//		return "redirect:defalutUrl/calenderMain";
-//	}
 }

@@ -88,9 +88,8 @@ jQuery.randerPlan = function(){
 				else if(endYear < viewYear && month > viewMonth){
 				}
 				//기간에 맞으면 보여주고
-				else{	
-					
-					if(item.prdName != null){
+				else{
+					if(item.prdName != null || item.prdName != ""){
 						prdName = item.prdName;
 					}else{
 						if(item.cardName != null){
@@ -274,59 +273,77 @@ $(document).ready(function(){
 	//일정 추가하기
 	$(document).on('click', '.calender-add-btn', function(e){
 		e.preventDefault();
-		
 		const clickBtn = $('.calender-add-btn').index(this);
 		const prdID = $(this).attr('id');
+	  	const prdType = $('#prd-kind-select option:selected').val();
 		
+		const name = $('.prdName').eq(clickBtn);
 		const subDate = $('.calSubDate').eq(clickBtn);
 		const transfer = $('.calTransfer').eq(clickBtn);
 		const maturity = $('.calMaturity').eq(clickBtn);
 		const payment = $('.calPayment').eq(clickBtn);
-	  	const prdType = $('#prd-kind-select option:selected').val()
 		let resultData = ""
 		
 		if(subDate.val() == ""){
 			alert("이체일을 입력해주세요!");
-			subDate.focus();
+			calSubDate.focus();
 			return false;
 		}
 		else if(transfer.val() == ""){
 			alert("이체일을 입력해주세요!");
-			transfer.focus();
+			calTransfer.focus();
 			return false;
 		}
 		else if(maturity.val() == ""){
 			alert("이체일을 입력해주세요!");
-			maturity.focus();
+			calMaturity.focus();
 			return false;
 		}
 		else if(payment.val() == ""){
 			alert("이체일을 입력해주세요!");
-			payment.focus();
+			calPayment.focus();
 			return false;
 		}
 		
-		//일정 중복 검사
+		const calSubDate = subDate.val();
+		const calTransfer = transfer.val();
+		const calMaturity = maturity.val();
+		const calPayment = payment.val();
+		const prdName = name.val();
+		const product = $('.prd-name').eq(Number(prdID)-1).text();
+			
 		$.ajax({
+			url:`/profile/calender/sendFormData/${prdType}/${prdID}`,
 			type:'POST',
-			url:'/profile/calender/duplicateCheck',
+			data:{'calSubDate': calSubDate, 
+				'calTransfer': calTransfer, 
+				'calMaturity': calMaturity, 
+				'calPayment': calPayment,
+				'prdName': prdName,
+				'product': product,
+			},
 			dataType:'text',
-			async:false,
-			data:{"prdID":prdID,
-				  "prdType":prdType
-				 },
-			success:function(result){
-				resultData = result;
+			success: function(result){
+				const resultData = result;
+				console.log(resultData);
+				if(result == "fail"){
+					alert("일정이 이미 등록되어 있습니다.");
+				}else if(result == "ok"){
+					jQuery.randerPlan();
+					alert("일정을 등록했습니다.");	
+				}	
 			},
 		});
-		if(resultData == "fail"){
-			alert("일정이 이미 등록되어 있습니다.");
-			return false;
-		}
-		else if(resultData == "ok"){
-			alert("일정을 등록했습니다.");
-		}	
+		
+		$('.prd-detail-view').eq(Number(prdID)-1).empty();
+		$('.prd-detail-view').eq(Number(prdID)-1).hide();
+		$('.calender-add-form').eq(Number(prdID)-1).css('width', '30%');
+		$('.prd-detail-view').eq(Number(prdID)-1).css('display', 'none');
+		$('.add-prd-btn').eq(Number(prdID)-1).text('추가하기');
+		$('.add-prd-btn').eq(Number(prdID)-1).addClass('open');
+		$('.add-prd-btn').eq(Number(prdID)-1).removeClass('close');		
 	});
+	
 	
 	jQuery.randerPlan();
  });
