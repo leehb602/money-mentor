@@ -43,4 +43,13 @@ public class CardService implements ICardService{
 	public CardVO CardCompare(String cardId) {
 		return dao.CardCompare(cardId);
 	}
+
+	public void deleteCard(String carddNoms) {
+		dao.deleteCard(carddNoms);
+		
+	}
+	// 카드비교 모달
+	public ArrayList<CardVO> CardComparemodal(String cardId) {
+		return dao.CardComparemodal(cardId);
+	}
 }
