@@ -5,14 +5,42 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
     <mapper namespace="com.spring_boot_momentor.dao.IDepositDAO">
+      <resultMap id="DepositResult" type="com.spring_boot_momentor.model.DepositBaseVO">
+		<result property="dclsMonth" column="dclsMonth"/>
+		<result property="comNum" column="comNum"/>
+		<result property="prdNum" column="prdNum"/>
+		<result property="comName" column="comName"/>
+		<result property="prdName" column="prdName"/>
+		<result property="joinWay" column="joinWay"/>
+		<result property="interest" column="interest"/>
+		<result property="spclCnd" column="spclCnd"/>
+		<result property="maxLimit" column="maxLimit"/>
+		<result property="joinMember" column="joinMember"/>
+	</resultMap>
+	
   	<insert id="insertDepositBase" parameterType="com.spring_boot_momentor.model.DepositBaseVO" timeout="3">
-  		insert into DepositBase (comNum, prdNum, comName, prdName, interest, spclCnd, maxLimit, joinMember)
-  		values (#{comNum}, #{prdNum}, #{comName}, #{prdName}, #{interest}, #{spclCnd}, #{maxLimit}, #{joinMember})
+  		insert into DepositBase (dclsMonth, comNum, prdNum, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember)
+  		values (#{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{joinWay}, #{interest}, #{spclCnd}, #{maxLimit}, #{joinMember})
   	</insert>
   	<insert id="insertDepositOption" parameterType="com.spring_boot_momentor.model.DepositOptionVO">
   		insert into DepositOption (comNum, prdNum, intrRate, intrRate2, saveTrm, intrRateTypeName)
   		values (#{comNum}, #{prdNum}, #{intrRate}, #{intrRate2}, #{saveTrm}, #{intrRateTypeName})
   	</insert>
+  	
+  	<!--  전체 연금 조회  -->
+	<select id="listAllDeposit" resultMap="DepositResult"> 
+		SELECT * FROM depositBase ORDER BY prdNum 
+	</select>
+	
+	<!--  적금 검색  -->
+	<select id="depositSearch" parameterType="hashmap" resultMap="DepositResult"> 
+		<![CDATA[
+		SELECT * FROM depositBase 
+		WHERE prdName like CONCAT('%', #{prdName}, '%') OR
+			  comName like CONCAT('%', #{prdName}, '%') and 
+			  joinWay like CONCAT('%', #{joinWay}, '%') 
+		]]> 
+	</select>
   </mapper>
   
 		

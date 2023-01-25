@@ -3,16 +3,50 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-    <mapper namespace="com.spring_boot_momentor.dao.IAnnuitySavingDAO">
+  <mapper namespace="com.spring_boot_momentor.dao.IAnnuitySavingDAO">
+  <resultMap id="AnnuitySavingResult" type="com.spring_boot_momentor.model.AnnuitySavingBaseVO">
+		<result property="dclsMonth" column="dclsMonth"/>
+		<result property="comNum" column="comNum"/>
+		<result property="prdNum" column="prdNum"/>
+		<result property="comName" column="comName"/>
+		<result property="prdName" column="prdName"/>
+		<result property="pnsnKindName" column="pnsnKindName"/>
+		<result property="saleStart" column="saleStart"/>
+		<result property="prdtTypeName" column="prdtTypeName"/>
+		<result property="avgPrftRate" column="avgPrftRate"/>
+		<result property="dclsRate" column="dclsRate"/>
+		<result property="guarRate" column="guarRate"/>
+		<result property="btrmPrftRate1" column="btrmPrftRate1"/>
+		<result property="btrmPrftRate2" column="btrmPrftRate2"/>
+		<result property="btrmPrftRate3" column="btrmPrftRate3"/>
+		<result property="saleCom" column="saleCom"/>
+		<result property="dclsStart" column="dclsStart"/>
+	</resultMap>
+	
   	<insert id="insertAnnuitySavingBase" parameterType="com.spring_boot_momentor.model.AnnuitySavingBaseVO" timeout="3">
-  		insert into AnnuitySavingBase (comNum, prdNum, comName, prdName, pnsnKindName, saleStart, prdtTypeName, avgPrftRate, 
+  		insert into AnnuitySavingBase (dclsMonth, comNum, prdNum, comName, prdName, pnsnKindName, saleStart, prdtTypeName, avgPrftRate, 
   									   dclsRate, guarRate, btrmPrftRate1, btrmPrftRate2, btrmPrftRate3, saleCom, dclsStart)
-  		values (#{comNum}, #{prdNum}, #{comName}, #{prdName}, #{pnsnKindName}, #{saleStart}, #{prdtTypeName}, #{avgPrftRate},
+  		values (#{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{pnsnKindName}, #{saleStart}, #{prdtTypeName}, #{avgPrftRate},
   			    #{dclsRate}, #{guarRate}, #{btrmPrftRate1}, #{btrmPrftRate2}, #{btrmPrftRate3}, #{saleCom}, #{dclsStart})
   	</insert>
   	<insert id="insertAnnuitySavingOption" parameterType="com.spring_boot_momentor.model.AnnuitySavingOptionVO">
   		insert into AnnuitySavingOption (comNum, prdNum, pnsnRecTrm, pnsnEnterAge, monPay, payPeriod, pnsnStartAge, pnsnRecAmt)
   		values (#{comNum}, #{prdNum}, #{pnsnRecTrm}, #{pnsnEnterAge}, #{monPay}, #{payPeriod}, #{pnsnStartAge}, #{pnsnRecAmt})
   	</insert>
+  	
+  	<!--  전체 연금 조회  -->
+	<select id="listAllAnnuitySaving" resultMap="AnnuitySavingResult"> 
+		SELECT * FROM annuitySavingBase ORDER BY prdNum 
+	</select>
+	
+	<!-- 연금 검색 -->
+	<select id="AnnuitySavingSearch" parameterType="hashmap" resultMap="AnnuitySavingResult" > 
+		<![CDATA[
+		SELECT * FROM annuitySavingBase 
+		WHERE prdName like CONCAT('%', #{prdName}, '%') and 
+			  prdtTypeName like CONCAT('%', #{prdtTypeName}, '%') and
+			  pnsnKindName like CONCAT('%', #{pnsnKindName}, '%')
+			]]> 
+	</select>
+
   </mapper>

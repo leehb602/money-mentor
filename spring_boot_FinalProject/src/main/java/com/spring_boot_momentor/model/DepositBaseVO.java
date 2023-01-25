@@ -1,15 +1,22 @@
 package com.spring_boot_momentor.model;
 
 public class DepositBaseVO {
+	private String dclsMonth;
 	private String comNum;
 	private String prdNum;
 	private String comName;
 	private String prdName;
-	private String joinWqy;
+	private String joinWay;
 	private String interest;
 	private String spclCnd;
 	private int maxLimit;
 	private String joinMember;
+	public String getDclsMonth() {
+		return dclsMonth;
+	}
+	public void setDclsMonth(String dclsMonth) {
+		this.dclsMonth = dclsMonth;
+	}
 	public String getComNum() {
 		return comNum;
 	}
@@ -34,11 +41,11 @@ public class DepositBaseVO {
 	public void setPrdName(String prdName) {
 		this.prdName = prdName;
 	}
-	public String getJoinWqy() {
-		return joinWqy;
+	public String getJoinWay() {
+		return joinWay;
 	}
-	public void setJoinWqy(String joinWqy) {
-		this.joinWqy = joinWqy;
+	public void setJoinWay(String joinWay) {
+		this.joinWay = joinWay;
 	}
 	public String getInterest() {
 		return interest;
@@ -64,6 +71,8 @@ public class DepositBaseVO {
 	public void setJoinMember(String joinMember) {
 		this.joinMember = joinMember;
 	}
+	
+	
 	
 }
 	

@@ -1,17 +1,24 @@
 package com.spring_boot_momentor.model;
 
 public class RentHouseLoanBaseVO {
+	private String dclsMonth;
 	private String comNum;
 	private String prdNum;
 	private String comName;
 	private String prdName;
-	//private String joinWay;
+	private String joinWay;
 	private String loanInciExpn;
 	private String erlyRpayFee;
 	private String dlyRate;
 	private String loanLimit;
 	private String dclsStart;
 	
+	public String getDclsMonth() {
+		return dclsMonth;
+	}
+	public void setDclsMonth(String dclsMonth) {
+		this.dclsMonth = dclsMonth;
+	}
 	public String getComNum() {
 		return comNum;
 	}
@@ -35,6 +42,12 @@ public class RentHouseLoanBaseVO {
 	}
 	public void setPrdName(String prdName) {
 		this.prdName = prdName;
+	}
+	public String getJoinWay() {
+		return joinWay;
+	}
+	public void setJoinWay(String joinWay) {
+		this.joinWay = joinWay;
 	}
 	public String getLoanInciExpn() {
 		return loanInciExpn;
@@ -66,6 +79,7 @@ public class RentHouseLoanBaseVO {
 	public void setDclsStart(String dclsStart) {
 		this.dclsStart = dclsStart;
 	}
+	
 	
 }
 
