@@ -8,12 +8,11 @@
 		<title>자산 결과</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/assetResult.css' />">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
+		<c:import url="/WEB-INF/views/layout/head.jsp" />
 	</head>
 	<body>
 		<div id="wrap">
-			<div id="header">
-			
-			</div>
+			<c:import url="/WEB-INF/views/layout/top.jsp" />
 			<div id="main">
 				<table border="1">
 					<thead>
