@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,6 +15,9 @@
 		<script src="<c:url value='/js/more.js' />"></script>	
 		<script src="<c:url value='/js/cardSearch.js' />"></script>	
 		<script src="<c:url value='/js/none.js' />"></script>	
+		
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/popup.css'/>">
+		<script src="<c:url value='/js/popup.js'/>"></script>	
 		
 	</head>
 	<body>
@@ -128,7 +132,7 @@
 				<div class="compsel_prods">
 					<!-- 안에 li 개수에 따라 ul.prod_list의 너비 값을 주어야 함 (li개수 x 140) li 개수 최대 10개 -->
 					<ul class="prod_list" style="width: 280px;">
-					<!--  -->
+					<!-- none.js append 내부 데이터 들어옴 -->
 					
 						
 					</ul>
@@ -138,14 +142,16 @@
 				<!-- compsel_opt_area -->
 				<div class="compsel_opt_area">
 					<div class="opt_select">
-						<button type="button" class="btn_compsel" onclick="productCompare.checkAll();" onmousedown="gtagSend('PC견적메인','상품비교레이어','전체선택/해제')">전체선택/해제</button>
-						<button type="button" class="btn_compsel sel_prod_comp" onclick="productCompare.compare();">선택상품비교</button>
+					
+						<button type="button" class="btn_compsel" ><input type="checkbox" id="allCheck" name="allCheck" class="allCheck">전체선택/해제</button>
+						<button type="button" class="btn_compsel" id="deleteCardBtn">선택상품 삭제</button>
+						<button type="button" class="btn_compsel sel_prod_comp" onclick="productCompare1()">상품비교</button>
 					</div>
 					<!-- //opt_select -->
 					<!-- opt_delete -->
 					<div class="opt_delete">
-						<button type="button" class="btn_compsel" onclick="productCompare.cart();" onmousedown="gtagSend('PC견적메인','상품비교레이어','선택상품담기')">선택상품 담기</button>
-						<button type="button" class="btn_compsel" onclick="productCompare.remove(null);" onmousedown="gtagSend('PC견적메인','상품비교레이어','선택상품삭제')">선택상품 삭제</button>
+						
+						
 					</div>
 					<!-- //opt_delete -->
 				</div>
@@ -154,5 +160,31 @@
 			<!-- //compsel_body -->
 		</div>
 		
+		
+		<!-- 상품 선택 모달 창 -->
+		<div class="container">
+  <div class="popup-wrap" id="popup"  style="display: none" >  <!-- style="display: none" -->
+    <div class="popup">	
+      <div class="popup-head">	
+          <span class="head-title">선택 상품 비교</span>
+      </div>
+      <div class="popup-body">	
+        <div class="body-content">
+          
+          <div class="body-contentbox">
+          
+          
+            
+          </div>
+        </div>
+      </div>
+      <div class="popup-foot"> 
+        <span class="pop-btn confirm" id="confirm">확인</span>
+        <span class="pop-btn close" id="close">창 닫기</span>
+      </div>
+    </div>
+   </div>
+</div>
+
 	</body>
 </html>

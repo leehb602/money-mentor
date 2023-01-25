@@ -30,7 +30,8 @@ $(function(){
 							<div class = "dd">
 							<!-- 위에 상세주소  --> <a class="anchor" href=""> <!-- 상세페이지 url 넣기 -->
 								<img class="cardImg" src="<c:url value='${card.cardImgUrl}'/>">
-						</a> <div class="info">
+						</a> 
+						<div class="info">
 						<!-- 상세페이지 url 넣기 -->
 							
 						<a class="anchor"> <!-- 상세페이지 url 넣기 --> <b class="name">${card.cardName}</b>
@@ -41,8 +42,7 @@ $(function(){
 						<p class="desc">${card.cardDes}</p>
 						
 						
-						<i class="annual_fee"><fmt:formatNumber value="${card.cardFee}"
-								pattern="#,###" /> ₩</i>
+					
 	
 					</div>
 					<div class="preview">
