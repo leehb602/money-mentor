@@ -58,5 +58,10 @@
 		where cardId = #{cardId}
 		 
 	</select>
-
+	<!-- 메인 랭킹부분 -->
+	<select id="cardRandom" resultMap="cardResult" >
+		SELECT * FROM cards
+		ORDER BY cardId DESC LIMIT 0, 3
+	</select>
+	
 </mapper>

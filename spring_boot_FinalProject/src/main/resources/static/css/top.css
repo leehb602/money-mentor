@@ -177,7 +177,7 @@
 .under_span_ul{
     list-style: none;
     position: absolute;
-    margin-top: 31px;
+    margin-top: 30px;
     width: 150px;
     padding-left: 0px;
     margin-left: -50px;
@@ -187,6 +187,10 @@
 .under_span_ul > li{
 	margin-top:5px;
 	margin-bottom:10px;
+}
+.under_span_ul > li > a{
+	text-decoration: none;
+	color: black;
 }
 .under_span_ul > li > a:hover{
 	color:red;

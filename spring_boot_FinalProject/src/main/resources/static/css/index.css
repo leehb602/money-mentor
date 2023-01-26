@@ -214,7 +214,6 @@ body {
 	margin: 10px 0;
 }
 .see_sec{
-	display: flex;
     height: 100%;
     width: 100%;
     justify-content: center;
@@ -223,19 +222,45 @@ body {
 	width:60%;
 }
 .card_Img_div{
-	margin-top:15px;
 	width:140px;
 	height:200px;
-	border:1px solid red;
 }
-.see_sec2{
-	width:35%;
-	border:1px solid blue;
+/* ranking start*/
+.ranking_main{
+	display: flex;
+}
+.ranking_img{
+	display:flex;
+	margin-top:15px;
+}
+.ranking_text {
+    position: relative;
+    margin-left: 76px;
+}
+.detail {
+/*     position: absolute; */
+    width: 376px;
+    height:200px;
+    background-color:#eee;
+    border-radius: 15px;
+}
+#ranking_h2{
+    margin-block-start: 0px;
 }
 .img_section{
 	width:90%;
 	height:80%;
 	margin:0 auto ;
-	display: flex;
-    justify-content: space-evenly;
+}
+.cardIndex_main{
+	height: 100px;
+    margin: 10px;
+}
+.ranking_text_url a {
+	text-decoration: none;
+	color:gray;
+	filter: brightness(0.9);
+}
+.ranking_text_url a:hover{
+	filter: brightness(0);
 }

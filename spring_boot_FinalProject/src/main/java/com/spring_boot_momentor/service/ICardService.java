@@ -12,4 +12,6 @@ public interface ICardService {
 	public CardVO CardCompare(String cardId); //카드비교 넣기
 	public void deleteCard(String carddNoms); // 비교 데이터 선택 삭제
 	public ArrayList<CardVO> CardComparemodal(String cardId); // 카드비교 모달
+	// 메인 랭킹 
+	public ArrayList<CardVO> cardRandom();
 }
