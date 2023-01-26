@@ -17,145 +17,13 @@
 /* 모든 <img> 태그 테두리 없음 */
 /* img {border:0; margin:0;}   */
 
-
-:root{
-	--main-color:#82AAE3;
-}
-
-a{
-	text-decoration:none;
-	color:black;
-}
-button{
-	background-color:unset;
-	border: 0px;
-	padding:0px;
-}
-button:hover{
-	cursor: pointer;
-}
-
-body {
-	margin:0px;
-}
-.calender-date-view, .btnCommon{
-	display:flex;
-	align-items:center;
-}
-.calender-date-view{
-	width:70%;
-	justify-content:space-between;	
-}
-.calender-head-text{
-	margin:0px 10px;
-	color:white;
-	font-weight: bold;
-	font-size:24px;
-}
-
 #calender{
-	padding:20px;
-	width:70%;
+	width:65%;
 	height:100%;
-	justify-content:space-between;
-	align-items: center;
 }
-#plan-view-header{
-	height:500px;
-	padding:40px 20px;
-	border-bottom:1px dashed black;
-}
-#plan-list-view-box{
-	padding:40px 20px;
-	min-width:300px;
-}
-#main{
-	display:flex;
-}
-#body{
-	position:relative;
-	top:90px;
-	margin-bottom:120px;
-}
-header, footer{
-	z-index:1;
-}
-#all-delete{
-	display:flex;
-	justify-content:end;
-}
-#search-option, .plan-title {
-	display:flex;
-	align-items: center;
-}
-#prd-list-box{
-	overflow:auto;
-	height:1280px;
-	display:flex;
-	justify-content:space-evenly;
-	flex-wrap: wrap;
-}
-.prd-item{
-	padding:20px;
-	width:300px;
-	min-height:150px;
-	min-width:100px;
-	text-align:center;
-	margin:0 auto;
-}
-
-.prd-item:hover{
-	opacity:70%;
-	cursor:pointer;
-}
-
-.prd-item button{
-	border:2px solid black;
-	padding:5px;
-	font-size:18px;
-}
-#search-box{
-	margin-right:20px;
-}
-
-#search-box button{
-	font-size:18px;
-	padding:8px;
-	border:0.5px solid white;
-}
-#search-box input{
-	font-size:18px;
-	padding:8px;
-	border:0px;
-}
-#search-box input:focus{
-	outline-color:var(--main-color);
-}
-#search-box button:hover{
-	color:white;
-	background-color:var(--main-color);
-	border:0.5px solid var(--main-color);
-}
-#plan-list-view, #prd-items-view, .all-plans{
-	justify-content:space-between;
-	display:flex;
-	align-items: center;
-	padding:20px 0px;
-}	
-#plan-list-view{
-	position:sticky;
-	top:120px;
-	left:0;
-}
-#search-option select[name=prd-kind-select], #search-option select[name=prd-kind-selectOption], .prev-month-btn{
-	margin-right:10px;
-}
-
-#prd-items-view button, #plan-list-view button, #list-nextBtn, #list-prev-btn	{	
-	border-radius:10px;
-	padding:15px 10px;
-	color:black;
-	font-size:18px;
+#calender-view{
+	padding-left:10px;
+	border-left:0.5px dashed rgb(64 60 67 / 60%);
 }
 #calender-head{
 	display:flex;
@@ -163,10 +31,32 @@ header, footer{
 	text-align:center;
 	align-items:center;
 	justify-content:space-between;
-	padding:5px 20px;
+    padding: 5px 85px;
 }
+.calender-date-view, .btnCommon, .prd-detail-view tr, .prd-detail-view tr > td:nth-child(2){
+	display:flex;
+	align-items:center;
+}
+.prd-detail-view tr > td:nth-child(2){
+	font-weight: 300;
+}
+.prd-detail-view tr{
+	margin-top:5px;
+}
+.calender-date-view{
+	width:70%;
+	justify-content:space-between;	
+}
+.calender-head-text{
+	margin:0px 10px;
+	color:rgb(240, 240, 240);
+	font-weight: bold;
+	font-size:15px;
+}
+
+
 .calender-head-items{
-	padding:20px;
+	padding:10px;
 }
 
 
@@ -174,19 +64,17 @@ header, footer{
 	height:110px;
 	width:500px;
 	vertical-align:top;
-	font-size:18px;
-	padding:20px;
+	font-size:12px;
+	padding:10px;
 	opacity:60%;
-	table-layout:fixed;
 }
 .dates, .now{
 	height:110px;
 	width:500px;
 	vertical-align:top;
-	font-size:18px;
-	padding:20px;
+	font-size:12px;
+	padding:10px;
 	opacity:100%;
-	table-layout:fixed;
 }
 
 .fut-dates, .past-dates {
@@ -196,118 +84,40 @@ header, footer{
 	background-color:aliceblue;
 }
 .dates:hover, .years:hover, .months:hover{
-	background-color:rgb(245, 245, 245);
+	background-color:rgba(245, 245, 245);
+	transition: all ease 0.5s;
 	cursor: pointer;
+}
+
+.years:hover, .months:hover{
+	background-color:rgb(245, 245, 245);
+}
+.real-date:hover{
+	background-color:rgba(240, 248, 255, 0.3);
 }
 #year-select-Box{
 	overflow:scroll;
 }
-
-.sat{
-	color:blue;
-}
-.sun{
-	color:red;
-}
-.btn{
-	font-size:26px;
-	color:white;
-}
-.dates-head-text{
-	height:80px;
-	color:var(--main-color);
-	font-size:20px;
-}
 .view-today-btn{
-	font-size:20px;
+	font-size:18px;
 }
 .today-btn-text{
 	padding-left:10px;
 	font-weight:bold;
+	color:rgb(240, 240, 240);
 }
 .view-date{
 	width:160px;
 }
 
-#search-option select{
-	font-size:20px;
-}
-.img-box{
-	width:200px;
-	height:320px;
-    overflow:hidden;
-    margin:10px auto;
-}
-.img-box img{
-	position:relative;
-	top:70px;
-	right:49px;
-	width:300px;
-	height:180px;
-	transform:rotate(90deg);
-}
 .calender-add-form{
 	display:flex;
 	width:30%;
 	justify-content:space-evenly;
 }
-.prd-detail-view{
-	width:300px;
-	padding:20px;
-	justify-content:center;
-}	
-#prdName{
-	width:120px;
-}
-.prd-table-title {
-	width:70px;
-}	
-.cardDes{
-	display:flex;
-	justify-content:center;
-	height:75px;
-	align-items:center;	
-}
-.prd-title{
-	font-size:24px;
-}
-.deco-btn-box, .item-btn-box{
-	margin:10px;
-	display:flex;
-	justify-content:space-evenly;
-	padding:0px 40px;
-}
 .calender-plan-box{
 	color:black;
 }
-.plan-date, .plan-list-title{
-	font-size:24px;
-}
-.plan-title, .payment{
-	font-size:18px;
-	display:flex;
-	justify-content:space-between;
-}
-.plans{
-	margin: 15px 0px;
-}
-#list-prev-btn{
-	position: relative;
-    top: 680px;
-}
-#plan-view{
-	width:30%;
-}
 .view-header-title{
 	margin-bottom:20px;
-}
-.all-plan-title{
-	width:160px;
-	text-align:center;
-}
-
-.all-payment{
-	width:80px;
-	text-align:center;
-	
 }
