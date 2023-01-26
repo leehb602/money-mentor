@@ -27,7 +27,7 @@
 			<td class="c_info" >
 				<a href="#">											
 					<dl>
-						<dt><a href=<c:url value='/creditLoan/detailViewCreditLoan/${creditLoan.prdNum }'/>">${creditLoan.prdNum }</a></dt>
+						<%--<dt><a href=<c:url value='/creditLoan/detailViewCreditLoan/${creditLoan.prdNum }'/>">${creditLoan.prdNum }</a></dt>--%>
 						<dd>${creditLoan.joinWay }</dd>
 						<dd>${creditLoan.comName }</dd>
 						<dd>${creditLoan.prdName }</dd>
