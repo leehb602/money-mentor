@@ -1,22 +1,39 @@
 @charset "UTF-8";
 
-* {
+#main {
 	margin: 0 auto;
+	width: 600px;
 }
 
 table {
+	margin: 0 auto;
 	width: 600px;
-	height : 70px;
-	line-height : 70px;
+	height: 70px;
+	line-height: 70px;
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 125px;
+	border-spacing: 0;
+	border: 1px solid black;
+}
+
+#title {
+	background-color: #eee;
+	border: 2px solid black;
+}
+
+tbody {
+	background-color: rgb(201, 218, 255);
+}
+
+tfoot {
+	background-color: rgb(219, 230, 255);
 }
 
 table th {
 	font-size: 20px;
 }
 
-span {
+#span {
 	font-size: 18px;
 	font-weight: bold;
 }

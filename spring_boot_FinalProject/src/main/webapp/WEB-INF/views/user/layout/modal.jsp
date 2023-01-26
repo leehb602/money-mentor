@@ -8,6 +8,7 @@
 				</div>
 				<div id="YorN">
 					<button id="consent">확인</button>
+					&nbsp;&nbsp;&nbsp;
 					<button id="cancle">취소</button>
 				</div>
 			</div>		

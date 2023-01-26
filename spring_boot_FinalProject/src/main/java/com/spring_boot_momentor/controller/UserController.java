@@ -84,6 +84,7 @@ public class UserController {
 	}
 	
 	// 아이디 찾기
+	@ResponseBody
 	@RequestMapping("/user/findId")
 	public String findId(UserVO vo,
 						 @RequestParam("hp1") String userHp1,
@@ -94,13 +95,19 @@ public class UserController {
 		String userId = service.findId(vo);
 		String result ="";
 		if(userId == null) {
-			result="user/findIdPwFail";
+			result="fail";
 		}else {
-			result="user/findIdSuccess";
+			result="success";
 		}
 		model.addAttribute("userName", vo.getUserName());
 		model.addAttribute("userId", userId);
 		return result;
+	}
+	
+	// 아이디 찾기 성공
+	@RequestMapping("/user/findIdSuccess")
+	public String idFineSuccess() {
+		return "user/findIdSuccess";
 	}
 	
 	// 비밀번호 찾기 폼 이동
@@ -110,6 +117,7 @@ public class UserController {
 	}
 	
 	// 비밀번호 찾기
+	@ResponseBody
 	@RequestMapping("/user/findPassword")
 	public String findPassword(UserVO vo,
 			 				   @RequestParam("hp1") String userHp1,
@@ -120,12 +128,18 @@ public class UserController {
 		String userPassword = service.findPw(vo);
 		String result ="";
 		if(userPassword == null) {
-			result="user/findIdPwFail";
+			result="fail";
 		}else {
 			model.addAttribute("userId", vo.getUserId());
-			result="user/findPwSuccess";
+			result="success";
 		}
 		return result;
+	}
+	
+	// 비밀번호 찾기 성공
+	@RequestMapping("/user/findPwSuccess")
+	public String pwFineSuccess() {
+		return "user/findPwSuccess";
 	}
 	
 	// 비밀번호 변경

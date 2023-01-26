@@ -1,15 +1,12 @@
 @charset "UTF-8";
 
-* {
-	margin: 0 auto;
-}
-
 table {
+	margin: 0 auto;
 	width: 500px;
 	height: 50px;
 	line-height: 50px;
 	text-align: center;
-	margin-top: 5%;
+	margin-top: 100px;
 }
 
 table th {
@@ -33,8 +30,10 @@ table th {
 	font-weight: bold;
 	border: none;
 	border-radius: 15px;
+	background-color : #0F4B81;
+	color:white;
 }
 
 button:hover {
-	
+	cursor: pointer;
 }

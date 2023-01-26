@@ -14,6 +14,7 @@
 				url:"/user/pwChange",
 				data:formData,
 				success:function(result){
+					alert("변경되었습니다");
 					location.href="/user/loginForm";
 				},
 				error:function(){

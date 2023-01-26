@@ -1,14 +1,19 @@
 @charset "UTF-8";
 
-@font-face {
-    font-family: 'WooridaumB';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/WooridaumB.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ 	font-family: 'Noto Sans KR', sans-serif;
 }
 
 * {
 	margin: 0 auto;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+img {
+	width: 250px;
+	height: 100px;
 }
 
 body {
@@ -51,7 +56,6 @@ td {
 	float: left;
 	color: #3E3E3E;
 	font-weight: bold;
-	font-family: 'WooridaumB';
 }
 
 /* 조건에 일치하지 않았을 경우 */
@@ -111,7 +115,6 @@ button {
 	border-radius: 10px;
 	background-color : #0F4B81;
 	color:white;
-	font-family: 'LeferiPoint-WhiteObliqueA'
 }
 
 #joinBtn {
@@ -125,7 +128,8 @@ button {
 }
 
 #idcheck {
-	font-size: 12px;
+	font-size: 13px;
+	width: 63px;
 }
 
 #idcheck:hover {

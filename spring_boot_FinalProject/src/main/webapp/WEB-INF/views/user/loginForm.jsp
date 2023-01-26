@@ -15,7 +15,7 @@
 				<table>
 				<thead>
 					<tr>
-						<th>Momentor</th>
+						<th><a href='<c:url value="/"/>'><img src="<c:url value='/image/모멘토 로고.png'/>"></a></th>
 					</tr>
 				</thead>
 				<tbody>

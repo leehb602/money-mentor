@@ -23,14 +23,13 @@
 }
 
 #coment {
-	background-color: rgb(219, 232, 232);
 	padding-left: 0px;
 	margin: 0;
 	padding-top: 0px;
 	padding-left: 100;
 	border-radius: 10px;
-	height: 80px;
-	line-height : 80px;
+	height: 55px;
+	line-height : 95px;
 	width: 100%;
 	text-align: center;
 }
@@ -41,13 +40,12 @@
 	font-weight: bold;
 	border: none;
 	border-radius: 5px;
-	float: right;
 	margin-top: 85px;
 }
 
 #YorN button {
-	background-color : lightblue;
-	border : solid 1px black;
+	background-color : #0F4B81;
+	color: white;
 	width: 75px;
 	line-height: 10px;
 }

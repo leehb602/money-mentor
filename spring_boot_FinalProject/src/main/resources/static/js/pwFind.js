@@ -19,7 +19,11 @@
 				data:formData,
 				success:function(result){
 					$('.textBox').val("");
-					$('#findPwBox').html(result);
+					if(result == "success"){
+						location.href="/user/findPwSuccess";
+					} else {
+						$('#findError').text("일치하는 정보가 없습니다.");
+					}
 				},
 				error:function(){
 					alert("오류발생! 관리자에게 문의 바랍니다.");
