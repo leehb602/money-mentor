@@ -7,10 +7,12 @@
 			<div class="footer_main_div">
 				<div class="fo_text_div">
 					<div class="fo_div1">
-						Momentor <span> 𝑻𝒉𝒆 𝒄𝒉𝒐𝒊𝒄𝒆 𝒐𝒇 𝒕𝒉𝒆 𝒎𝒐𝒎𝒆𝒏𝒕 𝒅𝒆𝒕𝒆𝒓𝒎𝒊𝒏𝒆𝒔 𝒕𝒉𝒆 𝒇𝒖𝒕𝒖𝒓𝒆.</span>
+						<div><img id="foot_logo"src="<c:url value='/image/MomentorLogo.png'/>"></div>
+						<div class="fo_div1_text"> 𝑻𝒉𝒆 𝒄𝒉𝒐𝒊𝒄𝒆 𝒐𝒇 𝒕𝒉𝒆 𝒎𝒐𝒎𝒆𝒏𝒕 𝒅𝒆𝒕𝒆𝒓𝒎𝒊𝒏𝒆𝒔 𝒕𝒉𝒆 𝒇𝒖𝒕𝒖𝒓𝒆.</div>
 					</div>
+					<br><br><br>
 					<div class="fo_div2">
-						<ul>
+						<ul id="foot_ul">
 							<li><a href="<c:url value='/all/introduce'/>">모멘토 소개</a></li>
 							<li>ㅣ</li>
 							<li><a href="javascript:void(0);" onclick="chatFunction(); return false;">챗봇 가이드</a></li>
@@ -22,7 +24,7 @@
 					</div>
 					<hr />
 					<div class="fo_div3">
-						<ul>
+						<ul id="foot_ul">
 							<li><a href="<c:url value='/#'/>">이용안내</a></li>
 							<li>ㅣ</li>
 							<li>대표 1J4P</li>
@@ -31,7 +33,7 @@
 						</ul>
 					</div>
 					<div class="fo_div4">
-						<ul>
+						<ul id="foot_ul">
 							<li>고객센터 02-1111-xxxx</li>
 							<li>ㅣ</li>
 							<li>운영시간 09:00 ~ 18:00</li>
@@ -42,9 +44,11 @@
 					
 				</div>
 				<div class="fo_other">
-					<div>제휴-Multicampus</div><br><br>
-					<div>모멘토</div>
+				<br><br>
+					<div>제휴-Multicampus</div><br><br><br>
+					<div class="fo_momentor">momentor</div><br>
 					<div><a href="<c:url value='https://github.com/leehb602/money-mentor/tree/main'/>" target="_blank"><ion-icon id="git_img"name="logo-github" /></a></div>
+					<br>
 					<div><a href="<c:url value='/#'/>"><ion-icon id="git_img" name="logo-discord" /></a></div>
 				</div>
 			</div>
