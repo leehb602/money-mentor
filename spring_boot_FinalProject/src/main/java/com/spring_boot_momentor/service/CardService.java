@@ -52,4 +52,13 @@ public class CardService implements ICardService{
 	public ArrayList<CardVO> CardComparemodal(String cardId) {
 		return dao.CardComparemodal(cardId);
 	}
+
+	// 메인 랭킹
+	@Override
+	public ArrayList<CardVO> cardRandom() {
+		// TODO Auto-generated method stub
+		return dao.cardRandom();
+	}
+
+	// 메인 랭킹 끝
 }

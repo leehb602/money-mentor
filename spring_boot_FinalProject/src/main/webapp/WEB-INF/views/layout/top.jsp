@@ -66,6 +66,7 @@
 						<div id="under_span"><a  class="underList" href="<c:url value='/#'/>">목록</a>
 							<ul class="under_span_ul">
 								<li><a href="<c:url value='/all/introduce'/>">모멘토란</a></li>
+								<li><a href="<c:url value='/user/assetInfoForm'/>">정보입력</a></li>
 								<li><a href="<c:url value='/CardList'/>">카드 상품</a></li>
 								<li><a href="<c:url value='/savingForm'/>">적금 상품</a></li>
 								<li><a href="<c:url value='/depositForm'/>">예금 상품</a></li>

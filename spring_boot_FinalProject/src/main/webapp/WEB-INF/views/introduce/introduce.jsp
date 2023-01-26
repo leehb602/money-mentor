@@ -17,7 +17,7 @@
 		<div class="intro_div">
 			<div id="momentor_sec1" class="momentor"> <!-- id 값으로 css에 이미지넣기 -->
 				<div class="sec_box1">
-					<div class="sec_box1_title1">Momentor </div><br>
+					<div class="sec_box1_title1"><span id="money_span">Money</span> <span id="and">&</span> <span id="momentor_span">Mentor</span> <br>Momentor </div><br>
 					<div class="sec_box1_title2">2030을 위한 금융 플렛폼 
 					<br><br>
 					𝑻𝒉𝒆 𝒄𝒉𝒐𝒊𝒄𝒆 𝒐𝒇 𝒕𝒉𝒆 𝒎𝒐𝒎𝒆𝒏𝒕 <br>𝒅𝒆𝒕𝒆𝒓𝒎𝒊𝒏𝒆𝒔 𝒕𝒉𝒆 𝒇𝒖𝒕𝒖𝒓𝒆</div>
@@ -86,6 +86,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="disunite_div" ></div>
 	</section>
 	<!-- footer.jsp -->
 	<c:import url="/WEB-INF/views/layout/footer.jsp" />

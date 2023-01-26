@@ -95,19 +95,13 @@
 			 					<div class="see_sec1"><br>
 			 						<div class="img_section">
 			 							<div class="card_Img_div">
-			 							 		
+	 							 			<div>
+												
+											</div>
 			 							</div>
-			 							<div class="card_Img_div">
-			 							 		
-			 							</div>
-			 							<div class="card_Img_div">
-			 							 		
-			 							</div>
+			 							
 			 						</div>
 			 					</div>
-			 					<div class="see_sec2">
-									
-								</div>
 			 				</div>
 			 			</div>
 			 			<div class="fin_see loanSee">
