@@ -29,19 +29,19 @@ jQuery.randerPlan = function(){
 									`);	
 				$('#plan-view-header').empty();
 				$('#plan-view-header').append(`
-										<div>
+										<div class="warning-text">
 											일정을 확인하고 싶다면 로그인을 해주세요
 										</div>
 									`);
 			}
 			else if(result.length == 0){
 				$('#calender-view').append(`
-										<div>
+										<div class="warning-text">
 											등록된 일정이 없습니다. 일정을 등록해주세요.
 										</div>
 									`);
 				$('#plan-list-box').append(`
-										<div>
+										<div class="warning-text">
 											등록된 일정이 없습니다. 일정을 등록해주세요.
 										</div>
 									`);

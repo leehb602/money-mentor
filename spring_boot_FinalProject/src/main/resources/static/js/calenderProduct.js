@@ -14,63 +14,89 @@
     url: `/profile/calender/getPrdData/${kind}/${kindDetail}/${order}`,
     dataType: 'json',
     success: function(result) {
-		$.each(result, function(index, item){
-			let viewData = `<div class="prd-item">
-								<div class="prd-title">`;
+		$.each(result, function(index, item){	
+			let viewData =	`
+							<div class="prd-item">`;
+			
 			let linkData = "";
+			
+			if(item.prdCom == 'KB'){
+				linkData = `"window.open('https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${item.prdURL}')"`;
+			}
+			else if(item.prdCom == '현대'){
+				linkData = `"window.open('https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=${item.prdURL}')"`;
+			}
+			else{
+				linkData = `"window.open('{item.prdURL}')"`;
+			}
+			
+			if(item.prdImg != null){
+				viewData += `
+							<div class="img-box">
+								<a onclick=${linkData}>
+									<img src="${item.prdImg}"/>
+								</a>
+							</div>
+							`;
+			}
+			viewData += `
+							<div class="prd-info-box">
+								<div class="prd-title">`;
+								
 			
 			
 			if(item.prdCom == 'KB'){
 				viewData += `<span>[국민카드]</span>`;
-				linkData = `<button onclick="window.open('https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${item.prdURL}')" >상세보기</button>`;
+				linkData = `"window.open('https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${item.prdURL}')"`;
 			}
 			else if(item.prdCom == '현대'){
 				viewData += `<span>[현대카드]</span>`;
-				linkData = `<button onclick="window.open('https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=${item.prdURL}')">상세보기</button>`;
+				linkData = `"window.open('https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=${item.prdURL}')"`;
 			}
 			else{
 				viewData += `<span>${item.prdCom}</span>`;
-				linkData = `<button onclick="window.open('{item.prdURL}')">상세보기</button>`;
+				linkData = `"window.open('{item.prdURL}')"`;
 			}
 			
 			viewData += `
 								<div class="prd-name">${item.prdName}</div>
 							</div>`;
-							
-			if(item.prdImg != null){
-				viewData += `
-							<div class="img-box">
-								<img src="${item.prdImg}"/>
-							</div>
-							`;
-			}
-			/*
-			else{
-				let prdDes = item.prdDes;
+				
+			
+			let prdDes = item.prdDes;
+			
+			if(kind == "insu"){
 				prdDes = prdDes.replace(/#/gi, "<br>")
 				viewData += `
-							<div class="prd-des">
-								<div>${prdDes}</div>
-							</div>
-							`;
+								<div class="prd-des">
+									<div>${prdDes}</div>
+								</div>
+								`;
 			}
-			*/
+			else{
+				viewData += `
+								<div class="prd-des">
+									<div>${prdDes}</div>
+								</div>
+								`;
+			}
 			
 			viewData += `
 							<div class="deco-btn-box">
-								<span><button class="deco-btn like"><i id="like" class="fa fa-heart-o"></i></button></span>
-								<span><button class="deco-btn bookMark"><i id="bookMark" class="fa fa-star-o"></i></button></span>
+								<span class="deco-btn-like off"><button class="deco-btn like"><i id="like" class="fa fa-heart-o"></i></button></span>
+								<span class="deco-btn-bookMark off"><button class="deco-btn bookMark"><i id="bookMark" class="fa fa-star-o"></i></button></span>
 							</div>
 							<div class="item-btn-box">
-								${linkData}
+								<button onclick=${linkData}>상세보기</button>
 								<button class="add-prd-btn open">추가하기</button>
 							</div>
-						</div>`;
+	  									<div class="prd-detail-view" style="display:none">
+										</div>
+						</div>
+					</div>`;
 					
 				$('#prd-list-box').append(`
 										${viewData}
-	  									<div class="prd-detail-view" style="display:none">
-										</div>
 										`);		
 			});
      	},
