@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@import url("calender.css");
+@import url("calenderProduct.css");
+@import url("plan.css");
+
+:root{
+	--main-color:#224a7d;
+	--sub-color:#b9baea;
+}
+
+a{
+	text-decoration:none;
+	color:black;
+}
+button{
+	background-color:unset;
+	border: 0px;
+	padding:0px;
+}
+button:hover{
+	cursor: pointer;
+}
+
+body {
+	margin:0px;
+}
+
+select::-ms-expand { 
+	display: none;
+}
+
+header, footer{
+	z-index:1;
+}
+
+#main{
+	display:flex;
+    justify-content: center;
+    padding: 0px 50px;
+}
+
+#body{
+	position:relative;
+	top:90px;
+	margin-bottom:120px;
+}
+
+.sat{
+	color:blue;
+}
+.sun{
+	color:red;
+}
+.btn{
+	font-size:15px;
+	color:white;
+}
+
+.warning-text{
+	font-size:13px;	
+	color:rgb(150, 150, 150);
+}

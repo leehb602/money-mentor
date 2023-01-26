@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/calender.css' />">
+	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/calenderIndex.css' />">
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="https://kit.fontawesome.com/bb34e32cb3.js" crossorigin="anonymous"></script>
