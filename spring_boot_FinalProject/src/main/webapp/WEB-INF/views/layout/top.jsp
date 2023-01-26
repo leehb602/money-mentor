@@ -6,28 +6,11 @@
 			<div class="header_main_div">
 				<div class="hd_div">
 					<!-- width1150이상 -->
-					<div class="hd_row1_menu">
-				
-					 <c:if test="${empty sessionScope.sid}">
-						<span id="span_text"><a href="<c:url value='/user/loginForm'/>">로그인</a></span>
-						<span id="span_line">ㅣ</span>
-						<span id="span_text"><a href="<c:url value='/user/joinForm'/>">회원가입</a></span>
-						<span id="span_line">ㅣ</span>
-						<span id="span_text"><a href="<c:url value='/#'/>">이용약관</a></span>
-					</c:if>	
-					<c:if test="${not empty sessionScope.sid}">
-					${sessionScope.suserName }님	<!--  30:00(점점 줄고 지나면 자동 로그아웃)  -->
-						<span id="span_text"><a href="<c:url value='/user/logout'/>">로그아웃</a></span>
-						<span id="span_line">ㅣ</span>
-						<span id="span_text"><a href="<c:url value='/#'/>">이용약관</a></span>
-					</c:if>
-					
-					</div>
 					<div class="hd_row2_menu">
 						<ul class="hd_menu1" id="hd_menu1_id1">
-							<li id="menu1_1"><a id="momentor_loge" href="<c:url value='/'/>">Momentor</a></li>
+							<li id="menu1_1"><a id="momentor_loge" href="<c:url value='/'/>"><img id="main_logo"src="<c:url value='/image/MomentorLogo.png'/>"></a></li>
 						</ul>
-						<ul class="hd_menu1">
+						<ul class="hd_menu1 menu1_ul2">
 							<li id="menu1_2"><div>고객센터</div>
 								<ul class="hd_menu_sub">
 									<li><a href="<c:url value='/chatbotForm'/>" onclick="window.open(this.href, '_blank', 'width=450,height=600,toolbars=no,scrollbars=no, left=300, top=150'); return false;" >챗봇</a></li>
@@ -58,6 +41,23 @@
 								</ul>
 							</li>
 						</ul>
+					</div>
+					<div class="hd_row1_menu">
+				
+					 <c:if test="${empty sessionScope.sid}">
+						<span id="span_text"><a href="<c:url value='/user/loginForm'/>">로그인</a></span>
+						<span id="span_line">ㅣ</span>
+						<span id="span_text"><a href="<c:url value='/user/joinForm'/>">회원가입</a></span>
+						<span id="span_line">ㅣ</span>
+						<span id="span_text"><a href="<c:url value='/#'/>">이용약관</a></span>
+					</c:if>	
+					<c:if test="${not empty sessionScope.sid}">
+					${sessionScope.suserName }님	<!--  30:00(점점 줄고 지나면 자동 로그아웃)  -->
+						<span id="span_text"><a href="<c:url value='/user/logout'/>">로그아웃</a></span>
+						<span id="span_line">ㅣ</span>
+						<span id="span_text"><a href="<c:url value='/#'/>">이용약관</a></span>
+					</c:if>
+					
 					</div>
 				</div>	
 				<!-- width1150이하 -->

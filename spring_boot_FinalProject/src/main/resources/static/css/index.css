@@ -1,9 +1,15 @@
 @charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
 body {
     display: block;
     margin: 0px;
     top: 0;
     min-width: 500px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
  
 /*section*/
@@ -12,7 +18,7 @@ body {
 	height: 100%;
 }
 .img_main{
-	height: 800px;
+	height: 700px;
 	width: 100%;
 	background: #eee;
 	display: flex;
@@ -21,7 +27,7 @@ body {
 .img_box_center{
 	background-position: center;
 	width:100%;
-	height: 800px;
+	height: 700px;
 }
 .img_main img{
 	width:100%;
@@ -30,23 +36,31 @@ body {
 	
 }
 .sec_img_div{
-	margin:120px 0px 100px 150px;
-/* 	border: 1px solid red; */
-	padding-top: 100px;
-	padding-left: 30px;
+	margin: 230px 0px 100px 169px;
     position: absolute;
+    padding:5px;
     color: wheat;
+    background-color: rgba(3 ,3 ,3 , 0.5);
+    border-radius: 15px;
 }
 .img_text{
 	padding-top: 5px;
     font-size: 30px;
 }
 #text_p{
-	color: blue;
+	color: #3fa4ff;
 }
 .img_text2{
-	font-size:18px;
+	font-size: 18px;
+	font-weight: lighter;
 	padding-top: 40px;
+	padding-bottom: 20px;
+}
+.img_text3{
+	text-align: center;
+	font-size: 22px;
+	padding-top: 5px;
+	
 }
 .menubar{
 	position: sticky;
@@ -57,18 +71,26 @@ body {
 .menubar_div{
 	width: 100px;
 	height: 200px;
-	border: 1px solid red;
+    background-color: rgba( 199, 209, 220, 0.8);
+    border-radius:15px;
+    text-align:center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.menubar_div div a {
+	text-decoration: none;
+	color:black;
 }
 .sec_pick{
-	height: 420px;
+	height: 490px;
 	width: 100%;
 	background: #fff;
 }
 .pick_main_div{
-	margin: 5% 15% 5% 10%;
+	margin: 5% 15% 5% 13.5%;
 	height:400px;
-	width:80%;
-/* 	border: 1px solid red; */
+	width:75%;
 	display: flex;
     flex-direction: column;
 }
@@ -77,12 +99,25 @@ body {
     justify-content: space-evenly;
     height: 150px;
 }
-
+.pick_text > span >span{
+	font-size:15px;
+	color: gray;
+}
+#title_name{
+	font-size:25px;
+	color: rgb(33,23,255);
+}
+.disunite_div{
+	width: 100%;
+	height:30px;
+	background-color: rgba(238,238,238, 0.6);
+	
+}
 
 .sec_finance{
-	height: 600px;
+	height: 640px;
 	width: 100%;
-	background: #eee;
+	background: #fff;
 }
 .pick_card_img, .pick_bank_img, .pick_cel_img{
 	width: 320px;
@@ -121,26 +156,24 @@ body {
 	margin-top: 20px;
 }
 .pick_card_text, .pick_bank_text, .pick_cel_text{
-/* 	border: 1px solid red; */
 	width: 320px;
     margin: 0 auto;
     text-align: center;
 	
 }
 .text_title{
-/* 	border: 1px solid red; */
 	text-align: center;
 	font-size: 22px;
+    font-weight: bold;
 }
 
 .fin_main_div{
 	margin: 0 auto;
 	height:90%;
 	width:80%;
-	border: 1px solid red;
 	display: flex;
     flex-direction: column;
-    padding-top:34px;
+    padding-top:90px;
 }
 .fin_tag{
 	display: flex;
@@ -162,7 +195,8 @@ body {
 	margin: 0 auto;
 	width: 80%;
 	height:350px;
-	border: 1px solid blue;
+	border: 2.5px solid black;
+	border-radius: 15px;
 }
 .fin_tag_see > div{
 	position: absolute;
@@ -187,16 +221,21 @@ body {
 }
 .see_sec1{
 	width:60%;
+}
+.card_Img_div{
+	margin-top:15px;
+	width:140px;
+	height:200px;
 	border:1px solid red;
 }
 .see_sec2{
-	width:40%;
+	width:35%;
 	border:1px solid blue;
 }
 .img_section{
 	width:90%;
 	height:80%;
 	margin:0 auto ;
-	border:1px solid red;
-	
+	display: flex;
+    justify-content: space-evenly;
 }

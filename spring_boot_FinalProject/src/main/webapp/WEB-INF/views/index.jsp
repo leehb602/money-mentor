@@ -25,17 +25,25 @@
 				 	<div class="img_text">
 				 		<span id="text_p">2</span>0<span id="text_p">3</span>0의 자산관리 𝒎𝒆𝒏𝒕𝒐𝒓, 모멘토
 				 	</div>
-				 	
 				 	<p class="img_text2">𝑻𝒉𝒆 𝒄𝒉𝒐𝒊𝒄𝒆 𝒐𝒇 𝒕𝒉𝒆 𝒎𝒐𝒎𝒆𝒏𝒕 𝒅𝒆𝒕𝒆𝒓𝒎𝒊𝒏𝒆𝒔 𝒕𝒉𝒆 𝒇𝒖𝒕𝒖𝒓𝒆</p>
+				 	<div>
+				 		<div class="img_text3">
+				 			흩어진 데이터를 한눈에 비교
+				 		</div>
+				 		<div class="img_text3">
+				 			연령별 데이터의 정제화 
+				 		</div>
+				 	</div>
 				 </div>
 			</div>
+			<div class="disunite_div" ></div>
 			<div class="menubar">
 				<div class="menubar_div">
-					<div>계산기</div>
-					<div>챗봇</div>
-					<div>챗봇</div>
-					<div>블라</div>
-					<div>등등</div>
+					<div><a href="<c:url value='/calculator'/>" onclick="window.open(this.href, '_blank', 'width=850,height=600,toolbars=no,scrollbars=no, left=300, top=150'); return false;">계산기</a></div>
+					<div><a href="<c:url value='/chatbotForm'/>" onclick="window.open(this.href, '_blank', 'width=450,height=600,toolbars=no,scrollbars=no, left=300, top=150'); return false;" >챗봇</a></div>
+					<div><a href="<c:url value='/profile/calender'/>">캘린더</a></div>
+					<div><a href="<c:url value='/CardList'/>">카드 상품</a></div>
+					<div><a href="<c:url value='/savingForm'/>">적금 상품</a></div>
 				</div>
 			</div>
 			<div class="sec_pick">
@@ -51,19 +59,19 @@
 			 		</div>
 			 		<div class="pick_text">
 						<span class="pick_card_text">
-							<div class="text_title">다양한 카드 상품</div><br>
+							<div class="text_title">다양한 <span id="title_name">카드</span> 상품</div><br>
 							<span>은행사, 카드사의 모든 카드를 비교</span><br>
 							<span>개인자산에 맞는 카드 추천 까지 </span><br>
 							<span>직접 찾지말고 모멘토의 데이터를 이용해요</span><br>
 						</span> 
 						<span class="pick_bank_text">
-							<div class="text_title">편리한 금융 상품</div><br>
+							<div class="text_title">편리한 <span id="title_name">금융</span> 상품</div><br>
 							<span>쏟아져나오는 높은 금리 상품들</span><br>
 							<span>예금, 적금 찾아보기 힘드시죠?</span><br>
 							<span>모멘토에서 간단히 비교해보세요</span><br>
 						</span> 
 						<span class="pick_cel_text">
-							<div class="text_title">캘린더로 일정관리</div><br>
+							<div class="text_title"><span id="title_name">캘린더</span>로 일정관리</div><br>
 							<span>계획 세우기 힘들고 바쁜 2030</span><br>
 							<span>자산입력 후 체크만 하면 보기 편하게</span><br>
 							<span>캘린더로 보여드릴게요.</span>
@@ -71,7 +79,7 @@
 			 		</div>
 				</div>
 			</div>
-			
+			<div class="disunite_div" ></div>
 			<div class="sec_finance">
 			 	<div class="fin_main_div">
 			 		<div class="fin_tag">
@@ -84,12 +92,22 @@
 			 			<div class="fin_see cardSee">
 			 				<div class="fin_see_title">카드 카테고리</div>
 			 				<div class="see_sec">
-			 					<div class="see_sec1">카드 이미지들 들어가고
+			 					<div class="see_sec1"><br>
 			 						<div class="img_section">
-			 						a
+			 							<div class="card_Img_div">
+			 							 		
+			 							</div>
+			 							<div class="card_Img_div">
+			 							 		
+			 							</div>
+			 							<div class="card_Img_div">
+			 							 		
+			 							</div>
 			 						</div>
 			 					</div>
-			 					<div class="see_sec2">간단 설명 들어갈 자리</div>
+			 					<div class="see_sec2">
+									
+								</div>
 			 				</div>
 			 			</div>
 			 			<div class="fin_see loanSee">
@@ -131,6 +149,7 @@
 			</div>
 			
 		</div>
+		<div class="disunite_div" ></div>
 		</section>
 		
 		<!-- footer.jsp -->
