@@ -73,7 +73,7 @@ $(function(){
 				</c:forEach>
 
 			</ul>
-				 <div id="js-btn-wrap" class="btn-wrap"> <a href="#" class="morebutton">
+				 <div id="js-btn-wrap" class="btn-wrap"> <a href="#" class="morebutton" id="morebtn">
 			더보기</a> </div>
 				</div></div></div>
     

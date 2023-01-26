@@ -19,8 +19,8 @@ $('.body-contentbox').append(
 		'<thead>'+
 			'<tr>'+
 				'<th class="imgtr">' + 'CARD NAME' +'</th>' +
-        		'<th style="padding-left: 31px;">' +'CARD ID'+'</th>' +
-        		'<th style=" width: 500px;">' +'CONTENT'+'</th>'+
+        		'<th class="idtr">' +'CARD ID'+'</th>' +
+        		'<th class="destr" >' +'CONTENT'+'</th>'+
         		'<th>' +'FEE'+'</th>'+
 		'</thead>'+
 		'<tbody class="tb">'+
@@ -36,11 +36,12 @@ $('.body-contentbox').append(
 			 '<tr>'+
 			 	
 			 	 '<th class="imgth">'+'<img class="cardImg" src='+cardImgUrl[i].src+'>'+'<br>'+cardName[i].value+'</th>'+
-			 	  '<th style="padding-left: 30px;">'+ cardId[i].value + '</th>'+
-			 	   '<th>'+ cardDes[i].value + '</th>'+
-			 	    '<th style="width: 120px;">'+ '<fmt:formatNumber value="'+cardFee[i].value+'"pattern="#,###"/>' +cardFee[i].value + ' ₩'+ '</th>'+
-			 	'<hr style="border:1px color= silver;" width="90%"/>'+
-			 '</tr>'
+			 	  '<th class="idth">'+ cardId[i].value + '</th>'+
+			 	   '<th class="desth">'+ cardDes[i].value + '</th>'+
+			 	    '<th class="feeth">'+ '<fmt:formatNumber value="'+cardFee[i].value+'"pattern="#,###"/>' +cardFee[i].value + ' ₩'+ '</th>'+
+			 	
+			 '</tr>'+
+			 '<div class="line"></div>'
 			 
 			 );
 	
@@ -105,7 +106,7 @@ $(function(){
    
    
       modalClose(); //모달 닫기 함수 호출
-        $( '.modallist').empty();
+        $( '.modallist').remove();
   });
   function modalClose(){
       $("#popup").fadeOut(); //페이드아웃 효과
