@@ -15,8 +15,8 @@
   </head>
   <body>
     <div class="">
-    	<div id="wrap">
     	<c:import url="/WEB-INF/views/layout/top.jsp" />
+    	<div id="List_All">
     		   				
 		<!-- 리스트 -->
 		<div class="prdList">
@@ -35,7 +35,7 @@
 							<ul>
 								<li>
 									<label for="prdName">상품명</label>
-									<input type="text" name="prdName" id="prdName" style="width:800px">
+									<input type="text" name="prdName" id="prdName" style="width:800px" >
 								</li>
 								
 								<li>
@@ -92,8 +92,9 @@
 								<a href="javascript:;" id="load">더보기</a>
 							</div>
 						</div>
+						</div>
 				<c:import url="/WEB-INF/views/layout/footer.jsp" />	
-    	</div>
+    	
     </div>
   </body>
 </html>
