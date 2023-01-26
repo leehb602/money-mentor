@@ -27,11 +27,11 @@
 			<td class="c_info" >
 				<a href="#">											
 					<dl>
-						<dt><a href=<c:url value='/saving/detailViewSaving/${saving.prdNum }'/>">${saving.prdNum }</a></dt>
-						<dd>${saving.joinWay }</dd>
-						<dd>${saving.comName }</dd>
-						<dd>${saving.prdName }</dd>
-						<dd>${saving.joinMember }</dd>
+						<%-- <dt><a href=<c:url value='/saving/detailViewSaving/${saving.prdNum }'/>">${saving.prdNum }</a></dt> --%>
+						<dd class="text01">${saving.joinWay }</dd>
+						<dd class="text02">${saving.comName }</dd>
+						<dd class="text03">${saving.prdName }</dd>
+						<dd class="text04">${saving.joinMember }</dd>
 						<!-- <dd>최고 연 <strong>3.25%</strong> 36개월</dd> -->
 					</dl>
 				</a>

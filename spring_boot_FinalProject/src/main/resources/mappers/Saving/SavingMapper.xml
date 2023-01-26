@@ -37,8 +37,9 @@
 	<!--  적금 검색  -->
 	<select id="savingSearch" resultMap="savingResult"> 
 		SELECT * FROM savingBase 
-		WHERE comName like concat('%', #{prdName}, '%') and 
-			  joinWay like concat('%', #{way}, '%') 
+		WHERE comName like CONCAT('%', #{prdName}, '%') OR
+			  prdName like CONCAT('%', #{prdName}, '%') AND
+			  joinWay like CONCAT('%', #{way}, '%') 
 	</select>
   </mapper>
 	  

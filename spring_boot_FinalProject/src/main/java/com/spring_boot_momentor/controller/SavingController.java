@@ -83,7 +83,7 @@ public class SavingController {
 				// 가입방법
 				String joinWay = "";
 				if (String.valueOf(jsonObj.get("join_way")).equals("null")) {
-					joinWay = "없음";
+					joinWay = "-";
 				} else {
 					joinWay = (String) jsonObj.get("join_way");
 				}
