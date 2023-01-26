@@ -8,16 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>카드비교</title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/List.css'/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/List_out.css'/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/more.css'/>">
-<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
-<script src="<c:url value='/js/more.js' />"></script>
-<script src="<c:url value='/js/cardSearch.js' />"></script>
-<script src="<c:url value='/js/none.js' />"></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/List.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/List_out.css'/>">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/more.css'/>">
+	<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
+	<script src="<c:url value='/js/more.js' />"></script>
+	<script src="<c:url value='/js/cardSearch.js' />"></script>
+	<script src="<c:url value='/js/none.js' />"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/popup.css'/>">
@@ -124,12 +121,13 @@
 		<div class="compsel_head compsel_show">
 			<h4 class="compsel_title">
 				상품비교<span class="comp_num"></span>
-			</h4>
-			<!-- head_opt -->
-			<div class="head_opt">
-				<button type="button" onclick="productCompare.close();"
+				<div class="head_opt">
+				<button type="button" onclick="productCompare12();"
 					class="btn_layer_toggle">닫기</button>
 			</div>
+			</h4>
+			<!-- head_opt -->
+			
 			<!-- //head_opt -->
 		</div>
 		<!-- //compsel_head -->
@@ -152,14 +150,15 @@
 			<div class="compsel_opt_area">
 				<div class="opt_select">
 
-					<button type="button" class="btn_compsel">
-						<input type="checkbox" id="allCheck" name="allCheck"
-							class="allCheck">전체선택/해제
-					</button>
-					<button type="button" class="btn_compsel" id="deleteCardBtn">선택상품
-						삭제</button>
+					<div id="chcdel">
+					<input type="checkbox" id="allCheck" name="allCheck"class="allCheck">
+					<button type="button" class="btn_compsel" id="deleteCardBtn" >삭제</button>
+					
+					</div>
+					<div id="compbtn">
 					<button type="button" class="btn_compsel sel_prod_comp"
 						onclick="productCompare1()">상품비교</button>
+						</div>
 				</div>
 				<!-- //opt_select -->
 				<!-- opt_delete -->
@@ -178,7 +177,7 @@
 			<!-- style="display: none" -->
 			<div class="popup">
 				<div class="popup-head">
-					<span class="head-title">선택 상품 비교</span>
+					<span class="head-title">PRODUCT COMPARE</span>
 				</div>
 				<div class="popup-body">
 					<div class="body-content">

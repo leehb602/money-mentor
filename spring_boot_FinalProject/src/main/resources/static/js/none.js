@@ -40,7 +40,7 @@ function toggleBtn1(cardId){
 	 			
 	 
 	 				'<div class="id6">' + 
-	 					'<input type="checkbox" class="chkDelete" value="'+ result.cardId  +'"/>'+ 
+	 					'<input type="checkbox" name="Chk_list" class="chkDelete" value="'+ result.cardId  +'"/>'+ 
 	 				'</div>' +
 	 				'<input  type="hidden" class="fee" value="'+result.cardFee + '"/>' + '</input>' +
 	 					'<input class="desc" type="hidden" value="' +result.cardDes + '"/>' + 
@@ -73,6 +73,8 @@ function toggleBtn1(cardId){
 	 	} else {
 	 		$('.chkDelete').prop("checked", false);
 	 	}
+	 	
+	 	
 	});
 	
 	// 개별 체크박스 해제할 경우 [전체 선택] 체크박스 해제
@@ -87,11 +89,12 @@ function toggleBtn1(cardId){
  			$("#allCheck").prop("checked", true); // 체크
  	});
  	
+     
+    });
  	
- 	
- });
+
  
-    $( document ).ready( function() {
+       $( document ).ready( function() {
  // [선택상품삭제] 버튼을 클릭했을 때 장바구니에서 선택된 상품 삭제
  	$('#deleteCardBtn').on('click', function(){
  		// 선택 여부 확인 : 하나라도 선택하면 ture, 아무것도 선택하지 않으면 false
@@ -100,7 +103,18 @@ function toggleBtn1(cardId){
  		if(checked){ // 하나라도 선택한 경우
  		var answer = confirm("선택된 상품을 삭제하시겠습니까?");
  		if(answer){
- 		   $( '.oo' ).empty();
+ 		 for(var i=$('.chkDelete').length-1; i>-1; i--){ 
+
+﻿                    $('.chkDelete').eq(i).closest('.oo').remove(); 
+ 		
+ 		
+ 		}
+ 		   
+ 		    const btn1 = document.getElementById('btn1');
+ 		     if(btn1.style.display == 'block') {
+			    btn1.style.display = 'none';
+			    }
+			    
  		   }
  		 
  		  
@@ -108,6 +122,37 @@ function toggleBtn1(cardId){
  	
  	 });
     });
+
+
+ 
+ function productCompare12(){
+ 		
+ 		    const btn1 = document.getElementById('btn1');
+ 		     if(btn1.style.display == 'block') {
+			    btn1.style.display = 'none';
+			    }
+			}    
+ 		 
+ 		 
+ 		  
+ 		
+ 
+/*
+var del = document.querySelector("#deleteCardBtn");
+var list = document.querySelector(".chkDelete");
+
+del.onclick = () => {
+
+	for(var i=0; i<list.length; i++){
+		if(list[i].checked){
+			list[i].parentElement.parentElement.remove(); 
+		
+		}
+	
+	}
+}
+ */
+ 
 
  
 /*  $(document).ready(function() {
