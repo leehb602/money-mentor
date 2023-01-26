@@ -68,10 +68,9 @@
 			SELECT * FROM cards 
 		</select>
 	  <select id="calenderView" resultMap="planResult">
-			SELECT a.*, b.cardName
-			FROM calender AS a
-	        INNER JOIN cards AS b
-	        ON a.prdID = b.cardID WHERE a.userID = #{userID}
+			SELECT *
+			FROM calender
+	        WHERE userID = #{userID} ORDER BY calTransfer
 	  </select>
 	  <select id="calenderListAllInsu" resultMap="insuResult">
 			SELECT * FROM insu

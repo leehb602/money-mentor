@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+
+#plan-view{
+	width:30%;
+}
+#plan-view-header{
+	height:500px;
+	padding:20px 10px;
+	border-bottom:1px dashed black;
+}
+#plan-list-view-box{
+	padding:0px 20px;
+	min-width:300px;
+}
+#plan-list-toMonth{
+	overflow:auto;
+	height: 415px;
+    scrollbar-width: thin;
+}
+#plan-list-toMonth::-webkit-scrollbar{
+    width: 15px;
+}
+#plan-list-toMonth::-webkit-scrollbar-thumb{
+	background-color:var(--main-color);
+	background-clip: padding-box;
+	border: 4px solid transparent;
+}
+#plan-list-toMonth::-webkit-scrollbar-track{
+	 background-color:white;
+}
+#all-delete{
+	display:flex;
+	justify-content:end;
+}
+
+#plan-list-view, #prd-items-view, .all-plans{
+	justify-content:space-between;
+	display:flex;
+	align-items: center;
+	padding:20px 0px;
+}	
+#plan-list-view{
+	position:sticky;
+	top:120px;
+	left:0;
+}
+.plan-date, .plan-list-title{
+	font-size:18px;
+	font-weight:bold;
+}
+.plan-title, 
+.payment, 
+.all-plans{
+	color:rgb(64 60 67 / 98%);
+	display:flex;
+	justify-content:space-between;
+}
+.plan-modify, 
+.plan-del{
+	padding:5px;
+	font-size:12px;
+	margin-right:5px;
+	border: 0.5px solid rgb(64 60 67 / 16%);
+	color:rgb(64 60 67 / 60%);
+}
+
+.plans{
+	margin: 15px 0px;
+	font-size:15px;
+}
+
+.all-plan-title{
+	width:160px;
+	text-align:center;
+}
+
+.all-payment{
+	width:80px;
+	text-align:center;
+}
+
+.dates-head-text{
+	color:var(--main-color);
+	font-size:15px;
+	padding:15px;
+}
