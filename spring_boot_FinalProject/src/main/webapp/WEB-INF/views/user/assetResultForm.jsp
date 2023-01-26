@@ -14,19 +14,23 @@
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
 			<div id="main">
-				<table border="1">
+				<table >
 					<thead>
 						<tr>
-							<th>${sessionScope.suserName }님의 자산 데이터 결과</th>
+							<th id="title">${sessionScope.suserName }님의 자산 데이터 결과</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>
-								momentor 가입자 <span>${totalUserCnt }명</span>중 ${userAge }는 <span>${ageUserCnt }명</span>이며,<br>
-								<span>${sessionScope.suserName }</span>님은 ${userAge } 중 자산 상위 <span>${percentage }%</span>입니다.
+								momentor 가입자 <span id="span">${totalUserCnt }명</span>중 ${userAge }는 <span id="span">${ageUserCnt }명</span>이며,<br>
+								<span id="span">${sessionScope.suserName }</span>님은 ${userAge } 중 자산 상위 <span id="span">${percentage }%</span>입니다.
 							</td>
 						</tr>
+						
+						
+					</tbody>
+					<tfoot>
 						<tr>
 							<td>${userAge }가 선호하는 상품 보러가기</td>
 						</tr>
@@ -35,9 +39,6 @@
 								바로가기 - @@
 							</td>
 						</tr>
-					</tbody>
-					<tfoot>
-						
 					</tfoot>
 				</table>
 			</div>

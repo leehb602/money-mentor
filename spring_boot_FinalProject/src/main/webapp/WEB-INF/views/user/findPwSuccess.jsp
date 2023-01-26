@@ -9,12 +9,16 @@
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/idpwFind.css' />">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/pwChange.js'/>"></script>
+		<c:import url="/WEB-INF/views/layout/head.jsp" />
 	</head>
 	<body>
-		<br><br><hr style="width :30%;">
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<div id="wrap">
 			<form id="newPwForm">
 				<table>
+					<tr>
+						<th colspan="2">비밀번호를 변경해주세요</th>
+					</tr>
 					<tr>
 						<td>아이디</td>
 						<td>

@@ -9,8 +9,10 @@
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/idpwFind.css' />">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/pwFind.js'/>"></script>
+		<c:import url="/WEB-INF/views/layout/head.jsp" />
 	</head>
 	<body>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<div id="wrap">
 			<form id="pwForm">
 				<table>
@@ -38,13 +40,13 @@
 						</td>
 					</tr>
 					<tr>
+						<td colspan="2"><div id="findError"></div></td>
+					</tr>
+					<tr>
 						<td colspan="2"><input type="submit" value="찾기" id="findBtn" class="btn"></td>
 					</tr>
 				</table>
 			</form>
-			<div id="findPwBox">
-			
-			</div>
 		</div>
 	</body>
 </html>

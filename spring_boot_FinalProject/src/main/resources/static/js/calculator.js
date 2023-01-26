@@ -14,6 +14,9 @@
    var result = ["salary_result", "ds_result", "ds_result", "loan2_result", "loan_result"]
    $btn.each(function(index) {
       $(this).on('click', function() {
+      	 $('.input_data').val("");
+      	 $('.resultTable').empty();
+      	 $('.optionMent').empty();
          $('.tabBtn').css('color','black');
          $(this).css('color','blue');
          $('.menu').hide();

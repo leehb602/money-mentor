@@ -13,6 +13,7 @@
 	</head>
 	<body>
 		<div id="wrap">
+			<img src="<c:url value='/image/모멘토 로고.png'/>">
 			<div id="container">
 				<div class="menu_tab">
 					<table class="list_tab">
@@ -244,13 +245,10 @@
 				</div>
 				
 				
-			</div> <!-- container -->
+			
 			<div class="result salary_result">
-				<div class="result_div salary_re" style="background:wheat;">
-					<div style="background:green;">
-						계산 결과 
-					</div>
-					<div id="salaryBox" >
+				<div class="result_div salary_re">
+					<!-- <div id="salaryBox" >
 						국민연금 (4.5%): <br>
 						건강보험 (3.545%): <br>
 						요양보험 (12.81%): <br>
@@ -258,52 +256,43 @@
 						근로소득세 (간이세액): <br>
 						지방소득세(10%): <br>
 						년 예상 실수령액: <br>
-						월 환산금액: <br>
-						
-					</div>
+						월 환산금액: <br>				
+					</div> -->
 				</div>
 			</div>
 			<div class="result ds_result">
-				<div class="result_div ds_re" style="background:wheat;">
-					<div style="background:green;">
-						계산 결과 
-					</div >
-					<table id="dsBox">
+				<div class="result_div ds_re">
+					<table class="resultTable" id="dsBox">
 					<!-- 결과 테이블  -->
 					</table>
 				</div>
 				<!-- 추가 안내 문구 -->
-				<div id="dsOption">
+				<div class="optionMent" id="dsOption">
 				</div>
 			</div>
 			<div class="result loan2_result">
-				<div class="result_div loan2_re" style="background:wheat;">
-					<div style="background:green;">
-						계산 결과 
-					</div>
-					<table id="loan2Box">
+				<div class="result_div loan2_re">
+					<table class="resultTable" id="loan2Box">
 					<!-- 결과 테이블  -->
 					</table>
 				</div>
-				<div id="loanOption">
+				<div class="optionMent" id="loanOption">
 				<!-- 추가 안내 문구 -->
 				</div>
 			</div>
 			<div class="result loan_result">
-				<div class="result_div loan_re" style="background:wheat;">
-					<div style="background:green;">
-						계산 결과 
-					</div>
+				<div class="result_div loan_re">
 					<div id="loanBox">
-						<table id="loanAll">
+						<table class="resultTable" id="loanAll">
 							<!-- 대출 이자 테이블 -->
 						</table>
-						<table id="loanPay">
+						<table class="resultTable" id="loanPay">
 							<!-- 회차별 금액 테이블 -->
 						</table>
 					</div>
 				</div>
 			</div>
+			</div> <!-- container -->
 		</div> <!-- wrap -->
 	</body>
 </html>

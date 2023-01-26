@@ -18,7 +18,7 @@ public class Selenium {
 	public void process() {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Program Files\\Google\\Chrome\\ChromeDriver\\chromedriver.exe");
-		// 크롬 드라이버 셋팅 (드라이버 설치한 경로 입력)
+		// 크롬 드라이버 세팅 (드라이버 설치한 경로 입력)
 
 		driver = new ChromeDriver();
 		// 브라우저 선택
@@ -41,10 +41,21 @@ public class Selenium {
 		Thread.sleep(1000); // 브라우저 로딩될 때까지 잠시 기다린다.
 
 		List<WebElement> elements = driver.findElements(By.cssSelector("#sentence-example-list .sentence-list li"));
-		for (WebElement element : elements) {
-			System.out.println("----------------------------");
-			System.out.println(element);
-		}
+        for (WebElement element : elements) {
+            System.out.println("----------------------------");
+            System.out.println(element.getText());
+
+            List<WebElement> rubys = element.findElements(By.tagName("ruby"));
+            for (WebElement ruby : rubys) {
+                System.out.println("ruby : " + ruby.getText());
+
+                List<WebElement> rts = ruby.findElements(By.tagName("rt"));
+                for (WebElement rt : rts) {
+                    System.out.println("rt : " + rt.getText());
+                }
+            }
+
+        }
 
 		return list;
 	}

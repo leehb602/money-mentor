@@ -7,8 +7,10 @@
 		<meta charset="UTF-8">
 		<title>아이디 검색 결과</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/idFindResult.css' />">
+		<c:import url="/WEB-INF/views/layout/head.jsp" />
 	</head>
 	<body>
+		<c:import url="/WEB-INF/views/layout/top.jsp" />
 		<div id="wrap">
 			<table>
 				<tr>
