@@ -6,8 +6,9 @@ $(document).ready(function(){
     $('.fin_see').hide();
     $('#fin_card').css('color', 'red');
     $('.cardSee').show();
+    
     $finBtn = $('.finBtn');
-
+    
     var fin_see = ['cardSee', 'loanSee', 'sdSee', 'annSee'];
     $finBtn.each(function(e){
         $(this).on('click',function(){
@@ -17,4 +18,20 @@ $(document).ready(function(){
             $('.'+fin_see[e]).show();
         })
     });
+    
+    // 카드 이미지 ajax
+    $.ajax({
+        type:"post",
+        url:"/cardRandom",
+        
+        data:{"cardId" : $("#cardId").val()},
+        success:function(result){
+        $('.card_Img_div').html(result);
+                                   
+        },
+        error:function(){
+           alert("실패");
+        }
+  }); // 카드 이미지 ajax 종료 
+
 });
