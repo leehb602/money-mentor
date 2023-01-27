@@ -9,6 +9,17 @@
     font-weight: 700;
     font-style: normal;
 }
+#money_span{
+	color: gold;
+	font-size:40px;
+}
+#momentor_span{
+	color: #1F4B81;
+	font-size:40px;
+}
+#and{
+	font-size:30px;
+}
 .intro_sec{
 	width:100%;
 	height:100%;
@@ -183,4 +194,10 @@
     margin-bottom: auto;
     color: blue;
     font-weight: 600;
+}
+.disunite_div{
+	width: 100%;
+	height:30px;
+	background-color: rgba(238,238,238, 0.6);
+	
 }

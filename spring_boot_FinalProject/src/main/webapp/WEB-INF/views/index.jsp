@@ -6,7 +6,7 @@
 	<head>
 	
 		<meta charset="UTF-8">
-		<link rel="shortcut icon" type="image⁄x-icon" href="">
+		<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/image/MomentorLogo.png'/>">
 		<title>momentor</title>
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
@@ -95,19 +95,13 @@
 			 					<div class="see_sec1"><br>
 			 						<div class="img_section">
 			 							<div class="card_Img_div">
-			 							 		
+	 							 			<div>
+												
+											</div>
 			 							</div>
-			 							<div class="card_Img_div">
-			 							 		
-			 							</div>
-			 							<div class="card_Img_div">
-			 							 		
-			 							</div>
+			 							
 			 						</div>
 			 					</div>
-			 					<div class="see_sec2">
-									
-								</div>
 			 				</div>
 			 			</div>
 			 			<div class="fin_see loanSee">

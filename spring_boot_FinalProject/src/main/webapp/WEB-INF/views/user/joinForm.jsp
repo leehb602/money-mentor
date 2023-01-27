@@ -8,6 +8,7 @@
 		<title>회원가입</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/joinForm.css' />">
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/modal.css' />">
+		<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/image/MomentorLogo.png'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/joinForm.js'/>"></script>	
 	</head>
