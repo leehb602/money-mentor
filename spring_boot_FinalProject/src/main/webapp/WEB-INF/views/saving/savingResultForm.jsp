@@ -39,7 +39,7 @@
 			<td class="c_date">
 				<div class="btn_in">
 					<a href="#">비교하기</a>
-					<a href="#">신청하기</a>
+					<a href="#">가입하기</a>
 				</div>
 			</td>
 		</tr>

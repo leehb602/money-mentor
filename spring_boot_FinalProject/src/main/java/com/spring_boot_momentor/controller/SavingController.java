@@ -27,7 +27,7 @@ public class SavingController {
 	SavingBaseVO vo = new SavingBaseVO();
 	SavingOptionVO vo2 = new SavingOptionVO();
 
-	private static final int FIRST_PAGE_INDEX = 2;
+	private static final int FIRST_PAGE_INDEX = 1;
 	private static final int LAST_PAGE_INDEX = 3;
 	private static String finnum = "";
 

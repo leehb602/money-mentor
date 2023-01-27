@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="">
-    	<div id="wrap">
+    	<div id="List_All">
     	<c:import url="/WEB-INF/views/layout/top.jsp" />
     		   				
 		<!-- 리스트 -->
@@ -91,8 +91,9 @@
 								<a href="javascript:;" id="load">더보기</a>
 							</div>
 						</div>
+						</div>
 				<c:import url="/WEB-INF/views/layout/footer.jsp" />	
-    	</div>
+    	
     </div>
   </body>
 </html>

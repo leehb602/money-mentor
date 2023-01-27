@@ -14,9 +14,8 @@
   </head>
   <body>
     <div class="">
-    	<div id="wrap">
     	<c:import url="/WEB-INF/views/layout/top.jsp" />
-    		   				
+    	<div id="List_All">	   				
 		<!-- 리스트 -->
 		<div class="prdList">
 			<table>
@@ -96,8 +95,9 @@
 								<a href="javascript:;" id="load">더보기</a>
 							</div>
 						</div>
+						</div>
 				<c:import url="/WEB-INF/views/layout/footer.jsp" />	
-    	</div>
+    	
     </div>
   </body>
 </html>
