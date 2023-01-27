@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<title>로그인</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/loginForm.css' />">
+		<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/image/MomentorLogo.png'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/loginForm.js'/>"></script>
 	</head>
