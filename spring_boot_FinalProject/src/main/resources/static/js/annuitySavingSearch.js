@@ -24,7 +24,7 @@ $.ajax({
  		var prdtTypeName = $('input:radio[name="prdtTypeName"]:checked').val();
  		var pnsnKindName = $('input:radio[name="pnsnKindName"]:checked').val();
  		//var formData = $(this).serialize();
- 		alert("시작2");
+ 		//alert("시작2");
  		//alert(formData);
  		$.ajax({
  			type:"post",

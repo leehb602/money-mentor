@@ -27,11 +27,11 @@
 			<td class="c_info" >
 				<a href="#">											
 					<dl>
-						<dt><a href=<c:url value='/deposit/detailViewDeposit/${deposit.prdNum }'/>">${deposit.prdNum }</a></dt>
-						<dd>${deposit.joinWay }</dd>
-						<dd>${deposit.comName }</dd>
-						<dd>${deposit.prdName }</dd>
-						<dd>${deposit.joinMember }</dd>
+						<%-- <dt><a href=<c:url value='/deposit/detailViewDeposit/${deposit.prdNum }'/>">${deposit.prdNum }</a></dt> --%>
+						<dd class="text01">${deposit.joinWay }</dd>
+						<dd class="text02">${deposit.comName }</dd>
+						<dd class="text03">${deposit.prdName }</dd>
+						<dd class="text04">${deposit.joinMember }</dd>
 						<!-- <dd>최고 연 <strong>3.25%</strong> 36개월</dd> -->
 					</dl>
 				</a>

@@ -1,5 +1,5 @@
 /**
- * savingSearch.js
+ * depositSearch.js
  */
 
  $(document).ready(function(){
