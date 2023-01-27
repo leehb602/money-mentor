@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<title>Momentor계산기</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/calculator.css' />">
+		<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/image/MomentorLogo.png'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/calculator.js'/>"></script>
 		<script src="<c:url value='/js/calResult.js'/>"></script>

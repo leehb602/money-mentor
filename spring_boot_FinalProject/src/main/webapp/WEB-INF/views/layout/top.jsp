@@ -13,7 +13,7 @@
 						<ul class="hd_menu1 menu1_ul2">
 							<li id="menu1_2"><div>고객센터</div>
 								<ul class="hd_menu_sub">
-									<li><a href="<c:url value='/chatbotForm'/>" onclick="window.open(this.href, '_blank', 'width=450,height=600,toolbars=no,scrollbars=no, left=300, top=150'); return false;" >챗봇</a></li>
+									<li><a href="<c:url value='/chatbotForm'/>" onclick="window.open(this.href, '_blank', 'width=500,height=740,toolbars=no,scrollbars=no, left=300, top=150'); return false;" >챗봇</a></li>
 									<li><a href="<c:url value='/all/chatguide'/>">챗봇 가이드</a></li>
 									<li><a href="<c:url value='/calculator'/>" onclick="window.open(this.href, '_blank', 'width=850,height=600,toolbars=no,scrollbars=no, left=300, top=150'); return false;">계산기</a></li>
 									<li><a href="<c:url value='/#'/>">자주하는 Q&A</a></li>
