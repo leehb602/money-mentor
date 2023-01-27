@@ -64,7 +64,7 @@
 	display: inline-block;
     text-align: left;
     font-size: larger;
-    width: 170px;
+    width: 155px;
 }
 .hd_menu1 > li > div > a{
 	text-decoration : none;
@@ -85,7 +85,7 @@
 }
 
 #menu1_2 > div, #menu1_3 > div, #menu1_4 > div{
-	width:170px;
+	width:155px;
 	text-align: center;
 }
 

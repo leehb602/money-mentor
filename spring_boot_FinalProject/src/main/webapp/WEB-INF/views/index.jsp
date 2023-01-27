@@ -6,7 +6,7 @@
 	<head>
 	
 		<meta charset="UTF-8">
-		<link rel="shortcut icon" type="image⁄x-icon" href="">
+		<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/image/MomentorLogo.png'/>">
 		<title>momentor</title>
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/index.css' />">
