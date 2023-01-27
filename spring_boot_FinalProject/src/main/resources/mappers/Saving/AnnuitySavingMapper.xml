@@ -43,7 +43,8 @@
 	<select id="AnnuitySavingSearch" parameterType="hashmap" resultMap="AnnuitySavingResult" > 
 		<![CDATA[
 		SELECT * FROM annuitySavingBase 
-		WHERE prdName like CONCAT('%', #{prdName}, '%') and 
+		WHERE prdName like CONCAT('%', #{prdName}, '%') or
+			  comName like CONCAT('%', #{prdName}, '%') and
 			  prdtTypeName like CONCAT('%', #{prdtTypeName}, '%') and
 			  pnsnKindName like CONCAT('%', #{pnsnKindName}, '%')
 			]]> 

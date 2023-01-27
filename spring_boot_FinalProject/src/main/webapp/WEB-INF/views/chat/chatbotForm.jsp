@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<title>Momentor 챗봇</title>
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/chatbot.css'/>">
+		<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/image/MomentorLogo.png'/>">
 		<script src="<c:url value='/js/jquery-3.6.1.min.js'/>"></script>
 		<script src="<c:url value='/js/chatbot.js'/>"></script>
 	</head>
@@ -14,7 +15,7 @@
 		<div id="wrap">
 			<!-- Header -->
 			<div id="chatHeader">
-				<div class="chat_title">Momentor</div>
+				<div class="chat_title"><img id="main_logo"src="<c:url value='/image/MomentorLogo.png'/>"></div>
 			</div>
 			
 			<!-- 채팅 답변 출력 -->

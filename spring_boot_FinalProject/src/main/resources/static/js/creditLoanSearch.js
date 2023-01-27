@@ -24,7 +24,7 @@ $.ajax({
  		var joinWay = $('input:radio[name="joinWay"]:checked').val();
  		var crdtTypeName = $('input:radio[name="crdtTypeName"]:checked').val();
  		//var formData = $(this).serialize();
- 		alert("시작2");
+ 		//alert("시작2");
  		//alert(formData);
  		$.ajax({
  			type:"post",
