@@ -28,9 +28,9 @@
 				<a href="#">											
 					<dl>
 						<%--<dt><a href=<c:url value='/creditLoan/detailViewCreditLoan/${creditLoan.prdNum }'/>">${creditLoan.prdNum }</a></dt>--%>
-						<dd>${creditLoan.joinWay }</dd>
-						<dd>${creditLoan.comName }</dd>
-						<dd>${creditLoan.prdName }</dd>
+						<dd class="text01">${creditLoan.joinWay }</dd>
+						<dd class="text02">${creditLoan.comName }</dd>
+						<dd class="text03">${creditLoan.prdName }</dd>
 						
 						<!-- <dd>최고 연 <strong>3.25%</strong> 36개월</dd> -->
 					</dl>

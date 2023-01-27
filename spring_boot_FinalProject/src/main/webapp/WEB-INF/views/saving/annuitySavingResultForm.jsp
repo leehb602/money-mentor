@@ -27,11 +27,11 @@
 			<td class="c_info" >
 				<a href="#">											
 					<dl>
-						<dt><a href=<c:url value='/saving/detailViewAnnuitySaving/${annuitySaving.prdNum }'/>">${annuitySaving.prdNum }</a></dt>
-						<dd>${annuitySaving.comName }</dd>
-						<dd>${annuitySaving.prdName }</dd>
-						<dd>${annuitySaving.pnsnKindName }</dd>
-						<dd>${annuitySaving.prdtTypeName }</dd>
+						<%-- <dt><a href=<c:url value='/saving/detailViewAnnuitySaving/${annuitySaving.prdNum }'/>">${annuitySaving.prdNum }</a></dt> --%>
+						<dd class="text01">${annuitySaving.comName }</dd>
+						<dd class="text03">${annuitySaving.prdName }</dd>
+						<dd class="text02">${annuitySaving.pnsnKindName }</dd>
+						<dd class="text04">${annuitySaving.prdtTypeName }</dd>
 						<!-- <dd>최고 연 <strong>3.25%</strong> 36개월</dd> -->
 					</dl>
 				</a>
