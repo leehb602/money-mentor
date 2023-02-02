@@ -104,37 +104,34 @@
 			 					</div>
 			 				</div>
 			 			</div>
-			 			<div class="fin_see loanSee">
+						<div class="fin_see loanSee">
 			 				<div class="fin_see_title">대출 카테고리</div>
 			 				<div class="see_sec">
-			 					<div  class="see_sec1">대출상품 이미지들 들어가고
+			 					<div  class="see_sec1">
 			 						<div class="img_section">
-			 						a
 			 						</div>
 			 					</div>
-			 					<div  class="see_sec2">간단 설명 들어갈 자리</div>
+			 					<div  class="see_sec2">추후 추가 예정입니다.</div>
 			 				</div>
 			 			</div>
 			 			<div class="fin_see sdSee">
 			 				<div class="fin_see_title">예৹적금 카테고리</div>
 			 				<div class="see_sec">
-			 					<div  class="see_sec1">예,적금 이미지들 들어가고
+			 					<div  class="see_sec1">
 			 						<div class="img_section">
-			 						a
 			 						</div>
 			 					</div>
-			 					<div  class="see_sec2">간단 설명 들어갈 자리</div>
+			 					<div  class="see_sec2">추후 추가 예정입니다.</div>
 			 				</div>
 			 			</div>
 			 			<div class="fin_see annSee">
 			 				<div class="fin_see_title">연금 카테고리</div>
 			 				<div class="see_sec">
-			 					<div  class="see_sec1">이미지or 상품명 들어가고2
+			 					<div  class="see_sec1">
 				 					<div class="img_section">
-			 						a
 			 						</div>
 		 						</div>
-			 					<div  class="see_sec2">간단 설명 들어갈 자리</div>
+			 					<div  class="see_sec2">추후 추가 예정입니다.</div>
 			 				</div>
 			 			</div>
 			 		</div>

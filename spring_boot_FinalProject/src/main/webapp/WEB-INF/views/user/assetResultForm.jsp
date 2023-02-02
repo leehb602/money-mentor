@@ -14,10 +14,10 @@
 		<div id="wrap">
 			<c:import url="/WEB-INF/views/layout/top.jsp" />
 			<div id="main">
-				<table >
+				<table id="resultTable">
 					<thead>
 						<tr>
-							<th id="title">${sessionScope.suserName }님의 자산 데이터 결과</th>
+							<th>${sessionScope.suserName }님의 자산 데이터 결과</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -31,19 +31,28 @@
 						
 					</tbody>
 					<tfoot>
-						<tr>
-							<td>${userAge }가 선호하는 상품 보러가기</td>
-						</tr>
-						<tr>
-							<td>바로가기 - @@ <br>
-								바로가기 - @@
-							</td>
-						</tr>
+						
 					</tfoot>
 				</table>
 			</div>
-			<div id="footer">
-			
+			<div id="recommend">
+				<table id="recomTable">
+					<tr>
+						<td id="title" colspan="4">${userAge }가 선호하는 상품 보러가기</td>
+					</tr>
+					<tr>
+						<td><div class="product p1">바로가기 - 금융상품추가예정</div></td>
+						<td><div class="product p2">바로가기 - 금융상품추가예정</div></td>
+						<td><div class="product p1">바로가기 - 금융상품추가예정</div></td>
+						<td><div class="product p2">바로가기 - 금융상품추가예정</div></td>
+					</tr>
+					<tr>
+						<td><div class="product p2">바로가기 - 금융상품추가예정</div></td>
+						<td><div class="product p1">바로가기 - 금융상품추가예정</div></td>
+						<td><div class="product p2">바로가기 - 금융상품추가예정</div></td>
+						<td><div class="product p1">바로가기 - 금융상품추가예정</div></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</body>

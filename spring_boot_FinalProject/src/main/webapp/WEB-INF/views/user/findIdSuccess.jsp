@@ -17,7 +17,7 @@
 					<th><span>${userName }</span>님의 아이디는 <span>${userId }</span>입니다.</th>
 				</tr>
 				<tr>
-					<td class="moreHelp"><a href="<c:url value='/user/findPassword'/>">비밀번호가 기억이 안나시나요?</a></td>
+					<td class="moreHelp"><a href="<c:url value='/user/findPasswordForm'/>">비밀번호가 기억이 안나시나요?</a></td>
 				</tr>
 				<tr>
 					<td class="moreHelp"><a href="<c:url value='/user/loginForm'/>">로그인</a></td>
