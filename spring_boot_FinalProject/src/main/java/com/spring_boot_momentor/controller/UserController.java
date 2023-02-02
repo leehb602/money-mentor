@@ -105,8 +105,18 @@ public class UserController {
 	}
 	
 	// 아이디 찾기 성공
-	@RequestMapping("/user/findIdSuccess")
-	public String idFineSuccess() {
+	@RequestMapping("/user/findIdSuccess/{userName}/{userPhone}")
+	public String idFineSuccess(@PathVariable String userName,
+								@PathVariable String userPhone,
+								Model model) {
+		
+		UserVO vo = new UserVO();
+		vo.setUserName(userName);
+		vo.setUserPhone(userPhone);
+		String userId = service.findId(vo);
+		
+		model.addAttribute("userName", vo.getUserName());
+		model.addAttribute("userId", userId);
 		return "user/findIdSuccess";
 	}
 	
@@ -137,8 +147,10 @@ public class UserController {
 	}
 	
 	// 비밀번호 찾기 성공
-	@RequestMapping("/user/findPwSuccess")
-	public String pwFineSuccess() {
+	@RequestMapping("/user/findPwSuccess/{userId}")
+	public String pwFineSuccess(@PathVariable String userId,
+								Model model) {
+		model.addAttribute("userId", userId);
 		return "user/findPwSuccess";
 	}
 	

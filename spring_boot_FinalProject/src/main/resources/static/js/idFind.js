@@ -66,6 +66,8 @@
  		event.preventDefault();
  		
  		var formData = $(this).serialize();
+ 		var userName = $('#userName').val();
+ 		var userPhone = $('#hp1').val() + "-" + $('#hp2').val() + "-" + $('#hp3').val();
  		
  		if($('#userName').val()=="") {
  			alert("이름을 입력해주세요");
@@ -79,7 +81,7 @@
 			success:function(result){
 				$('.textBox').val("");
 				if(result == "success"){
-					location.href="/user/findIdSuccess";
+					location.href="/user/findIdSuccess/"+userName+"/"+userPhone;
 				} else {
 					$('#findError').text("일치하는 정보가 없습니다.");
 				}
