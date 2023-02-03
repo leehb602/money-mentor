@@ -39,7 +39,7 @@
 		  <result column="insuJoinURL" property="insuJoinURL"/>
 		  <result column="insuPhoneNumber" property="insuPhoneNumber"/>
 	  </resultMap>
-	  <resultMap id="planResult" type="com.spring_boot_momentor.model.Plan">
+	  <resultMap id="planResult" type="com.spring_boot_momentor.model.PlanVO">
 	  		<result property="calSubDate"  column="calSubDate"  />
 	  		<result property="calTransfer"  column="calTransfer"  />
 	  		<result property="calMaturity"  column="calMaturity"  />
@@ -48,7 +48,7 @@
 	  		<result property="calPayment"  column="calPayment"  />
 	  		<result property="userID"  column="userID"  />
 	  </resultMap>
-	  <resultMap id="prdResult" type="com.spring_boot_momentor.model.CalenderProduct">
+	  <resultMap id="prdResult" type="com.spring_boot_momentor.model.CalenderProductVO">
 	  		<result property="prdID"  column="prdID"  />
 	  		<result property="prdName"  column="prdName"  />
 	  		<result property="prdDes"  column="prdDes"  />
@@ -64,23 +64,49 @@
 			INSERT INTO calender(calSubDate, calTransfer, calMaturity, prdID, userID, prdType, calPayment, prdName)
 			VALUES (#{calSubDate}, #{calTransfer}, #{calMaturity},#{prdID}, #{userID}, #{prdType}, #{calPayment}, #{prdName})	
 	  </insert>
-		<select id="CalenderlistAllCard" resultMap="cardResult">
-			SELECT * FROM cards 
+		<select id="calenderPrdList" resultMap="prdResult">
+			<choose>
+				<when test="kind == 'card'">
+					SELECT 
+						cardId AS prdID,
+						cardName AS prdName,
+						cardDes AS prdDes,
+						cardImgUrl AS prdImg,
+						cardFee AS prdPrice,
+						cardUrl AS prdURL,
+						comCtg AS prdCom
+					FROM cards 
+					<if test="kindDetail != 'default'">
+						WHERE comCtg=#{kindDetail} 
+					</if>
+				</when>
+				<when test="kind == 'insu'">
+					SELECT 
+						id AS prdID,
+						insuName AS prdName,
+						insuJoinURL AS prdURL,
+						prdName AS prdCom,
+						prdLogo AS prdComImg
+					FROM insu 
+					<if test="kindDetail != 'default'">
+						WHERE insuCtg=#{kindDetail} 
+					</if>
+				</when>
+			</choose>
+			<choose>
+				<when test="order == 'name'">
+					ORDER BY prdName
+				</when>
+				<when test="order == 'latest'">
+					ORDER BY prdID DESC
+				</when>
+			</choose>
 		</select>
 	  <select id="calenderView" resultMap="planResult">
 			SELECT *
 			FROM calender
 	        WHERE userID = #{userID} ORDER BY calTransfer
-	  </select>
-	  <select id="calenderListAllInsu" resultMap="insuResult">
-			SELECT * FROM insu
-	  </select>
-	  <select id="calenderListCard" resultMap="cardResult">
-			SELECT * FROM cards WHERE comCtg=#{kindDetail}
-	  </select>
-	  <select id="calenderListInsu" resultMap="insuResult">
-			SELECT * FROM insu WHERE insuCtg=#{kindDetail}
-	  </select>
+	  </select> 
 	  <select id="planDuplicateCheck" resultType="int">
 			SELECT COUNT(*) FROM calender 
 			WHERE prdID=#{prdID} 
@@ -94,4 +120,23 @@
 			AND userID=#{userID} 
 			AND prdType=#{prdType};
 	  </select>
+	  <delete id="deletePlan" parameterType="int">
+	  	DELETE FROM calender
+	  	WHERE dataID=#{dataID}
+	  </delete>
+	  <select id="getPlanModify" resultType="com.spring_boot_momentor.model.CalenderVO">
+			SELECT * FROM calender   
+			WHERE userID=#{userID} 
+			AND dataID=#{dataID};
+	  </select>
+	  <update id="modifyPlan" parameterType="com.spring_boot_momentor.model.CalenderVO">
+			UPDATE calender 
+			SET prdName = #{prdName},
+				calSubDate = #{calSubDate}, 
+				calTransfer = #{calTransfer},  
+				calMaturity = #{calMaturity},  
+				calPayment = #{calPayment}
+			WHERE dataID = #{dataID}
+			AND	userID = #{userID};
+	  </update>
   </mapper>

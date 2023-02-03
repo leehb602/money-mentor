@@ -12,52 +12,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spring_boot_momentor.model.CalenderProduct;
+import com.spring_boot_momentor.model.CalenderProductVO;
 import com.spring_boot_momentor.model.CalenderVO;
-import com.spring_boot_momentor.model.CardVO;
-import com.spring_boot_momentor.model.InsuVO;
-import com.spring_boot_momentor.model.Plan;
+import com.spring_boot_momentor.model.PlanVO;
 import com.spring_boot_momentor.service.CalenderService;
-import com.spring_boot_momentor.service.CardService;
-import com.spring_boot_momentor.service.InsuService;
 
 
 @Controller
 public class CalenderController {
-	private CardService cardService;
-	private CalenderService calenderService;
-	private InsuService insuService;
 	@Autowired
-	public CalenderController(
-			CardService cardService,
-			CalenderService calenderService,
-			InsuService insuService
-			) {
-		this.calenderService = calenderService;
-		this.cardService = cardService;
-		this.insuService = insuService;
-	}
+	private CalenderService service;
 	
 	@RequestMapping("/profile/calender")
-	public String calender(Model model, HttpSession session) {
-		
-		ArrayList<CardVO> cardList = cardService.listAllCard();
-		model.addAttribute("cardList", cardList);
+	public String calender() {
 		return "detailProfile/calender/calenderMain";
 	}
 	
+	@ResponseBody 
 	@RequestMapping("/profile/calender/getSID")
-	public @ResponseBody String getSID(Model model, HttpSession session) {
+	public String getSID(Model model, HttpSession session) {
 		String userID = (String)session.getAttribute("sid");
 		model.addAttribute("userID", userID);
 		return userID;
 	}
 	
-	
+	@ResponseBody 
 	@RequestMapping("/profile/calender/getPlanData")
-	public @ResponseBody ArrayList<Plan> getCalenderData(HttpSession session) {
+	public ArrayList<PlanVO> getCalenderData(HttpSession session) {
 		String userID = (String)session.getAttribute("sid");
-		ArrayList<Plan> planList = calenderService.calenderView(userID);
+		ArrayList<PlanVO> planList = service.calenderView(userID);
 		return planList;
 	}
 
@@ -66,102 +49,30 @@ public class CalenderController {
 												@RequestParam("prdName") String prdName,
 												@RequestParam("prdID") String prdID,
 												@RequestParam("prdType") String prdType) {
+		
 		String userID = (String)session.getAttribute("sid");
-		calenderService.changePrdName(prdName, userID, prdID, prdType);
+		
+		service.changePrdName(prdName, userID, prdID, prdType);
 
 		return "redirect:/profile/calender";
 	}
 
-	@SuppressWarnings("null")
+	@ResponseBody 
 	@RequestMapping("/profile/calender/getPrdData/{kind}/{kindDetail}/{order}")
-	public @ResponseBody ArrayList<CalenderProduct> getPrdCardData(
+	public ArrayList<CalenderProductVO> getPrdCardData(
 													@PathVariable String kind,
 													@PathVariable String kindDetail,
 													@PathVariable String order) {	
-
-		ArrayList<CalenderProduct> prd = new ArrayList<CalenderProduct>();
-		switch(kind) {
-			case "card":
-				if(kindDetail.equals("default")) {
-					ArrayList<CardVO> cardList = cardService.listAllCard();
-					for(int i = 0; i < cardList.size(); i++) {
-						CalenderProduct vo = new CalenderProduct();
-						vo.setPrdID(cardList.get(i).getCardId());
-						vo.setPrdName(cardList.get(i).getCardName());
-						vo.setPrdDes(cardList.get(i).getCardDes());
-						vo.setPrdImg(cardList.get(i).getCardImgUrl());
-						vo.setPrdPrice(cardList.get(i).getCardFee());
-						vo.setPrdURL(cardList.get(i).getCardUrl());
-						vo.setPrdCom(cardList.get(i).getComCtg());
-						vo.setPrdCtg(cardList.get(i).getComCtg());
-						prd.add(vo);
-					}
-
-				}
-				else {
-					ArrayList<CardVO> cardList = calenderService.calenderListCard(kindDetail);
-					for(int i = 0; i < cardList.size(); i++) {
-						CalenderProduct vo = new CalenderProduct();
-						vo.setPrdID(cardList.get(i).getCardId());
-						vo.setPrdName(cardList.get(i).getCardName());
-						vo.setPrdDes(cardList.get(i).getCardDes());
-						vo.setPrdImg(cardList.get(i).getCardImgUrl());
-						vo.setPrdPrice(cardList.get(i).getCardFee());
-						vo.setPrdURL(cardList.get(i).getCardUrl());
-						vo.setPrdCom(cardList.get(i).getComCtg());
-						vo.setPrdCtg(cardList.get(i).getComCtg());
-						prd.add(vo);
-					}
-					
-				}
-				break;
-			case "insu":
-				if(kindDetail.equals("default")) {
-					ArrayList<InsuVO> insuList = calenderService.calenderListAllInsu();
-					for(int i = 0; i < insuList.size(); i++) {
-						CalenderProduct vo = new CalenderProduct();
-						vo.setPrdID(Integer.toString(insuList.get(i).getId()));
-						vo.setPrdName(insuList.get(i).getInsuName());
-						vo.setPrdDes(insuList.get(i).getInsuDes());
-						vo.setMale(insuList.get(i).getMale());
-						vo.setFemale(insuList.get(i).getFemale());
-						vo.setPrdURL(insuList.get(i).getInsuJoinURL());
-						vo.setPrdCom(insuList.get(i).getPrdName());
-						vo.setPrdComImg(insuList.get(i).getPrdLogo());
-						vo.setPrdCtg(insuList.get(i).getInsuCtg());
-						vo.setPrdDes(insuList.get(i).getInsuDes());
-						prd.add(vo);
-					}
-				}
-				else {
-					ArrayList<InsuVO> insuList = calenderService.calenderListInsu(kindDetail);
-					for(int i = 0; i < insuList.size(); i++) {
-						CalenderProduct vo = new CalenderProduct();
-						vo.setPrdID(Integer.toString(insuList.get(i).getId()));
-						vo.setPrdName(insuList.get(i).getInsuName());
-						vo.setPrdDes(insuList.get(i).getInsuDes());
-						vo.setMale(insuList.get(i).getMale());
-						vo.setFemale(insuList.get(i).getFemale());
-						vo.setPrdURL(insuList.get(i).getInsuJoinURL());
-						vo.setPrdCom(insuList.get(i).getPrdName());
-						vo.setPrdComImg(insuList.get(i).getPrdLogo());
-						vo.setPrdCtg(insuList.get(i).getInsuCtg());
-						vo.setPrdDes(insuList.get(i).getInsuDes());
-						prd.add(vo);
-					}
-				}
-				break;
-		}
-
-
-
+		
+		ArrayList<CalenderProductVO> prd = service.calenderPrdList(kind, kindDetail, order);
+				
 		return prd;
 		
 	}
 
-	
+	@ResponseBody 
 	@RequestMapping("/profile/calender/sendFormData/{prdType}/{prdID}")
-	public @ResponseBody String sendFormData(CalenderVO vo,
+	public String sendFormData(CalenderVO vo,
 											@PathVariable String prdID,
 											@PathVariable String prdType,
 											@RequestParam("calSubDate") String calSubDate,
@@ -169,20 +80,22 @@ public class CalenderController {
 											@RequestParam("calMaturity") int calMaturity,
 											@RequestParam("calPayment") int calPayment,
 											@RequestParam("prdName") String prdName,
-											@RequestParam("product") String product,
 											HttpSession session) {
 		
 		String memId = (String)session.getAttribute("sid");
 		String result = "";
-		//vo에 올리기 전, 중복이 있는지 검사
-		int planCount = calenderService.planDuplicateCheck(memId, prdID, prdType);
+		int planCount = 0;
+
+
+		//vo에 올리기 전, 중복이 있는지 검사 / 사용자 지정 데이터는 중복 검사 X
+		if(!prdID.equals("0")) {
+			planCount = service.planDuplicateCheck(memId, prdID, prdType);
+			System.out.println(planCount);
+		}
 		
 		if(planCount == 0) {
 			result = "ok";
 			
-			if(prdName.length() == 0)
-				prdName = product;
-
 			vo.setUserID(memId);
 			vo.setCalMaturity(calMaturity);
 			vo.setCalSubDate(calSubDate);
@@ -191,12 +104,73 @@ public class CalenderController {
 			vo.setPrdType(prdType);
 			vo.setCalPayment(calPayment);
 			vo.setPrdName(prdName);
-			calenderService.insertPlan(vo);
+			service.insertPlan(vo);
 		}
 		else {
 			result = "fail";
 		}
 		
 		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/profile/calender/deletePlan")
+	public  int deletePlan(@RequestParam("chbox[]") ArrayList<String> chkArr) {	
+
+		int result = 0;
+		
+		if(chkArr != null) {
+			for(String dataID : chkArr) {
+				System.out.println(dataID);
+				service.deletePlan(Integer.parseInt(dataID));
+			}
+		}
+		
+		result = 1;
+				
+		return result;
+		
+	}
+
+	@RequestMapping("/profile/calender/addPlan")
+	public String addPlan() {	
+		return "detailProfile/calender/addPlanView";
+	}
+
+	@RequestMapping("/profile/calender/modifyPlanView/{dataID}")
+	public String modifyPlanView(Model model, 
+								HttpSession session,
+								@PathVariable int dataID) {
+		
+		String userID = (String)session.getAttribute("sid");
+		
+		ArrayList<CalenderVO> cal = service.getPlanModify(userID, dataID);
+		model.addAttribute("cal", cal);
+		
+		return "detailProfile/calender/modifyPlanView";
+	}
+
+	@ResponseBody
+	@RequestMapping("/profile/calender/modifyPlan/{dataID}")
+	public String modifyPlan(HttpSession session,
+							CalenderVO vo,
+							@PathVariable int dataID,
+							@RequestParam("calSubDate") String calSubDate,
+							@RequestParam("calTransfer") int calTransfer,
+							@RequestParam("calMaturity") int calMaturity,
+							@RequestParam("calPayment") int calPayment,
+							@RequestParam("prdName") String prdName) {
+		
+		String userID = (String)session.getAttribute("sid");
+		vo.setCalSubDate(calSubDate);
+		vo.setCalTransfer(calTransfer);
+		vo.setCalMaturity(calMaturity);
+		vo.setCalPayment(calPayment);
+		vo.setPrdName(prdName);
+		vo.setDataID(dataID);
+		vo.setUserID(userID);
+		service.modifyPlan(vo);
+		
+		return "detailProfile/calender/modifyPlanView";
 	}
 }

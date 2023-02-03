@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>캘린더</title>
 	 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/calenderIndex.css' />">
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
@@ -29,11 +29,11 @@
 							</button>
 						</div>
 						<div class="calender-head-items calender-head-text">
-							<button class="prev-month-btn" title="이전 달로 이동">
-								<i class="fa fa-chevron-left btn"></i>
+							<button class="prev-month-btn btn" title="이전 달로 이동">
+								<i class="fa fa-chevron-left"></i>
 							</button>
-							<button class="next-month-btn" title="다음 달로 이동">
-								<i class="fa fa-chevron-right btn"></i>
+							<button class="next-month-btn btn" title="다음 달로 이동">
+								<i class="fa fa-chevron-right"></i>
 							</button>
 							<button class="view-today-btn btn" title="오늘로 이동">
 								<span class="today-btn-text">오늘</span>
@@ -51,7 +51,7 @@
 						<div id="plan-list-view-box" class="hide">
 							<div id="plan-list-view">
 								<div class="plan-view-title">일정 관리하기</div>
-								<button class="plan-list-view-btn btn" title="일정 관리 버튼">
+								<button class="plan-list-view-btn p-btn" title="일정 관리 버튼">
 									<i id="plan-icon" class="fa fa-plus"></i>
 								</button>
 							</div>
@@ -72,12 +72,17 @@
 						</div>
 						<div id="prd-view-option-box">
 							<div id="prd-items-view" class="hide">
-								<button class="prd-items-view-btn btn">
-									<i id="prd-icon" class="fa fa-plus"></i>
-								</button>
+								<div id="prd-items-btn-box">
+									<button class="prd-items-view-btn p-btn">
+										<i id="prd-icon" class="fa fa-plus"></i>
+									</button>
+									<button id="add-custom-prd" style="display:none">
+										일정추가
+									</button>
+								</div>
 								<div id="search-option" style="display:none">
 									<div id="search-box">
-										<input type="text" name="searchText" placeholder="검색어 입력"><button id="searchBtn"><i class="fa fa-search"></i></button>
+										<input type="text" name="searchText" placeholder="검색어 입력"><button id="searchBtn" class="p-btn"><i class="fa fa-search"></i></button>
 									</div>
 									<select id="prd-kind-select" name="prd-kind-select">
 										<option value="card" selected>카드</option>
@@ -89,7 +94,7 @@
 										<option value="default" selected>기본</option>
 										<option value="name">이름순</option>
 										<option value="latest">최신순</option>
-										<option value="past">추천순</option>
+										<option value="recomment">추천순</option>
 									</select>
 								</div>
 							</div>

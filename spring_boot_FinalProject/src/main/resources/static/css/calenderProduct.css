@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 
-#search-option, .plan-title {
+#search-option, 
+.plan-title {
 	display:flex;
 	align-items: center;
 }
@@ -37,13 +38,29 @@
 	outline:0px;
 }
 
-#search-option select[name=prd-kind-select], #search-option select[name=prd-kind-selectOption], .prev-month-btn{
+#search-option select[name=prd-kind-select], 
+#search-option select[name=prd-kind-selectOption], 
+.prev-month-btn{
 	margin-right:10px;
 }
 
-#prd-items-view button, #plan-list-view button, #list-nextBtn, #list-prev-btn	{	
+.prd-item button,
+#add-custom-prd,
+.calender-add-btn,
+.calender-mod-btn,
+.calender-add-custom-btn{
+	padding:5px;
+	font-size:15px;
+	margin-right:10px;
+	border: 0.5px solid rgb(64 60 67 / 16%);
+	color:rgb(64 60 67 / 60%);
+}
+
+#prd-items-view button, 
+#plan-list-view button, 
+#list-nextBtn, 
+#list-prev-btn	{	
 	padding:5px 5px;
-	color:black;
 	font-size:15px;
 }
 
@@ -59,7 +76,6 @@
 #search-option select::expand{
 	appearance: none;
 }
-
 
 #prd-list-box::-webkit-scrollbar{
     width: 15px;
@@ -91,13 +107,6 @@
 	margin:5px auto;
 	padding-bottom:10px;
 	border-radius:5px;
-}
-.prd-item button{
-	padding:5px;
-	font-size:15px;
-	margin-right:10px;
-	border: 0.5px solid rgb(64 60 67 / 16%);
-	color:rgb(64 60 67 / 60%);
 }
 .prd-des{
 	margin:10px 0px;
@@ -138,11 +147,13 @@
 .prd-table-title {
 	width:70px;
 }	
-.prd-info-box{
+.prd-info-box,
+#add-custom-prd{
 	margin-left:20px;
 	font-size:18px;
 }
-.deco-btn-box, .item-btn-box{
+.deco-btn-box, 
+.item-btn-box{
 	display:flex;
 	margin-top:10px;
 }

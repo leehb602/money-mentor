@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.spring_boot_momentor.dao.ICalenderDAO;
+import com.spring_boot_momentor.model.CalenderProductVO;
 import com.spring_boot_momentor.model.CalenderVO;
-import com.spring_boot_momentor.model.CardVO;
-import com.spring_boot_momentor.model.InsuVO;
-import com.spring_boot_momentor.model.Plan;
+import com.spring_boot_momentor.model.PlanVO;
 
 @Service
 public class CalenderService implements ICalenderService{
@@ -25,7 +24,7 @@ public class CalenderService implements ICalenderService{
 	}
 
 	@Override
-	public ArrayList<Plan> calenderView(String userID) {
+	public ArrayList<PlanVO> calenderView(String userID) {
 		// TODO Auto-generated method stub
 		return dao.calenderView(userID);
 	}
@@ -50,22 +49,28 @@ public class CalenderService implements ICalenderService{
 	}
 
 	@Override
-	public ArrayList<InsuVO> calenderListAllInsu() {
+	public ArrayList<CalenderProductVO> calenderPrdList(String kind, String kindDetail, String order) {
 		// TODO Auto-generated method stub
-		return dao.calenderListAllInsu();
+		return dao.calenderPrdList(kind, kindDetail, order);
 	}
 
 	@Override
-	public ArrayList<InsuVO> calenderListInsu(String kindDetail) {
+	public void deletePlan(int dataID) {
 		// TODO Auto-generated method stub
-		return dao.calenderListInsu(kindDetail);
+		dao.deletePlan(dataID);
 	}
 
 	@Override
-	public ArrayList<CardVO> calenderListCard(String kindDetail) {
+	public ArrayList<CalenderVO> getPlanModify(String userID, int dataID) {
 		// TODO Auto-generated method stub
-		return dao.calenderListCard(kindDetail);
+		return dao.getPlanModify(userID, dataID);
 	}
-	
+
+	@Override
+	public void modifyPlan(CalenderVO vo) {
+		// TODO Auto-generated method stub
+		dao.modifyPlan(vo);
+	}
+
 
 }
