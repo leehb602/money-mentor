@@ -1,7 +1,8 @@
 /**
  * 
  */
- //상품목록
+ 
+  //상품목록
  jQuery.randerProduct = function(){
 	const kind = $('#prd-kind-select option:selected').val();
 	const kindDetail = $('#prd-kind-detail-select option:selected').val();
@@ -47,15 +48,15 @@
 			
 			if(item.prdCom == 'KB'){
 				viewData += `<span>[국민카드]</span>`;
-				linkData = `"window.open('https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${item.prdURL}')"`;
 			}
 			else if(item.prdCom == '현대'){
 				viewData += `<span>[현대카드]</span>`;
-				linkData = `"window.open('https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=${item.prdURL}')"`;
+			}
+			else if(item.prdCom == 'lotte'){
+				viewData += `<span>[롯데카드]</span>`;
 			}
 			else{
 				viewData += `<span>${item.prdCom}</span>`;
-				linkData = `"window.open('{item.prdURL}')"`;
 			}
 			
 			viewData += `
@@ -65,15 +66,7 @@
 			
 			let prdDes = item.prdDes;
 			
-			if(kind == "insu"){
-				prdDes = prdDes.replace(/#/gi, "<br>")
-				viewData += `
-								<div class="prd-des">
-									<div>${prdDes}</div>
-								</div>
-								`;
-			}
-			else{
+			if(prdDes != null){
 				viewData += `
 								<div class="prd-des">
 									<div>${prdDes}</div>
@@ -88,7 +81,12 @@
 							</div>
 							<div class="item-btn-box">
 								<button onclick=${linkData}>상세보기</button>
-								<button class="add-prd-btn open">추가하기</button>
+						`;
+						
+			if(sid != ""){
+							viewData += `<button class="add-prd-btn open">추가하기</button>`;
+							}
+							viewData += `
 							</div>
 	  									<div class="prd-detail-view" style="display:none">
 										</div>
@@ -102,8 +100,8 @@
      	},
 	});
 }
-
-
+ 
+ 
 $(document).ready(function(){
 	//상품추가 숨기기 보이기
 	$(document).on('click', '.prd-items-view-btn', function(e){
@@ -116,6 +114,9 @@ $(document).ready(function(){
 			$('#search-option').show();
 			$('#prd-list-box').show();
 			$('#prd-detail-view').hide();
+			if(sid != ""){			
+				$('#add-custom-prd').show();
+			}
 		}
 		else if($('#prd-items-view').attr('class') == 'show'){
 			$('#prd-items-view').removeClass('show');
@@ -123,6 +124,7 @@ $(document).ready(function(){
 			$('#prd-icon').removeClass('fa-minus');
 			$('#prd-icon').addClass('fa-plus');
 			$('#search-option').hide();
+			$('#add-custom-prd').hide();
 			$('#itemsView').hide();
 			$('#prd-list-box').hide();
 			$('#prd-detail-view').hide();
@@ -136,16 +138,17 @@ $(document).ready(function(){
 	  $('#prd-kind-detail-select').empty();
 	  if(kind == 'card'){
 	  	$('#prd-kind-detail-select').append(`
-								<select id="prd-kind-selectOption" name="prd-kind-selectOption">
+								<select id="prd-kind-select-option" name="prd-kind-select-option">
 									<option value="default" selected>카드명</option>
 									<option value="현대">현대카드</option>
 									<option value="KB">국민카드</option>
+									<option value="lotte">롯데카드</option>
 								</select>
 	  							`);
 	  }
 	  else if(kind == 'insu'){
 	  	$('#prd-kind-detail-select').append(`
-								<select id="prd-kind-selectOption"  name="prd-kind-selectOption">
+								<select id="prd-kind-select-option"  name="prd-kind-select-option">
 									<option value="default" selected>보험종류</option>
 									<option value="암진단">암진단</option>
 									<option value="질병">질병</option>
@@ -158,27 +161,25 @@ $(document).ready(function(){
 	  jQuery.randerProduct();
 	});
 	
-	$(document).on('change', '#order', function(e){
+	$(document).on('change', '#prd-kind-detail-select', function(e){
 	  e.preventDefault();
-	  const option = $('#order option:selected').val();
 	  jQuery.randerProduct();
 	});
 	
-	$(document).on('change', '#prd-kind-selectOption', function(e){
+	$(document).on('change', '#prd-order-select', function(e){
 	  e.preventDefault();
-	  const option = $('#prd-kind-selectOption option:selected').val();
 	  jQuery.randerProduct();
 	});
 	
+	$(document).on('change', '#prd-kind-select-option', function(e){
+	  e.preventDefault();
+	  jQuery.randerProduct();
+	});
 	
 	//상품선택 툴 보이기
 	$(document).on('click', '.open', function(e){
 	  	e.preventDefault();
 	  	
-	  	if(sid == ""){
-			alert("로그인 해주세요!");
-			return false;
-	  	}
 	  	const clickIndex = $('.add-prd-btn').index(this);
 	  	
 		$('.prd-detail-view').eq(clickIndex).show();
@@ -212,6 +213,10 @@ $(document).ready(function(){
 		        	$('.prd-detail-view').eq(clickIndex).append(`
 																<table>
 																	<tbody>
+																		<tr class="prdName">
+																			<td class="prd-table-title">별명</td>
+																			<td><input placeholder="미기입시 상품명" type="text" id="prdName" class="prdName" name="prdName"></td>
+																		</tr>
 																		<tr class="prdFee">
 																			<td class="prd-table-title" rowspan="2">수수료</td>
 																			<td class="male">남자 : </td>
@@ -285,17 +290,18 @@ $(document).ready(function(){
 	});
 	
 	$('#prd-kind-detail-select').append(`
-							<select id="prd-kind-selectOption" name="prd-kind-selectOption">
+							<select id="prd-kind-select-option" name="prd-kind-select-option">
 								<option value="default" selected>카드명</option>
 								<option value="현대">현대카드</option>
 								<option value="KB">국민카드</option>
+								<option value="lotte">롯데카드</option>
 							</select>
 	  						`);
 
 	//상품선택 툴 숨기기
 	$(document).on('click', '.close', function(e){
-	  	const clickIndex = $('.add-prd-btn').index(this);
 	  	e.preventDefault();
+	  	const clickIndex = $('.add-prd-btn').index(this);
 		$('.prd-detail-view').eq(clickIndex).empty();
 		$('.prd-detail-view').eq(clickIndex).hide();
 		$('.calender-add-form').eq(clickIndex).css('width', '30%');
@@ -305,5 +311,5 @@ $(document).ready(function(){
 		$('.add-prd-btn').eq(clickIndex).removeClass('close');
 	});
 	
-	jQuery.randerProduct();
+	  jQuery.randerProduct();
 });

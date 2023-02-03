@@ -2,49 +2,55 @@
  * calender.js
  */
  
-//오늘 날짜 받아오기
+ //날짜 받아오기
 let date = new Date();
-let kindOption = $('#prd-kind-select option:selected').val();
-let orderOption = $('#order option:selected').val();
+
+//유저 아이디
 let sid = "";
 
 //캘린더
-function randerCalender(){//오늘 년, 월, 일, 날짜
+jQuery.randerCalender = function(){
+	//연도, 달 선택창 가리기
 	$('#year-select-Box').hide();
 	$('#month-select-Box').hide();
+	
+	//캘린더 박스 비워서 원래 있는 내용에 추가되지 않게
 	$('#calender-view-box').empty();
 	
+	//지금 보고 있는 연도, 달, 일을 받아옴
 	const viewYear = date.getFullYear();
 	const viewMonth = date.getMonth();
-	const toDate = new Date();
 	
+	//실제 년, 월, 일(오늘 기준) 받아옴
+	const toDate = new Date();
 	const nowYear = toDate.getFullYear();
 	const nowMonth = toDate.getMonth();
 	const nowDate = toDate.getDate();
-
+	
+	//캘린더쪽 헤더에 표기할 달, 2글자가 아니면 앞에 0을 추가
 	let viewMonth2 = viewMonth+1;
 	viewMonth2 = viewMonth2.toString().padStart(2, '0');
 	
 	$("#now-year").text(viewYear);
 	$("#now-month").text(viewMonth2);
 	
-	;
 	
+	//저번달의 마지막 날짜와 요일, 이번달의 마지막 날짜와 요일을 받아옴
 	const prevLast = new Date(viewYear, viewMonth, 0);
 	const thisLast = new Date(viewYear, viewMonth + 1, 0);
-	 
 	const PLDate = prevLast.getDate();
   	const PLDay = prevLast.getDay();
-
   	const TLDate = thisLast.getDate();
   	const TLDay = thisLast.getDay();
   	 
   	const prevDates = [];
+  	//TLDate+1까지의 key값을 thisDates 배열에 저장하고 0을 출력하지 않게 하기 위해 1부터 끝까지 잘라 저장한다
   	const thisDates = [...Array(TLDate + 1).keys()].slice(1);
   	const nextDates = [];
 	
 	// prevDates 계산
 	if (PLDay != 6) {
+	  //PLDate - i부터 순차적으로 작아지기 때문에 unshift를 이용해 새로운 값을 배열 가장 앞에 저장할 수 있게 코딩함
 	  for (let i = 0; i < PLDay + 1; i++) {
 	    prevDates.unshift(PLDate - i);
 	  }
@@ -52,6 +58,7 @@ function randerCalender(){//오늘 년, 월, 일, 날짜
 	
 	// nextDates 계산
 	if(TLDay == 6){
+		//다음달은 최대 2주까지 출력해야해서 i <= 14
 		for (let i = 1; i <= 14; i++) {
 		  nextDates.push(i);
 		}
@@ -61,42 +68,22 @@ function randerCalender(){//오늘 년, 월, 일, 날짜
 		  nextDates.push(i);
 		}
 	}
-	 
+	
+	//저번 달 일수를 모아둔 배열에 이번달과 다음달 배열을 합쳐 전체적인 캘린더 날짜를 출력할 배열을 생성한다
 	let dates = prevDates.concat(thisDates, nextDates);
 	let randerDate = "";
 	let randerWeek = "";
 	
+	//6주치 캘린더
     for(let weekCnt = 0; weekCnt < 6; weekCnt++){
+    	//1주가 지날 때마다 비워준다
     	randerDate = "";
-
+		
+		//1일부터 7일까지
 		for(let dayCnt = 0; dayCnt < 7; dayCnt++){
-			randerDate += `<td class=`;
-				if(nowYear == viewYear && nowMonth == viewMonth && nowDate == dates[weekCnt*7+(dayCnt)]){
-					randerDate += `"nowDays dates real-date `;
-				}
-			    else if(weekCnt*7+(dayCnt) < prevDates.length) {
-					randerDate += `"past-dates dates `;
-				}
-				else if((weekCnt*7+(dayCnt))- prevDates.length < thisDates.length){
-					randerDate += `"nowDays dates `;
-				}
-						
-				//만일 뒤에 공간이 남으면 다음 달 날짜로 채우기
-				else if((weekCnt*7+(dayCnt))- prevDates.length - thisDates.length < 42){
-					randerDate += `"fut-dates dates `;
-				}
-				
-				if(dayCnt == 0){
-					randerDate += `sun`;
-				}
-				if(dayCnt == 6){
-					randerDate += `sat`;
-				}
-				
-				randerDate += `" id=${dates[weekCnt*7+(dayCnt)]}>`;
-				randerDate += `${dates[weekCnt*7+(dayCnt)]}</td>`;
-			}
-					
+			//우선은 날짜를 채워넣음
+			randerDate += `<td class="dates">${dates[weekCnt*7+(dayCnt)]}</td>`;
+		}		
 		//하나로 합치는 작업
 		randerWeek += `<tr>${randerDate}</tr>`;
 	}
@@ -106,6 +93,43 @@ function randerCalender(){//오늘 년, 월, 일, 날짜
 							<tr><th class="dates-head-text sun">일</th><th class="dates-head-text">월</th><th class="dates-head-text">화</th><th class="dates-head-text">수</th><th class="dates-head-text">목</th><th class="dates-head-text">금</th><th class="dates-head-text sat">토</th></tr>
 							${randerWeek}
 					   `);
+	
+	//6주치 캘린더
+    for(let weekCnt = 0; weekCnt < 6; weekCnt++){
+		
+		//1일부터 7일까지
+		for(let dayCnt = 0; dayCnt < 7; dayCnt++){
+				//실제 오늘인지 class로 표기 
+				if(nowYear == viewYear && nowMonth == viewMonth && nowDate == dates[weekCnt*7+(dayCnt)]){
+					$('.dates').eq(weekCnt*7+(dayCnt)).addClass('real-date');
+				}
+				
+				//저번 달 일수인지를 표기해주는 if문(class, id 추가)
+			    if(weekCnt*7+(dayCnt) < prevDates.length) {
+					$('.dates').eq(weekCnt*7+(dayCnt)).addClass('past-dates');
+					$('.dates').eq(weekCnt*7+(dayCnt)).attr('id', `${dates[weekCnt*7+(dayCnt)]}prev`);
+				}
+				//이번달 달 일수인지를 표기해주는 if문(class, id 추가)
+				else if((weekCnt*7+(dayCnt)) < thisDates.length + prevDates.length ){
+					$('.dates').eq(weekCnt*7+(dayCnt)).addClass('nowDays');
+					$('.dates').eq(weekCnt*7+(dayCnt)).attr('id', `${dates[weekCnt*7+(dayCnt)]}now`);
+				}		
+				//만일 뒤에 공간이 남으면 다음 달 날짜로 채우기(class, id 추가)
+				else{
+					$('.dates').eq(weekCnt*7+(dayCnt)).addClass('fut-dates');
+					$('.dates').eq(weekCnt*7+(dayCnt)).attr('id', `${dates[weekCnt*7+(dayCnt)]}fut`);
+				}
+				
+				//일요일인지 표기해주는 if문
+				if(dayCnt == 0){
+					$('.dates').eq(weekCnt*7+(dayCnt)).addClass('sun');
+				}
+				//토요일인지 표기해주는 if문
+				else if(dayCnt == 6){
+					$('.dates').eq(weekCnt*7+(dayCnt)).addClass('sat');
+				}
+			}
+	}
 	
 					   
 	$.ajax({
@@ -125,29 +149,40 @@ function randerCalender(){//오늘 년, 월, 일, 날짜
 					const endYear = startYear+item.calMaturity;
 					const transferDate = item.calTransfer;
 					
-				
-					if(item.prdName != null){
-						prdName = item.prdName;
-					}else{
-						if(item.prdName != null){
-							prdName = item.prdName;
-						}
-						else if(item.insuName != null){
-							prdName = i
-						}
-					}
+					prdName = item.prdName;
 					
 					let payment = item.calPayment;
 					payment = payment.toLocaleString('ko-KR');
 				
 					let planTitle = "";
 					
-					if(startYear < viewYear && endYear > viewYear){
-						for(let i = 0; i < 42; i++){
+					if(startYear == viewYear && month == viewMonth+1 && date <= transferDate){
+						for(let i = $(".past-dates").length; i < 42; i++){
 							if($(".dates").eq(i).text() == transferDate){
-									planTitle = `
+								planTitle = `
 									<div class="calender-plan">
-										<div class="calender-plan-title"><span class="calender-plan-name">${prdName}</span><span> 이체일</span></div>`;
+												<div class="calender-plan-title"><span class="calender-plan-name">${prdName}</span><span> 이체일</span></div>`;
+								
+								$(".dates").eq(i).append(`
+										<div id="${item.prdID}" class="calender-plan-box ${item.prdType}">
+											<div class="plan-title">
+												${planTitle}
+												<div class="payment">
+													<span>${payment} 원</span>
+												</div>
+											</div>
+										</div>
+									`);
+							}
+						}
+					}
+					
+					else if(startYear == viewYear && month == viewMonth+1 && date > transferDate){
+						for(let i = $(".past-dates").length + $(".nowDays").length; i < 42; i++){
+							if($(".dates").eq(i).text() == transferDate){
+								planTitle = `
+									<div class="calender-plan">
+												<div class="calender-plan-title"><span class="calender-plan-name">${prdName}</span><span> 이체일</span></div>`;
 								
 								$(".dates").eq(i).append(`
 										<div id="${item.prdID}" class="calender-plan-box ${item.prdType}">
@@ -163,7 +198,7 @@ function randerCalender(){//오늘 년, 월, 일, 날짜
 						}
 					}
 					else if(endYear == viewYear && month >= viewMonth+1){
-						for(let i = 0; i < $(".nowDays").length; i++){
+						for(let i = 0; i < $(".nowDays").length + $(".past-dates").length; i++){
 							if($(".dates").eq(i).text() == transferDate){
 									planTitle = `
 												<div class="calender-plan">
@@ -202,12 +237,12 @@ function randerCalender(){//오늘 년, 월, 일, 날짜
 							}
 						}
 					}
-					else if(startYear == viewYear && month == viewMonth+1){
-						for(let i = $(".past-dates").length; i < 42; i++){
+					else if(startYear < viewYear && endYear > viewYear){
+						for(let i = 0; i < 42; i++){
 							if($(".dates").eq(i).text() == transferDate){
-								planTitle = `
+									planTitle = `
 									<div class="calender-plan">
-												<div class="calender-plan-title"><span class="calender-plan-name">${prdName}</span><span> 이체일</span></div>`;
+										<div class="calender-plan-title"><span class="calender-plan-name">${prdName}</span><span> 이체일</span></div>`;
 								
 								$(".dates").eq(i).append(`
 										<div id="${item.prdID}" class="calender-plan-box ${item.prdType}">
@@ -229,9 +264,7 @@ function randerCalender(){//오늘 년, 월, 일, 날짜
 	
 	$('#calender-view-box').show();
 }
-
-
-
+ 
 //연도 선택창
 function randerYear(){
 	$('#calender-view-box').hide();
@@ -307,7 +340,7 @@ $(document).ready(function(){
 	  	e.preventDefault();
 	  	date.setDate(1);
 		date.setMonth(date.getMonth() + 1);
-		randerCalender();
+		jQuery.randerCalender();
 		jQuery.randerPlan();
 	})
 	//저번 달로 가는 버튼
@@ -315,7 +348,7 @@ $(document).ready(function(){
 	  	e.preventDefault();
 	  	date.setDate(1);
 		date.setMonth(date.getMonth() - 1);
-		randerCalender();
+		jQuery.randerCalender();
 		jQuery.randerPlan();
 	})
 	//오늘로 가는 버튼
@@ -325,7 +358,7 @@ $(document).ready(function(){
 	  	date.setDate(today.getDate());
 		date.setMonth(today.getMonth());
 		date.setFullYear(today.getFullYear());
-		randerCalender();
+		jQuery.randerCalender();
 		jQuery.randerPlan();
 	})
 	
@@ -375,7 +408,7 @@ $(document).ready(function(){
 	  const selMonth = $(this).attr('id');
 	  date.setDate(1);
 	  date.setMonth(selMonth - 1);
-	  randerCalender();
+	  jQuery.randerCalender();
 	  jQuery.randerPlan();
 	})
 	
@@ -431,5 +464,5 @@ $(document).ready(function(){
 		}
 	});
 	
-	randerCalender();
+	jQuery.randerCalender();
 });

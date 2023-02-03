@@ -267,7 +267,7 @@ public class CardController {
 	@RequestMapping("/card/lotte")
 	public String lotteCard() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Program Files\\Google\\Chrome\\ChromeDriver\\chromedriver.exe");
+				"C:\\Program Files (x86)\\Google\\Chrome\\Chromdriver\\chromedriver.exe");
 		// 크롬 드라이버 세팅 (드라이버 설치한 경로 입력)
 
 		ChromeOptions options = new ChromeOptions();
