@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-
+#prdName{
+	width:60%;
+}
 #plan-view{
 	width:30%;
 }
@@ -31,19 +33,19 @@
 }
 #all-delete{
 	display:flex;
-	justify-content:end;
+	justify-content:space-between;
 }
 
 #plan-list-view, #prd-items-view, .all-plans{
 	justify-content:space-between;
 	display:flex;
 	align-items: center;
-	padding:20px 0px;
 }	
-#plan-list-view{
-	position:sticky;
-	top:120px;
-	left:0;
+#plan-list-view, #prd-items-view, #all-plan{
+	padding:20px 0px;
+}
+.all-plans{
+	margin-bottom:10px;
 }
 .plan-date, .plan-list-title{
 	font-size:18px;
@@ -57,7 +59,7 @@
 	justify-content:space-between;
 }
 .plan-modify, 
-.plan-del{
+#plan-del{
 	padding:5px;
 	font-size:12px;
 	margin-right:5px;
@@ -71,13 +73,13 @@
 }
 
 .all-plan-title{
-	width:160px;
+	width:130px;
 	text-align:center;
 }
 
 .all-payment{
-	width:80px;
 	text-align:center;
+	font-size:12px;
 }
 
 .dates-head-text{

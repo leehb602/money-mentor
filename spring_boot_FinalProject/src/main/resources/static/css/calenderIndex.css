@@ -4,7 +4,7 @@
 @import url("plan.css");
 
 :root{
-	--main-color:#224a7d;
+	--main-color:#1F4B81;
 	--sub-color:#b9baea;
 }
 
@@ -44,6 +44,18 @@ header, footer{
 	top:90px;
 	margin-bottom:120px;
 }
+#plan-logo{
+	display:flex;
+	justify-content:center;
+	margin-bottom:10px;
+}
+#plan-logo img{
+	width:150px;
+}
+#add-view-body{
+	padding-top:10px;
+	padding-left:30px;
+}
 
 .sat{
 	color:blue;
@@ -56,6 +68,9 @@ header, footer{
 	color:white;
 }
 
+.p-btn{
+	color:black;
+}
 .warning-text{
 	font-size:13px;	
 	color:rgb(150, 150, 150);

@@ -2,7 +2,8 @@ package com.spring_boot_momentor.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class Plan {
+public class PlanVO {
+	private int dataID;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private String calSubDate;
 	private int calTransfer;
@@ -14,7 +15,13 @@ public class Plan {
 	private String prdName;
 	private String prdID;
 	private String prdType;
-	
+
+	public int getDataID() {
+		return dataID;
+	}
+	public void setDataID(int dataID) {
+		this.dataID = dataID;
+	}
 	
 	public String getPrdID() {
 		return prdID;

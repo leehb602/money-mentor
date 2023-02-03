@@ -1,6 +1,6 @@
 package com.spring_boot_momentor.model;
 
-public class CalenderProduct {
+public class CalenderProductVO {
 	private String prdID;
 	private String prdName;
 	private String prdDes;
