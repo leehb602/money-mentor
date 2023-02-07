@@ -11,6 +11,7 @@
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="<c:url value='/js/calculator.js'/>"></script>
 		<script src="<c:url value='/js/calResult.js'/>"></script>
+		
 	</head>
 	<body>
 		<div id="wrap">
@@ -34,7 +35,7 @@
 						<table class="menu_info">
 							<tr>
 								<td>
-									<input type="radio" name="salaryType" id="salaryType" value="월급">월급
+									<input type="radio" name="salaryType" id="salaryType"  value="월급">월급
 									<input type="radio" name="salaryType" id="salaryType" value="연봉" checked="checked">연봉							
 								</td>
 								<td>
@@ -123,7 +124,7 @@
 								<td>월 적립액</td>
 								<td colspan="2">
 									<div class="write won">
-										<input type="text" class="input_data" name="">원
+										<input type="text" class="input_data" id="savMoney" name="">원
 									</div>
 								</td>
 							</tr>
@@ -131,7 +132,7 @@
 								<td>적립기간</td>
 								<td colspan="2">
 									<div class="write month">
-										<input type="text" class="input_data" name="">개월
+										<input type="text" class="input_data" id="savMonth" name="">개월
 									</div>
 								</td>
 							</tr>
@@ -139,7 +140,7 @@
 								<td>이자율</td>
 								<td colspan="2">
 									<div class="write percent">
-										<input type="text" class="input_data" name="">%
+										<input type="text" class="input_data" id="savPercent" name="">%
 									</div>
 								</td>
 							</tr>
