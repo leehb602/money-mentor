@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+body{
+	margin:0px;
+}
+.qusFrom_sec{
+	margin-top:120px;	
+	width:100%;
+	height: 700px;
+	
+}
+.qusFrom_div{
+	text-align: center;
+	width:80%;
+	margin: 0px auto;
+}
+.QF_table{
+	margin: 0px auto;
+}
+.QF_table_title{
+	text-align: left;
+}
+.QF_table_title span{
+	color: skyblue;
+}

@@ -1,7 +1,7 @@
 /**
  * calculator.js
  */
- 
+
  $(document).ready(function() {
    $('.menu').hide();
    $('.result').hide();

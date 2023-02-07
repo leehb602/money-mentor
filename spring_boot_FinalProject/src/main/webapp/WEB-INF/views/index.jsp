@@ -95,11 +95,8 @@
 			 					<div class="see_sec1"><br>
 			 						<div class="img_section">
 			 							<div class="card_Img_div">
-	 							 			<div>
-												
-											</div>
+	 							 			
 			 							</div>
-			 							
 			 						</div>
 			 					</div>
 			 				</div>
@@ -109,9 +106,11 @@
 			 				<div class="see_sec">
 			 					<div  class="see_sec1">
 			 						<div class="img_section">
+			 							<div  class="loan_Img_div">추후 추가 예정입니다.
+			 							
+			 							</div>
 			 						</div>
 			 					</div>
-			 					<div  class="see_sec2">추후 추가 예정입니다.</div>
 			 				</div>
 			 			</div>
 			 			<div class="fin_see sdSee">
@@ -119,9 +118,12 @@
 			 				<div class="see_sec">
 			 					<div  class="see_sec1">
 			 						<div class="img_section">
+			 							<div  class="sd_Img_div">추후 추가 예정입니다.
+			 							
+			 							</div>
 			 						</div>
 			 					</div>
-			 					<div  class="see_sec2">추후 추가 예정입니다.</div>
+			 					
 			 				</div>
 			 			</div>
 			 			<div class="fin_see annSee">
@@ -129,9 +131,11 @@
 			 				<div class="see_sec">
 			 					<div  class="see_sec1">
 				 					<div class="img_section">
+				 						<div  class="ann_Img_div">추후 추가 예정입니다.
+				 						
+				 						</div>
 			 						</div>
 		 						</div>
-			 					<div  class="see_sec2">추후 추가 예정입니다.</div>
 			 				</div>
 			 			</div>
 			 		</div>
