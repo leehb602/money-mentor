@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_momentor.dao.ISCDAO">
+  	<resultMap type="com.spring_boot_momentor.model.ServiceCenterVO" id="serviceCenter">
+  		<result column="qusNum" property="qusNum" />
+  		<result column="userId" property="userId" />
+  		<result column="queTitle" property="queTitle" />
+  		<result column="question" property="question" />
+  		<result column="queState" property="queState" />
+  		<result column="answer" property="answer" />
+  	</resultMap>
+  	
+  	<select id="listAllSC" resultMap="serviceCenter">
+  		SELECT*FROM serviceCenter LIMIT 0,9
+  	</select>
+  	<select id="listAllSC2" resultMap="serviceCenter">
+  		SELECT*FROM serviceCenter
+  		ORDER BY qusNum DESC
+  	</select>
+  	<insert id="insertServiceCenter" parameterType="com.spring_boot_momentor.model.ServiceCenterVO">
+  		INSERT INTO serviceCenter (userId, queTitle, question, queState)
+  		VALUES (#{userId}, #{queTitle}, #{question}, #{queState})
+  	</insert>
+  </mapper>

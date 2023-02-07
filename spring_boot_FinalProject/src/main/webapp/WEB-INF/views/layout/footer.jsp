@@ -34,7 +34,7 @@
 					</div>
 					<div class="fo_div4">
 						<ul id="foot_ul">
-							<li>고객센터 02-1111-xxxx</li>
+							<li><a href="<c:url value='/all/serviceCenter'/>">고객센터  02-1111-xxxx</a></li>
 							<li>ㅣ</li>
 							<li>운영시간 09:00 ~ 18:00</li>
 							<li>ㅣ</li>

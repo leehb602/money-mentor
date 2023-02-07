@@ -19,7 +19,7 @@ $(document).ready(function(){
         })
     });
     
-    // 카드 이미지 ajax
+    // 카드 ranking
     $.ajax({
         type:"post",
         url:"/cardRandom",
@@ -32,6 +32,21 @@ $(document).ready(function(){
         error:function(){
            alert("실패");
         }
-  }); // 카드 이미지 ajax 종료 
+  }); // 카드 ranking 종료 
+  
+//    // 대출 ranking
+//   $.ajax({
+//        type:"post",
+//        url:"/cardRandom",
+        
+//        data:{"cardId" : $("#cardId").val()},
+//        success:function(result){
+//        $('.loan_Img_div').html(result);
+                                   
+//        },
+//        error:function(){
+//           alert("실패");
+//        }
+//  }); // 대출 ranking end
 
 });

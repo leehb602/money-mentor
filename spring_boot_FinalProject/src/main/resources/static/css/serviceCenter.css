@@ -1,0 +1,148 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+body{
+	margin:0px;
+	padding:0px;
+	
+}
+/*nav start*/
+.scNav{
+	height: 400px;
+	width:100%;
+	background-image: linear-gradient(103deg,#597BB6 23%,#00C39F) ;
+}
+.SC_main_div{
+	width:80%;
+	margin: 0px auto;
+	text-align: center;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.nav_title{
+	color:white;
+	padding-top:100px;
+}
+.nav_p1{
+	font-size: 50px;
+	font-weight: 500;
+    margin-block-end: 0px;
+}
+.nav_p2{
+	font-size: 30px;
+	font-weight: 400;
+}
+#SChr{
+	width:80% !important;
+}
+/*nav end*/
+/*FAQSection start*/
+
+#SC_serch{
+	margin-top: 44px;
+	width: 500px;
+	height: 60px;
+	border-radius: 20px;
+	border: 2px solid #eee;
+}
+
+.FAQSection{
+	height: 500px;
+	width: 100%;
+}
+.SC_div_art{
+	padding-top: 40px;
+}
+.SC_art{
+	width: 250px;
+	height: 50px;
+	border: 1px solid red;
+}
+.artDiv{
+	padding-top: 25px;
+	width: 80%;
+	margin: 0px auto;
+}
+
+/*FAQSection end*/
+
+/* queSection start*/
+.queSection{
+	height: 700px;
+}
+.QNA_div{
+	margin: 10px auto;
+	width:80%;
+}
+.QNA_div ul{
+	list-style: none;
+    padding-inline-start: 0px;
+    text-align: left !important;
+}
+.QNA_div ul li{
+	padding-top:15px;
+}
+/*questionAll start*/
+.ques_div{
+	display:flex;
+}
+.main_FAQ{
+	width:30%;
+	height:60px;
+	margin: 2% auto;
+	background-color: #eee;
+/* 	background-image: linear-gradient(103deg,#597BB6 23%,#00C39F) ; */
+}
+.main_FAQ div{
+	margin:auto;
+	height:60px;
+}
+.main_ques{
+	height:60px;
+	width:100%;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+/*     line-height: 3.3; */
+}
+
+/*questionAll end*/
+
+
+/*answerForm start*/
+.answer_text {
+    height: 550px;
+    position: relative;
+}
+ul.FAQ_ul{
+	width:100%;
+}
+ul.FAQ_ul.FAQ_ul_1 {
+    position: absolute;
+}
+ul.FAQ_ul.FAQ_ul_6 {
+    position: absolute;
+}
+ul.FAQ_ul.FAQ_ul_11 {
+    position: absolute;
+}
+ul.FAQ_ul.FAQ_ul_16 {
+    position: absolute;
+}
+ul.FAQ_ul.FAQ_ul_21 {
+    position: absolute;
+}
+.qus_update{
+	float: right;
+}
+/*answerForm end*/
+#questionForm_a{
+	width:125px;
+	height:30px;	
+	float: right;
+	text-decoration: none;
+	background-color: rgba(0, 195, 159, 0.5);
+	border-radius: 15px;
+}
