@@ -57,7 +57,7 @@
 }
 
 #prd-items-view button, 
-#plan-list-view button, 
+.p-btn button, 
 #list-nextBtn, 
 #list-prev-btn	{	
 	padding:5px 5px;

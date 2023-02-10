@@ -11,9 +11,8 @@
 	padding:20px 10px;
 	border-bottom:1px dashed black;
 }
-#plan-list-view-box{
+.view-box{
 	padding:0px 20px;
-	min-width:300px;
 }
 #plan-list-toMonth{
 	overflow:auto;
@@ -36,12 +35,12 @@
 	justify-content:space-between;
 }
 
-#plan-list-view, #prd-items-view, .all-plans{
+.list-view, #prd-items-view, .all-plans{
 	justify-content:space-between;
 	display:flex;
 	align-items: center;
 }	
-#plan-list-view, #prd-items-view, #all-plan{
+.list-view, #prd-items-view, #all-plan{
 	padding:20px 0px;
 }
 .all-plans{

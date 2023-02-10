@@ -294,25 +294,44 @@ $(document).ready(function(){
 	}); 
 	
 	//일정관리 숨기기 보이기
-	$(document).on('click', '.plan-list-view-btn', function(e){
+	$('#plan-list-view-btn').on('click', function(e){
 	  	e.preventDefault();
-		if($('#plan-list-view-box').attr('class') == 'hide'){
+		if($('#plan-list-view-box').hasClass('hide')){
 			$('#plan-list-view-box').removeClass('hide');
 			$('#plan-list-view-box').addClass('show');
 			$('#plan-icon').removeClass('fa-plus');
 			$('#plan-icon').addClass('fa-minus');
 			$('#plan-list-box').show();
 		}
-		else if($('#plan-list-view-box').attr('class') == 'show'){
+		else if($('#plan-list-view-box').hasClass('show')){
 			$('#plan-list-view-box').removeClass('show');
 			$('#plan-list-view-box').addClass('hide');
 			$('#plan-icon').removeClass('fa-minus');
 			$('#plan-icon').addClass('fa-plus');
 			$('#plan-list-box').hide();
 		}
-		jQuery.randerPlan();
-		jQuery.randerAllPlan();
 	});
+	
+		
+	//차트 숨기기 보이기
+	$('#chart-view-btn').on('click', function(e){
+	  	e.preventDefault();
+		if($('#chart-view-box').hasClass('hide')){
+			$('#chart-view-box').removeClass('hide');
+			$('#chart-view-box').addClass('show');
+			$('#chart-icon').removeClass('fa-plus');
+			$('#chart-icon').addClass('fa-minus');
+			$('#chart-list-box').show();
+		}
+		else if($('#chart-view-box').hasClass('show')){
+			$('#chart-view-box').removeClass('show');
+			$('#chart-view-box').addClass('hide');
+			$('#chart-icon').removeClass('fa-minus');
+			$('#chart-icon').addClass('fa-plus');
+			$('#chart-list-box').hide();
+		}
+	});
+	
 	
 	//일정 추가하기
 	$(document).on('click', '.calender-add-btn', function(e){

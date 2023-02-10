@@ -21,7 +21,7 @@
 	width:65%;
 	height:100%;
 }
-#calender-view{
+#calender-view, #chart-view{
 	background-color:white;
 	padding-left:10px;
 	border-left:0.5px dashed rgb(64 60 67 / 60%);
