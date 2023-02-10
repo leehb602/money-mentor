@@ -21,7 +21,7 @@
 					<p class="nav_p2">굼금한 점은 검색으로 쉽고 빠르게 확인하세요.</p>
 				</div>
 				<div class="nav_input">
-					<input id="SC_serch" type="text" placeholder="궁금한 점을 검색해 보세요."><button>검색</button>
+					<input id="SC_serch" type="text" placeholder="궁금한 점을 검색해 보세요."><button class="SC_serch_btn"> 검색 </button>
 				</div>
 			</div>
 		</nav>
@@ -34,7 +34,8 @@
 							<div class="ques_div SC_div${num.count}">
 						</c:if>
 						<div class="main_FAQ">
-							<a class="main_ques SC${num.count}" href="/ansDetail/${ques.qusNum} }">
+							<a class="main_ques SC${num.count}" href="/all/serviceCenter/detail/${ques.qusNum}">
+								<input id="detail_qusNum" type="hidden" value="${ques.qusNum}">
 								[${ques.queState}]${ques.queTitle} 
 							</a>
 						</div>
@@ -55,19 +56,19 @@
 						<c:if test="${(num.count%5) == 1}">
 							<ul class="FAQ_ul FAQ_ul_${num.count}"> 
 						</c:if>
-<%-- 							<a href="/ansDetail/${ques.qusNum}"> --%>
+							<a href="/all/serviceCenter/detail/${ques.qusNum}">
 								<input id="detail_qusNum" type="hidden" value="${ques.qusNum}">
 								<li>
 									${num.count}. [${ques.queState}]
 									<c:if test="${empty ques.answer}">
-										답변 대기
+										<span style="color: orange;">답변 대기중</span>
 									</c:if>
 									<c:if test="${not empty ques.answer}">
-										답변 완료
+										<span>답변 완료</span>
 									</c:if><br>
-									<h3>제목 : ${ques.queTitle}<button class="qus_update">수정하기</button></h3>
+									<h3>제목 : ${ques.queTitle}<button class="qus_check">답변 보기</button></h3>
 								</li>
-<!-- 							</a> -->
+							</a>
 						<c:if test="${(num.count%5) == 0}">
 							</ul> 	
 						</c:if>
@@ -76,16 +77,19 @@
 					<div class="answer_page">
 					<c:forEach var="ques" items="${listAllSC2}" varStatus="num">
 						<c:if test="${num.last }"><%-- 마지막확인 --%>
+							ㅡ <span>
 							<c:forEach var="cnt" begin="1" end="${num.count/5+0.9}">
 							     <button class="ans_page_btn APBtn${cnt}">${cnt}</button> 
-							</c:forEach> 
+							</c:forEach>
+							</span> ㅡ
 						</c:if>
 					</c:forEach>
 					</div>
 				</div>
-				<a id="questionForm_a"target="_blank" href="<c:url value='/question' />">질문/문의 하기</a>
+				<a id="questionForm_a" href="<c:url value='/question' />">질문/문의 하기</a>
 			</div>
 		</section>
+		<hr id="SChr"/>
 		<c:import url="/WEB-INF/views/layout/footer.jsp" />
 	</body>
 </html>

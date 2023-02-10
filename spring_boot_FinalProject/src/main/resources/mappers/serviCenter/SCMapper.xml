@@ -24,4 +24,8 @@
   		INSERT INTO serviceCenter (userId, queTitle, question, queState)
   		VALUES (#{userId}, #{queTitle}, #{question}, #{queState})
   	</insert>
+  	<select id="getQNADetail" resultMap="serviceCenter">
+  		SELECT * FROM serviceCenter
+  		WHERE qusNum=#{qusNum}
+  	</select>
   </mapper>

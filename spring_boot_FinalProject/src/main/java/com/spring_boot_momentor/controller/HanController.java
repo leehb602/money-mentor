@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring_boot_momentor.model.CardVO;
@@ -52,9 +53,15 @@ SCService scservice;
 		scservice.insertServiceCenter(vo);
 		return "redirect:/all/serviceCenter";
 	}
-//	@RequestMapping("/questionDetail/${ques.qusNum}")
-//	public String questionDetail() {
-//		return "serviceCenter/questionDetail";
-//	}
+	@RequestMapping("/all/serviceCenter/detail/{qusNum}")
+	public String answerDetail(@PathVariable("qusNum") String qusNum, Model model) {
+		
+		model.addAttribute("qusNum",qusNum);
+		ArrayList<ServiceCenterVO> getQNADetail = scservice.getQNADetail(qusNum);
+		model.addAttribute("getQNADetail", getQNADetail);
+		
+		return "serviceCenter/questionDetail";
+		
+	}
 	/*서비스센터 end*/
 }

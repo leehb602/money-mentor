@@ -113,12 +113,21 @@ body {
 	background-color: rgba(238,238,238, 0.6);
 	
 }
-
-.sec_finance{
-	height: 640px;
-	width: 100%;
-	background: #fff;
+@media(min-width:1150px){
+	.sec_finance{
+		height: 640px;
+		width: 100%;
+		background: #fff;
+	}
 }
+@media(max-width:1150px){
+	.sec_finance{
+		height: 800px;
+		width: 100%;
+		background: #fff;
+	}
+}
+
 .pick_card_img, .pick_bank_img, .pick_cel_img{
 	width: 320px;
     margin: 0 auto;
@@ -190,14 +199,27 @@ body {
 	border-top-right-radius: 15px;
 	border-top-left-radius: 15px;
 }
-.fin_tag_see{
-	position: relative;
-	margin: 0 auto;
-	width: 85%;
-	height:350px;
-	border: 2.5px solid black;
-	border-radius: 15px;
+@media(min-width:1150px){
+	.fin_tag_see{
+		position: relative;
+		margin: 0 auto;
+		width: 85%;
+		height:350px;
+		border: 2.5px solid black;
+		border-radius: 15px;
+	}
 }
+@media(max-width:1150px){
+	.fin_tag_see{
+		position: relative;
+		margin: 0 auto;
+		width: 85%;
+		height:550px;
+		border: 2.5px solid black;
+		border-radius: 15px;
+	}
+}
+
 .fin_tag_see > div{
 	position: absolute;
 }
@@ -227,9 +249,21 @@ body {
 	height:200px;
 }
 /* ranking start*/
-.ranking_main{
-	display: flex;
+@media(min-width:1150px){
+	.ranking_main {
+    display: flex;
+	}
 }
+@media(max-width:1150px){
+	.ranking_main{
+	display: flex;
+	flex-direction: column;
+	}
+}
+
+/* .cardIndex_span{ */
+/* 	width:180px; */
+/* } */
 .ranking_img{
 	display:flex;
 	margin-top:15px;
@@ -265,3 +299,4 @@ body {
 .ranking_text_url a:hover{
 	filter: brightness(0);
 }
+

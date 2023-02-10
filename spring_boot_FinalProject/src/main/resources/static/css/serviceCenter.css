@@ -38,14 +38,30 @@ body{
 	width:80% !important;
 }
 /*nav end*/
-/*FAQSection start*/
 
+/*FAQSection start*/
 #SC_serch{
 	margin-top: 44px;
 	width: 500px;
 	height: 60px;
-	border-radius: 20px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 	border: 2px solid #eee;
+}
+.SC_serch_btn{
+	margin-top: 44px;
+	width: 45px;
+	height: 66px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color: #00C39F;
+	border: 2px solid #eee;
+	padding-bottom: 5px;
+	transition: all 0.2s;
+}
+.SC_serch_btn:hover{
+	color: blue;
+	font-size: 15px;
 }
 
 .FAQSection{
@@ -92,8 +108,7 @@ body{
 	width:30%;
 	height:60px;
 	margin: 2% auto;
-	background-color: #eee;
-/* 	background-image: linear-gradient(103deg,#597BB6 23%,#00C39F) ; */
+	background-color: rgba( 199, 209, 220, 0.6);
 }
 .main_FAQ div{
 	margin:auto;
@@ -105,9 +120,14 @@ body{
     font-size: 18px;
     text-decoration: none;
     color: black;
-/*     line-height: 3.3; */
+    display: inline-block;
+    line-height: 60px;
+   	transition: all 0.2s;
 }
-
+.main_ques:hover{
+    text-decoration: none;
+    color: #f87e61;
+}
 /*questionAll end*/
 
 
@@ -134,8 +154,42 @@ ul.FAQ_ul.FAQ_ul_16 {
 ul.FAQ_ul.FAQ_ul_21 {
     position: absolute;
 }
-.qus_update{
+.qus_check{
 	float: right;
+	background-color: rgba(0, 195, 159, 0.5);
+	border: 1px solid rgba(0, 195, 159, 0.7);
+	border-radius: 10px;
+	margin-right:4%;
+	transition: all 0.2s;
+}
+.qus_check:hover, #questionForm_a:hover{
+	color:red;
+}
+ul.FAQ_ul a{
+	text-decoration: none;
+	color: black;
+	transition: all 0.2s;
+}
+ul.FAQ_ul a:hover{
+	color: #597BB6;
+}
+.answer_page > span{
+	display: inline-block;
+	border-radius: 10px;
+	height:30px;
+	background-color: rgba( 199, 209, 220, 0.6);
+	border: 1px solid rgba(199, 209, 220, 0.8);
+}
+.ans_page_btn{
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	font-size: 13px;
+	border: none;
+	transition: all 0.2s;
+}
+.ans_page_btn:hover{
+	font-size:16px;
 }
 /*answerForm end*/
 #questionForm_a{
@@ -144,5 +198,62 @@ ul.FAQ_ul.FAQ_ul_21 {
 	float: right;
 	text-decoration: none;
 	background-color: rgba(0, 195, 159, 0.5);
+	border: 1px solid rgba(0, 195, 159, 0.7);
 	border-radius: 15px;
+	margin-right: 11%;
+	color:black;
+}
+/*questionDetail.jsp*/
+.detail_section{
+	width:100%;
+	height:500px;
+}
+.detail_div{
+	margin-top:70px;
+    width: 55%;
+    height: 450px;
+    border: 1px solid #1F4B81;
+    border-radius: 30px;
+}
+.answer_div{
+	width:60%;
+	margin: 5px auto;
+}
+.answer_divA{
+	height: 180px;	
+	background-color: rgba( 199, 209, 220, 0.6);
+	line-height: 1.6;
+}
+.answer_btnDiv{
+	margin-top:15px;
+	text-align: right;
+}
+.ans_user{
+	float: left;
+	color: #797979;
+}
+.QNA_span{
+	float: left;
+	font-size:22px;
+	font-weight: bold;
+}
+#qus_btn_delete, #qus_btn_update{
+	width: 60px;
+	height: 30px;
+	background-color: rgba( 199, 209, 220, 0.6);
+	transition: all 0.3s;
+	border: none;
+}
+#qus_btn_delete:hover, #qus_btn_update:hover{
+	font-size: 17px;
+	color: blue;
+}
+.backpage{
+	font-size:18px;
+	text-decoration: none;
+	color: blue;
+	transition: all 0.3s;
+}
+.backpage:hover{
+	font-size:21px;
 }
