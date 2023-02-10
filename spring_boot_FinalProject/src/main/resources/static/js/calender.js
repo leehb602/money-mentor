@@ -464,5 +464,27 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('#select-calender').on('click', function(){
+		$('#calender-view').show();
+		$('#chart-view').hide();
+		
+		jQuery.randerCalender();
+		if(!($('#calender-view').hasClass('select')))
+			$('#calender-view').addClass('select');
+		
+		if($('#chart-view').hasClass('select'))
+			$('#chart-view').removeClass('select');
+	});
+	
+	$('#select-chart').on('click', function(){
+		$('#chart-view').show();
+		$('#calender-view').hide();
+		if(!($('#chart-view').hasClass('select')))
+			$('#chart-view').addClass('select');
+		
+		if($('#calender-view').hasClass('select'))
+			$('#calender-view').removeClass('select');
+	});
+	
 	jQuery.randerCalender();
 });
