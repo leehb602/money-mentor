@@ -12,4 +12,5 @@ public interface ISavingService {
 	public void insertSavingOption(SavingOptionVO vo);
 	public ArrayList<SavingBaseVO> listAllSaving();
 	public ArrayList<SavingBaseVO>savingSearch(SearchVO vo); //적금 검색
+	public SavingBaseVO SavingCompare(String savingID); //적금 비교 넣기
 }

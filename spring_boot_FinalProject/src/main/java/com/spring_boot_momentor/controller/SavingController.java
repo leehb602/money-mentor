@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_momentor.model.SavingBaseVO;
 import com.spring_boot_momentor.model.SavingOptionVO;
@@ -67,16 +69,19 @@ public class SavingController {
 			System.out.println(response.toString());
 			JSONParser parser = new JSONParser();
 			JSONObject obj = (JSONObject) parser.parse(response.toString());
-			JSONObject dataObj = (JSONObject) obj.get("result");
-			JSONArray dataList = (JSONArray) dataObj.get("baseList");
+			JSONObject result = (JSONObject) obj.get("result"); 
+			JSONArray dataList = (JSONArray) result.get("baseList"); 
 
 			for (int i = 0; i < dataList.size(); i++) {
 				JSONObject jsonObj = (JSONObject) dataList.get(i);
+				System.out.println(i);
 				//공시 제출월
 				String dclsMonth = (String) jsonObj.get("dcls_month");
 				// 회사명번호, 상품번호
 				String comNum = (String) jsonObj.get("fin_co_no");
 				String prdNum = (String) jsonObj.get("fin_prdt_cd");
+				
+				String savingID = comNum + prdNum;
 				// 회사명, 상품명
 				String comName = (String) jsonObj.get("kor_co_nm");
 				String prdName = (String) jsonObj.get("fin_prdt_nm");
@@ -104,7 +109,9 @@ public class SavingController {
 				String etcNote = (String) jsonObj.get("etc_note");
 				// 공시시작일
 				String dclsStart = (String) jsonObj.get("dcls_strt_day");
-
+				
+			
+				vo.setSavingID(savingID);
 				vo.setDclsMonth(dclsMonth);
 				vo.setComNum(comNum);
 				vo.setPrdNum(prdNum);
@@ -123,6 +130,7 @@ public class SavingController {
 			}
 			System.out.println("Base성공");
 			
+
 			for (int k = 0; k < 2; k++) {
 				if (k == 0) {
 					finnum = "020000";
@@ -159,11 +167,18 @@ public class SavingController {
 					JSONObject dataObj2 = (JSONObject) obj2.get("result");
 					JSONArray optionList2 = (JSONArray) dataObj2.get("optionList");
 
-					for (int i = 0; i < optionList2.size(); i++) {
+						for (int i = 0; i < optionList2.size(); i++) {
 						JSONObject jsonOption = (JSONObject) optionList2.get(i);
+						//공시 제출월
+						String dclsMonth = (String) jsonOption.get("dcls_month");
 
 						String comNum = (String) jsonOption.get("fin_co_no");
 						String prdNum = (String) jsonOption.get("fin_prdt_cd");
+						
+						String savingID = comNum + prdNum;
+						
+						
+						
 						Double intrRate = 0.0;
 						if (String.valueOf(jsonOption.get("intr_rate")).equals("null")) {
 							intrRate = 0.0;
@@ -184,7 +199,9 @@ public class SavingController {
 						}
 						String rsrvTypeName = (String) jsonOption.get("rsrv_type_nm");
 						String intrRateTypeName = (String) jsonOption.get("intr_rate_type_nm");
-
+						
+						vo2.setSavingID(savingID);
+						vo2.setDclsMonth(dclsMonth);
 						vo2.setComNum(comNum);
 						vo2.setPrdNum(prdNum);
 						vo2.setIntrRate(intrRate);
@@ -193,6 +210,7 @@ public class SavingController {
 						vo2.setRsrvTypeName(rsrvTypeName);
 						vo2.setIntrRateTypeName(intrRateTypeName);
 						service.insertSavingOption(vo2);
+						
 						
 
 					}
@@ -218,6 +236,7 @@ public class SavingController {
 		return "saving/savingResultForm";
 	}
 	
+	
 	//적금 검색 처리
 	@RequestMapping("/savingSearch")
 	public String savingSearch(SearchVO vo, Model model){
@@ -225,5 +244,14 @@ public class SavingController {
 		ArrayList<SavingBaseVO> savingList = service.savingSearch(vo);	
 		model.addAttribute("savingList", savingList);
 		return "saving/savingResultForm";
+	}
+	
+	//적금 비교 추가
+	@ResponseBody
+	@RequestMapping("/SavingCompare")
+	public SavingBaseVO SavingCompare(@RequestParam String savingID, Model model) {
+		SavingBaseVO savingList = service.SavingCompare(savingID);
+		model.addAttribute("savingList", savingList);
+		return savingList;
 	}
 }
