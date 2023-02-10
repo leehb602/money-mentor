@@ -6,6 +6,7 @@
   
   <mapper namespace="com.spring_boot_momentor.dao.ISavingDAO">
 	<resultMap id="savingResult" type="com.spring_boot_momentor.model.SavingBaseVO">
+		<result property="savingID" column="savingID"/>
 		<result property="dclsMonth" column="dclsMonth"/>
 		<result property="comNum" column="comNum"/>
 		<result property="prdNum" column="prdNum"/>
@@ -18,28 +19,46 @@
 		<result property="joinMember" column="joinMember"/>
 		<result property="etcNote" column="etcNote"/>
 		<result property="dclsStart" column="dclsStart"/>
+		<result property="intrRate" column="intrRate"/>
+		<result property="intrRate2" column="intrRate2"/>
+		<result property="saveTrm" column="saveTrm"/>
 	</resultMap>
-	<insert id="insertSavingBase" parameterType="com.spring_boot_momentor.model.SavingBaseVO">
-		insert into SavingBase (dclsMonth, comNum, prdNum, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember, etcNote, dclsStart) 
-		values (#{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{joinWay}, #{interest}, #{spclCnd}, #{maxLimit}, #{joinMember}, #{etcNote}, #{dclsStart}) 
+
+	<insert id="insertSavingBase" parameterType="com.spring_boot_momentor.model.SavingBaseVO"> 
+		insert into SavingBase (savingID, dclsMonth, comNum, prdNum, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember, etcNote, dclsStart) 
+		values (#{savingID}, #{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{joinWay}, #{interest}, #{spclCnd}, #{maxLimit}, #{joinMember}, #{etcNote}, #{dclsStart}) 
 	</insert>
 	
 	<insert id="insertSavingOption" parameterType="com.spring_boot_momentor.model.SavingOptionVO"> 
-		insert into SavingOption (comNum, prdNum, intrRate, intrRate2, saveTrm, rsrvTypeName, intrRateTypeName) 
-		values (#{comNum}, #{prdNum}, #{intrRate}, #{intrRate2}, #{saveTrm}, #{rsrvTypeName}, #{intrRateTypeName}) 
+		insert into SavingOption (savingID, dclsMonth, comNum, prdNum, intrRate, intrRate2, saveTrm, rsrvTypeName, intrRateTypeName) 
+		values (#{savingID}, #{dclsMonth}, #{comNum}, #{prdNum}, #{intrRate}, #{intrRate2}, #{saveTrm}, #{rsrvTypeName}, #{intrRateTypeName}) 
 	</insert>
 	
-	<!--  전체 적금 조회  -->
-	<select id="listAllSaving" resultMap="savingResult"> 
-		SELECT * FROM savingBase ORDER BY prdNum 
-	</select>
+	<!--   전체 적금 조회   -->
+	<select id="listAllSaving" resultMap="savingResult" > 
+		<!-- SELECT * FROM savingBase as sb	inner join savingOption as so
+		on sb.savingID = so.savingID
+		 -->
+		SELECT sb.savingID, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember, etcNote, intrRate, MAX(intrRate2) as intrRate2, saveTrm
+		FROM savingBase as sb
+		inner join savingOption as so
+		on sb.savingID = so.savingID
+		group by prdName;
+		
+	</select>	
+		
 	
-	<!--  적금 검색  -->
+	<!--   적금 검색   -->
 	<select id="savingSearch" resultMap="savingResult"> 
 		SELECT * FROM savingBase 
-		WHERE comName like CONCAT('%', #{prdName}, '%') OR
-			  prdName like CONCAT('%', #{prdName}, '%') AND
+		WHERE comName like CONCAT('%', #{prdName}, '%') OR 
+			  prdName like CONCAT('%', #{prdName}, '%') AND 
 			  joinWay like CONCAT('%', #{way}, '%') 
 	</select>
-  </mapper>
-	  
+	
+	<select id="SavingCompare" resultMap="savingResult" parameterType="string">
+		SELECT * FROM savingBase 
+		where savingID = #{savingID}
+		 
+	</select>
+</mapper>  

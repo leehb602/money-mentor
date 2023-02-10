@@ -1,6 +1,8 @@
 package com.spring_boot_momentor.model;
 
 public class SavingOptionVO {
+	private String savingID;
+	private String dclsMonth;
 	private String comNum;
 	private String prdNum;
 	private double intrRate;
@@ -9,6 +11,18 @@ public class SavingOptionVO {
 	private String rsrvTypeName;
 	private String intrRateTypeName;
 	
+	public String getSavingID() {
+		return savingID;
+	}
+	public void setSavingID(String savingID) {
+		this.savingID = savingID;
+	}
+	public String getDclsMonth() {
+		return dclsMonth;
+	}
+	public void setDclsMonth(String dclsMonth) {
+		this.dclsMonth = dclsMonth;
+	}
 	public String getComNum() {
 		return comNum;
 	}
@@ -51,5 +65,4 @@ public class SavingOptionVO {
 	public void setIntrRateTypeName(String intrRateTypeName) {
 		this.intrRateTypeName = intrRateTypeName;
 	}
-	
 }

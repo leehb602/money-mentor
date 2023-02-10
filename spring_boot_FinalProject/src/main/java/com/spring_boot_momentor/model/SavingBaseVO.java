@@ -1,6 +1,7 @@
 package com.spring_boot_momentor.model;
 
 public class SavingBaseVO {
+	private String savingID;
 	private String dclsMonth;
 	private String comNum;
 	private String prdNum;
@@ -13,13 +14,21 @@ public class SavingBaseVO {
 	private String joinMember;
 	private String etcNote;
 	private String dclsStart;
-	
-	
-	  public String getDclsMonth() { return dclsMonth; } 
-	  
-	  public void
-	  setDclsMonth(String dclsMonth) { this.dclsMonth = dclsMonth; }
-	 
+	private String intrRate;
+	private String intrRate2;
+	private String saveTrm;
+	public String getSavingID() {
+		return savingID;
+	}
+	public void setSavingID(String savingID) {
+		this.savingID = savingID;
+	}
+	public String getDclsMonth() {
+		return dclsMonth;
+	}
+	public void setDclsMonth(String dclsMonth) {
+		this.dclsMonth = dclsMonth;
+	}
 	public String getComNum() {
 		return comNum;
 	}
@@ -86,5 +95,25 @@ public class SavingBaseVO {
 	public void setDclsStart(String dclsStart) {
 		this.dclsStart = dclsStart;
 	}
+	public String getIntrRate() {
+		return intrRate;
+	}
+	public void setIntrRate(String intrRate) {
+		this.intrRate = intrRate;
+	}
+	public String getIntrRate2() {
+		return intrRate2;
+	}
+	public void setIntrRate2(String intrRate2) {
+		this.intrRate2 = intrRate2;
+	}
+	public String getSaveTrm() {
+		return saveTrm;
+	}
+	public void setSaveTrm(String saveTrm) {
+		this.saveTrm = saveTrm;
+	}
+	
+	
 	
 }
