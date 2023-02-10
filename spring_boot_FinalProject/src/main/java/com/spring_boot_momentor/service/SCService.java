@@ -34,8 +34,15 @@ public class SCService implements ISCService {
 
 	@Override
 	public ArrayList<ServiceCenterVO> listAllSC2() {
-		// TODO Auto-generated method stub
 		return dao.listAllSC2();
 	}
+
+	@Override
+	public ArrayList<ServiceCenterVO> getQNADetail(String qusNum) {
+		// TODO Auto-generated method stub
+		return dao.getQNADetail(qusNum);
+	}
+
+	
 
 }

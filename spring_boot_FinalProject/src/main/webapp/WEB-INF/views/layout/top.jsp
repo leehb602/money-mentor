@@ -89,4 +89,7 @@
 					</div>
 				</div>				
 			</div>
+			<div class="progress_div">
+				<div class="progress_bar" id="indicator"></div>
+			</div>
 		</header>
