@@ -2,6 +2,7 @@
  *  top.js
  */
 $(document).ready(function(){
+
     $('.under_span_ul').hide();
     var underList = $('.underList');
 	
@@ -19,5 +20,14 @@ $(document).ready(function(){
             return false;
         
     });
+    
+    window.onscroll = function() {progressBar()};
+    
+    function progressBar(){
+    	var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) *100;
+        document.getElementById('indicator').style.width = scrolled+'%';
+    }
    
 })

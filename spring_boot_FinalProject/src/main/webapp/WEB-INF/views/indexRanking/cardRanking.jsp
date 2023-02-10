@@ -8,7 +8,7 @@
 	<div class="ranking_img">
 		<c:forEach var="card" items="${cardRandom}">
 			<span class="cardIndex_span ${card.cardId}">
-			<img class="cardIndex_main ${card.cardId}"  src="<c:url value='${card.cardImgUrl}'/>">
+			<img class="cardIndex_main ${card.cardId}"  src="<c:url value='${card.cardImgUrl}'/>" >
 				<div>${card.cardName}</div>
 				
 			</span>
@@ -33,15 +33,15 @@
 				<br>
 				<div class="ranking_text_url">
 				<c:if test="${card.comCtg eq '현대'}">
-					<a class="button button--wayra button--border-thick button--text-upper button--size-s"
+					<a class="button button--wayra button--border-thick button--text-upper button--size-s" target="_blank"
 					href="https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=${card.cardUrl}">카드신청 하기</a>
 				</c:if>
 				<c:if test="${card.comCtg eq 'KB'}">
-					<a class="button button--wayra button--border-thick button--text-upper button--size-s"
+					<a class="button button--wayra button--border-thick button--text-upper button--size-s" target="_blank"
 					href="https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=${card.cardUrl}">카드신청 하기</a>
 				</c:if>
 				<c:if test="${card.comCtg eq 'lotte'}">
-					<a class="button button--wayra button--border-thick button--text-upper button--size-s"
+					<a class="button button--wayra button--border-thick button--text-upper button--size-s" target="_blank"
 					href="${card.cardUrl}">카드신청 하기</a>
 				</c:if>
 				</div>
