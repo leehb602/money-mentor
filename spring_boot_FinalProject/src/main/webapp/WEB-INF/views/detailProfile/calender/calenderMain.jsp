@@ -11,6 +11,7 @@
 		<c:import url="/WEB-INF/views/layout/head.jsp" />
 		<script src="<c:url value='/js/jquery-3.6.1.min.js' />"></script>
 		<script src="https://kit.fontawesome.com/bb34e32cb3.js" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	</head>
 	<body>
 		<!--헤더-->
@@ -48,10 +49,10 @@
 							<div class="year-month"></div>
 							<div id="plan-list-toMonth"></div>
 						</div>
-						<div id="plan-list-view-box" class="hide">
-							<div id="plan-list-view">
+						<div id="plan-list-view-box" class="view-box hide">
+							<div id="plan-list-view" class="list-view">
 								<div class="plan-view-title">일정 관리하기</div>
-								<button class="plan-list-view-btn p-btn" title="일정 관리 버튼">
+								<button id="plan-list-view-btn" class="p-btn" title="일정 관리 버튼">
 									<i id="plan-icon" class="fa fa-plus"></i>
 								</button>
 							</div>
@@ -69,6 +70,14 @@
 								<tbody id="month-select-Box">
 								</tbody>
 							</table>
+						</div>
+						<div id="chart-view" style="display:none">
+							<div>
+								<canvas id="chart1"></canvas>
+							</div>
+							<div>
+								<canvas id="total-asset-chart"></canvas>
+							</div>
 						</div>
 						<div id="prd-view-option-box">
 							<div id="prd-items-view" class="hide">
@@ -102,6 +111,14 @@
 						</div>
 						</div>
 					</div>
+					<div id="categori-box">
+						<div>
+							<button id="select-calender" class="select">캘린더</button>
+						</div>
+						<div>
+							<button id="select-chart">차트</button>
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -110,4 +127,5 @@
 	 <script src="<c:url value='/js/calender.js' />"> </script>
 	 <script src="<c:url value='/js/calenderProduct.js' />"> </script>
 	 <script src="<c:url value='/js/plan.js' />"> </script>
+	 <script src="<c:url value='/js/calenderChart.js' />"> </script>
 </html>
