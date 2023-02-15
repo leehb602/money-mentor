@@ -28,4 +28,7 @@
   		SELECT * FROM serviceCenter
   		WHERE qusNum=#{qusNum}
   	</select>
+  	<delete id="deleteQuestion" parameterType="String">
+  		DELETE FROM serviceCenter WHERE qusNum=#{deleteNum}
+  	</delete>
   </mapper>

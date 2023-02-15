@@ -43,6 +43,12 @@ public class SCService implements ISCService {
 		return dao.getQNADetail(qusNum);
 	}
 
+	@Override
+	public void deleteQuestion(int deleteNum) {
+		// TODO Auto-generated method stub
+		dao.deleteQuestion(deleteNum);
+	}
+
 	
 
 }
