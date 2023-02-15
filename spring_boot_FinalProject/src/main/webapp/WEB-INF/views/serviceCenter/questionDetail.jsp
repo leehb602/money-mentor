@@ -42,11 +42,12 @@
 					<c:otherwise>
 						<div class="answer_div answer_divA">
 							<span class="QNA_span">A. </span><br>
-							대답 준비 중입니다.
+							답변 대기 준비 중입니다.
 						</div>
 					</c:otherwise>
 				</c:choose>
 				<div class="answer_div answer_btnDiv">
+					<input type="hidden" name="qusNum" class="qusNum" value="${ques.qusNum}">
 					<c:if test="${ques.userId eq sessionScope.sid}">
 					 	<button id="qus_btn_delete" value="삭제">삭제</button>
 					 	<button id="qus_btn_update" value="수정">수정</button>
