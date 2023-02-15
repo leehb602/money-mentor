@@ -34,7 +34,7 @@
 											<option id="queState" value="질문">질문 있어요!!</option>
 											<option id="queState" value="문의">문의 사항이 있어요!! </option>
 											<c:if test="${sessionScope.sid eq 'admin'}"><!-- id admin 일때만 보여주기 -->
-											<option id="queState" value="공지">공지</option>
+											<option id="queState" value="공지">공지 작성 </option>
 											</c:if>
 										</select>
 									<hr id="td_hr"/>

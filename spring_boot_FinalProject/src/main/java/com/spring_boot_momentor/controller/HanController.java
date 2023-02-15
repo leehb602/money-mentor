@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_momentor.model.CardVO;
 import com.spring_boot_momentor.model.ServiceCenterVO;
@@ -62,6 +64,17 @@ SCService scservice;
 		
 		return "serviceCenter/questionDetail";
 		
+	}
+	@ResponseBody
+	@RequestMapping("/deleteQuestion") // 질문 지우기
+	public int deleteQuestion(@RequestParam("deleteNum")int deleteNum) {
+		int result = 0;
+		if (deleteNum >0) {
+			scservice.deleteQuestion(deleteNum);
+			System.out.println("result 1 보냄");
+			result = 1;
+		}
+		return result;
 	}
 	/*서비스센터 end*/
 }
