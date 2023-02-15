@@ -12,14 +12,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 import com.spring_boot_momentor.model.CardVO;
 import com.spring_boot_momentor.service.CardService;
 
 @Component
-@Controller
-public class SeleniumController {
+public class Selenium {
 	@Autowired
 	CardService service;
 	

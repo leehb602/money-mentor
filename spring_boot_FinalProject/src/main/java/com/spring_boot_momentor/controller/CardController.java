@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spring_boot_momentor.SeleniumController;
+import com.spring_boot_momentor.Selenium;
 import com.spring_boot_momentor.model.CardVO;
 import com.spring_boot_momentor.service.CardService;
 
@@ -267,7 +267,7 @@ public class CardController {
 	@RequestMapping("/card/lotte")
 	public String lotteCard() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Program Files (x86)\\Google\\Chrome\\Chromdriver\\chromedriver.exe");
+				"C:\\Program Files\\Google\\Chrome\\ChromeDriver\\chromedriver.exe");
 		// 크롬 드라이버 세팅 (드라이버 설치한 경로 입력)
 
 		ChromeOptions options = new ChromeOptions();
