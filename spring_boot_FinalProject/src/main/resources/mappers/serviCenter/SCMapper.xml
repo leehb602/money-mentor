@@ -28,7 +28,13 @@
   		SELECT * FROM serviceCenter
   		WHERE qusNum=#{qusNum}
   	</select>
-  	<delete id="deleteQuestion" parameterType="String">
-  		DELETE FROM serviceCenter WHERE qusNum=#{deleteNum}
+  	<delete id="deleteQuestion" parameterType="com.spring_boot_momentor.model.ServiceCenterVO">
+  		DELETE FROM serviceCenter WHERE qusNum=#{qusNum}
   	</delete>
+  	
+  	<update id="updateServiceCenter" parameterType="com.spring_boot_momentor.model.ServiceCenterVO">
+  		UPDATE serviceCenter
+  		SET answer=#{answer}
+  		WHERE qusNum=#{qusNum}
+  	</update>
   </mapper>
