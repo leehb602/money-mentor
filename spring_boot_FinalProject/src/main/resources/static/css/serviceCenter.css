@@ -228,6 +228,9 @@ ul.FAQ_ul a:hover{
 	margin-top:15px;
 	text-align: right;
 }
+#answer_A{
+	text-decoration: none;
+}
 .ans_user{
 	float: left;
 	color: #797979;

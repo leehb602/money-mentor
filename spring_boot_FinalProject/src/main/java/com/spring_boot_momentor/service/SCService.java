@@ -19,9 +19,8 @@ public class SCService implements ISCService {
 	@Override
 	public void insertServiceCenter(ServiceCenterVO vo) {
 		dao.insertServiceCenter(vo);
-
 	}
-
+	
 	@Override
 	public void updateServiceCenter(ServiceCenterVO vo) {
 		dao.updateServiceCenter(vo);
@@ -44,10 +43,12 @@ public class SCService implements ISCService {
 	}
 
 	@Override
-	public void deleteQuestion(int deleteNum) {
+	public void deleteQuestion(int qusNum) {
 		// TODO Auto-generated method stub
-		dao.deleteQuestion(deleteNum);
+		dao.deleteQuestion(qusNum);
 	}
+
+	
 
 	
 
