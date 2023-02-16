@@ -10,7 +10,6 @@
 		<link rel ="stylesheet" type="text/css" href="<c:url value='/css/serviceCenter.css' />">
 		
 	<script src="<c:url value='/js/serviceCenter.js'/>" ></script>
-	<script src="<c:url value='/js/questionDelete.js'/>" ></script>
 	</head>
 	
 	<body>
@@ -48,13 +47,20 @@
 				</c:choose>
 				<div class="answer_div answer_btnDiv">
 					<input type="hidden" name="qusNum" class="qusNum" value="${ques.qusNum}">
-					<c:if test="${ques.userId eq sessionScope.sid}">
-					 	<button id="qus_btn_delete" value="삭제">삭제</button>
-					 	<button id="qus_btn_update" value="수정">수정</button>
+					<c:if test="${ques.userId eq sessionScope.sid}  ">
+					 	<a id="answer_A" href="<c:url value='/deleteQuestion/${ques.qusNum}' />">
+					 		<button id="qus_btn_delete" value="삭제">삭제</button>
+					 	</a>
+					 	<div>누르면 바로 삭제됨</div>
 					</c:if>
 					<c:if test="${sessionScope.sid eq 'admin'}">
-					 	<button id="qus_btn_delete" value="삭제">삭제</button>
-					 	<button id="qus_btn_update" value="수정">수정</button>
+					 	<a id="answer_A" href="<c:url value='/deleteQuestion/${ques.qusNum}' />">
+					 		<button id="qus_btn_delete" value="삭제">삭제</button>
+					 	</a>
+					 	<a id="answer_A" href="<c:url value='/questionUpload/${ques.qusNum}' />">
+					 		<button id="qus_btn_update" value="답변">답변</button>
+					 	</a>
+					 	<div>누르면 바로 삭제됨</div>
 					</c:if>
 				</div>
 				
