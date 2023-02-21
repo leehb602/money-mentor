@@ -25,11 +25,11 @@
 	</resultMap>
 	
   	<insert id="insertDepositBase" parameterType="com.spring_boot_momentor.model.DepositBaseVO" timeout="3">
-  		insert into DepositBase (depositID, dclsMonth, comNum, prdNum, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember)
+  		insert into depositBase (depositID, dclsMonth, comNum, prdNum, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember)
   		values (#{depositID}, #{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{joinWay}, #{interest}, #{spclCnd}, #{maxLimit}, #{joinMember})
   	</insert>
   	<insert id="insertDepositOption" parameterType="com.spring_boot_momentor.model.DepositOptionVO">
-  		insert into DepositOption (depositID, dclsMonth, comNum, prdNum, intrRate, intrRate2, saveTrm, intrRateTypeName)
+  		insert into depositOption (depositID, dclsMonth, comNum, prdNum, intrRate, intrRate2, saveTrm, intrRateTypeName)
   		values (#{depositID}, #{dclsMonth}, #{comNum}, #{prdNum}, #{intrRate}, #{intrRate2}, #{saveTrm}, #{intrRateTypeName})
   	</insert>
   	

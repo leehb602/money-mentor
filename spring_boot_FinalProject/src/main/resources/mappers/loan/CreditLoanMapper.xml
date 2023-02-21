@@ -30,11 +30,11 @@
 		
 	
   	<insert id="insertCreditLoanBase" parameterType="com.spring_boot_momentor.model.CreditLoanBaseVO" timeout="3">
-  		insert into CreditLoanBase (creditLoanID, dclsMonth, comNum, prdNum, comName, prdName, joinWay, crdtTypeName, cbName, dclsStart)
+  		insert into creditLoanBase (creditLoanID, dclsMonth, comNum, prdNum, comName, prdName, joinWay, crdtTypeName, cbName, dclsStart)
   		values (#{creditLoanID}, #{dclsMonth}, #{comNum}, #{prdNum}, #{comName}, #{prdName}, #{joinWay}, #{crdtTypeName}, #{cbName}, #{dclsStart})
   	</insert>
   	<insert id="insertCreditLoanOption" parameterType="com.spring_boot_momentor.model.CreditLoanOptionVO">
-  		insert into CreditLoanOption (creditLoanID, dclsMonth, comNum, prdNum, crdtLendRateTypeName, crdtGrade9Up, crdtGrade8Up,
+  		insert into creditLoanOption (creditLoanID, dclsMonth, comNum, prdNum, crdtLendRateTypeName, crdtGrade9Up, crdtGrade8Up,
   									  crdtGrade7Up, crdtGrade6Up, crdtGrade5Up, crdtGrade4Up, crdtGrade3Up, crdtGrade3Down, crdtGradeAvg)
   		values (#{creditLoanID}, #{dclsMonth}, #{comNum}, #{prdNum}, #{crdtLendRateTypeName}, #{crdtGrade9Up}, #{crdtGrade8Up}, 
   				#{crdtGrade7Up}, #{crdtGrade6Up}, #{crdtGrade5Up}, #{crdtGrade4Up}, #{crdtGrade3Up}, #{crdtGrade3Down}, #{crdtGradeAvg})
@@ -65,7 +65,7 @@
 	<select id="CreditLoanCompare" resultMap="CreditLoanResult" parameterType="string">
 		SELECT b.comName, b.prdName, joinWay, crdtTypeName, cbName, crdtLendRateTypeName, crdtGrade9Up, crdtGrade8Up, crdtGrade7Up, crdtGrade6Up, crdtGrade5Up, crdtGrade4Up,
 		crdtGrade3Up, crdtGrade3Down, crdtGradeAvg
-		FROM CreditLoan b, CreditLoan o
+		FROM creditLoanBase b, creditLoanOption o
 		where b.creditLoanID = o.creditLoanID AND b.creditLoanID = #{creditLoanID}
 	</select>
 	
@@ -73,7 +73,7 @@
 	<select id="CreditLoanCompareModal" resultMap="CreditLoanResult" parameterType="string">
 		SELECT b.comName, b.prdName, joinWay, crdtTypeName, cbName, crdtLendRateTypeName, crdtGrade9Up, crdtGrade8Up, crdtGrade7Up, crdtGrade6Up, crdtGrade5Up, crdtGrade4Up,
 		crdtGrade3Up, crdtGrade3Down, crdtGradeAvg
-		FROM CreditLoan b, CreditLoan o
+		FROM creditLoanBase b, creditLoanOption o
 		where b.creditLoanID = o.creditLoanID AND b.creditLoanID = #{creditLoanID}
 	</select>
   	</mapper>
