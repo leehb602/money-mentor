@@ -55,7 +55,7 @@
 								<td class="prd-table-title">만기</td>
 								<td><input type="text" id="calMaturity" class="calMaturity" name="calMaturity" placeholder="${cal.calMaturity}"> 년</td>
 							</tr>
-							<tr class="prdPayment">
+							<tr class="prdPayment"ㄷ>
 								<td class="prd-table-title">납부금</td>
 								<td><input type="text" id="calPayment" class="calPayment" name="calPayment" placeholder="${cal.calPayment}"> 원</td>
 							</tr>
