@@ -2,7 +2,7 @@
  * none.js
  */
 // 상품 비교 데이터 넣기
-function toggleBtn1(cardId){  
+function toggleBtn1(insuId){  
 
  			
  			 // 토글 할 버튼 선택 (btn1)
@@ -18,8 +18,8 @@ function toggleBtn1(cardId){
 
  		$.ajax({
  			type:"post",
- 			url:"/CardCompare",
- 			data:{"cardId": cardId},	
+ 			url:"/InsuCompare",
+ 			data:{"insuId": insuId},	
  				
  			success:function(result){
  	
@@ -27,17 +27,27 @@ function toggleBtn1(cardId){
  			
  			'<li class="prod_lists">' +  
 	 			'<div class="oo">' + 
-	 			'<img class="cardImg" src=' + result.cardImgUrl + '>' + '<br>' +
-	 			'<input  type="hidden" class="cardName1" value="'+result.cardName + '"/>'+ result.cardName + '</input>' + 
+	 			'<div class="id6">' + 
+	 			'<img class="prdLogo" src=' + result.prdLogo + '>' + 
 	 			
-	 
-	 				'<div class="id6">' + 
-	 					'<input type="checkbox" name="Chk_list" class="chkDelete" value="'+ result.cardId  +'"/>'+ 
-	 				'</div>' +
-	 				'<input  type="hidden" class="fee" value="'+result.cardFee + '"/>' + '</input>' +
-	 					'<input class="desc" type="hidden" value="' +result.cardDes + '"/>' + 
-	 					'<input type="hidden" class="button button--wayra" value="href="https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd='+result.cardUrl +'"/>'+
+	 					'<input type="checkbox" name="Chk_list" class="chkDelete" value="'+ result.insuId  +'"/>'+ 
 	 					
+	 				'</div>' +
+	 			
+	 			'<br>' +
+	 			'<input  type="hidden" class="insuName" value="'+result.insuName + '">'+ result.insuName + '</input>' + 
+	 		
+	 
+	 				
+		 				'<input class="desc" type="hidden" value="' +result.insuDes + '"/>' + 
+		 				'<input class="Price" type="hidden" value="' +result.insuPrice + '"/>' + 
+		 				'<input  type="hidden" class="malefee" value="'+result.male + '"/>' +
+		 				'<input  type="hidden" class="femalefee" value="'+result.female + '"/>' +
+	 					'<input  type="hidden" class="insuIndex" value="'+result.insuIndex + '"/>' +
+	 					'<input  type="hidden" class="age" value="'+result.age + '"/>' +
+	 					'<input  type="hidden" class="insuNote" value="'+result.insuNote + '"/>' +
+	 					'<input type="hidden" class="button button--wayra" value="href="https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd='+result.cardUrl +'"/>'+
+					
 	 			'</div>'+
 	 		'</li>');
  		// 비교 임시테이블에 저장하기위함 함수호출
@@ -98,7 +108,7 @@ function toggleBtn1(cardId){
  		 for(var i=$('.chkDelete').length-1; i>-1; i--){ 
 
 ﻿                    $('.chkDelete').eq(i).closest('.oo').remove(); 
-					$("#allCheck").prop("checked", false); // 해제
+	$("#allCheck").prop("checked", false); // 해제
  		
  		
  		}

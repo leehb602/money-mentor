@@ -32,12 +32,13 @@
 									<li><a href="<c:url value='/creditLoanForm'/>">신용 대출 상품</a></li>
 									<li><a href="<c:url value='/rentHouseLoanForm'/>">전세 대출 상품</a></li>
 									<li><a href="<c:url value='/annuitySavingForm'/>">연금 상품</a></li>
+									<li><a href="<c:url value='/InsuList'/>">보험 상품</a></li>
 								</ul>
 							</li>
 							<li id="menu1_4"><div>My Momentor</div>
 								<ul class="hd_menu_sub">
 									<li><a href="<c:url value='/profile/calender'/>">캘린더</a></li>
-									<li><a href="<c:url value='/user/assetInfoForm'/>">정보입력</a></li>
+									<li><a href="<c:url value='/user/assetInfoForm/${sessionScope.sid}'/>">정보입력</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -70,6 +71,7 @@
 								<li><a href="<c:url value='/CardList'/>">카드 상품</a></li>
 								<li><a href="<c:url value='/savingForm'/>">적금 상품</a></li>
 								<li><a href="<c:url value='/depositForm'/>">예금 상품</a></li>
+								<li><a href="<c:url value='/insuList'/>">보험 상품</a></li>
 								<li><a href="<c:url value='/creditLoanForm'/>">신용 대출 상품</a></li>
 								<li><a href="<c:url value='/rentHouseLoanForm'/>">전세 대출 상품</a></li>
 								<li><a href="<c:url value='/annuitySavingForm'/>">연금 상품</a></li>

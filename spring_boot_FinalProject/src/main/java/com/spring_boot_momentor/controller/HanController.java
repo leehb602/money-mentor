@@ -38,7 +38,7 @@ SCService scservice;
 		return "indexRanking/cardRanking";
 	}
 	/*서비스센터 start*/
-	@RequestMapping("/all/serviceCenter")
+	@RequestMapping("/all/serviceCenter") //고객센터 열기
 	public String serviceCenter(Model model) {
 		ArrayList<ServiceCenterVO> listAllSC = scservice.listAllSC();
 		model.addAttribute("listAllSC", listAllSC);
@@ -46,16 +46,16 @@ SCService scservice;
 		model.addAttribute("listAllSC2", listAllSC2);
 		return "serviceCenter/serviceCenter";
 	}
-	@RequestMapping("/question")
+	@RequestMapping("/question") // 질문 등록 폼 
 	public String questionForm() {
 		return "serviceCenter/questionForm";
 	}
-	@RequestMapping("/question/insertQ")
+	@RequestMapping("/question/insertQ") //질문 등록 
 	public String insertServiceCenter(ServiceCenterVO vo) {
 		scservice.insertServiceCenter(vo);
 		return "redirect:/all/serviceCenter";
 	}
-	@RequestMapping("/all/serviceCenter/detail/{qusNum}")
+	@RequestMapping("/all/serviceCenter/detail/{qusNum}") // 질문 상세보기
 	public String answerDetail(@PathVariable("qusNum") String qusNum, Model model) {
 		
 		model.addAttribute("qusNum",qusNum);
@@ -65,16 +65,29 @@ SCService scservice;
 		return "serviceCenter/questionDetail";
 		
 	}
-	@ResponseBody
-	@RequestMapping("/deleteQuestion") // 질문 지우기
-	public int deleteQuestion(@RequestParam("deleteNum")int deleteNum) {
-		int result = 0;
-		if (deleteNum >0) {
-			scservice.deleteQuestion(deleteNum);
-			System.out.println("result 1 보냄");
-			result = 1;
-		}
-		return result;
+	@RequestMapping("/deleteQuestion/{qusNum}") // 질문 지우기
+	public String deleteQuestion(@PathVariable("qusNum") int qusNum ) {
+			scservice.deleteQuestion(qusNum);
+		return "redirect:/all/serviceCenter";
 	}
+	
+	@RequestMapping("/questionUpload/{qusNum}") // 업뎃 질문 불러오기 
+	public String questionUpload(@PathVariable("qusNum") String qusNum, Model model) {
+		
+		ArrayList<ServiceCenterVO> getQNADetail = scservice.getQNADetail(qusNum);
+		model.addAttribute("getQNADetail", getQNADetail);
+			
+		return "serviceCenter/answerUpload";
+	}
+	
+	@RequestMapping("/updateServiceCenter") // 답변
+	public String updateServiceCenter(ServiceCenterVO vo) {
+		
+		scservice.updateServiceCenter(vo);
+		
+		return "redirect:/all/serviceCenter";
+	}
+	
+	
 	/*서비스센터 end*/
 }

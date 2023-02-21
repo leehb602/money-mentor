@@ -19,7 +19,7 @@
 				url:"/authMail",
 				data:{"email":$('#userEmail').val(),
 					  "userName":$('#userName').val(),
-					  "userPhone":userPhone,},
+					  "userPhone":userPhone},
 				dataType:"text",
 				success:function(result){
 					alert(result);
