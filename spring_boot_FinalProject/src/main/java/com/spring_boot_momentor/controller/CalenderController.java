@@ -218,7 +218,7 @@ public class CalenderController {
 		
 		for(int i = 0; i < category.length; i++) {
 			strPrice = service.prdTotalFee(userID, category[i]);
-			System.out.println(strPrice);
+
 			if(strPrice == null) {
 				strPrice = "0";
 			}
