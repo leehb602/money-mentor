@@ -98,6 +98,7 @@ function toggleBtn1(cardId){
  		 for(var i=$('.chkDelete').length-1; i>-1; i--){ 
 
 ﻿                    $('.chkDelete').eq(i).closest('.oo').remove(); 
+					$("#allCheck").prop("checked", false); // 해제
  		
  		
  		}
