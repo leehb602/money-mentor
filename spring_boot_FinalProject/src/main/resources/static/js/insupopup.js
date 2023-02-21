@@ -23,14 +23,14 @@ $('.body-contentbox').append(
 	'<table class="modallist">' +
 		'<thead>'+
 			'<tr>'+
-				'<th class="imgtr">' + 'NAME' +'</th>' +
-        		'<th class="destr">' +'DES'+'</th>' +
-        		'<th class="pricetr">' +'PRICE'+'</th>' +
-        		'<th class="maletr">' +'남'+'</th>' +
-        		'<th class="femaletr">' +'여'+'</th>' +
+				'<th class="imgtr">' + '상품명' +'</th>' +
+        		'<th class="destr">' +'보장상품'+'</th>' +
+        		'<th class="pricetr">' +'보장금'+'</th>' +
+        		'<th class="maletr">' +'보험료(남)'+'</th>' +
+        		'<th class="femaletr">' +'보험료(여)'+'</th>' +
         		'<th class="agetr" >' +'나이'+'</th>'+
-        		'<th class="indextr" >' +'index'+'</th>'+
-        		'<th class="insuNotetr" >' +'note'+'</th>'+
+        		'<th class="indextr" >' +'보험지수'+'</th>'+
+        		'<th class="insuNotetr" >' +'상품설명'+'</th>'+
         		
 		'</thead>'+
 		'<tbody class="tb">'+
