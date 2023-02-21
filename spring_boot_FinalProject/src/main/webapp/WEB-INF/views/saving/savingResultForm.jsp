@@ -121,6 +121,10 @@
 						<div class= "bankImg Sky"></div>
 						</c:when>
 						
+						<c:when test="${saving.comName eq '민국저축은행'}">
+						<div class= "bankImg MG"></div>
+						</c:when>
+						
 						<c:otherwise>이미지<br>준비중</c:otherwise>
 						</c:choose>
 						</div>
