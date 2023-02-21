@@ -26,7 +26,7 @@
 
 .popup{
   width:100%;              
-  max-width: 1350px;  
+  max-width: 1360px;
   border-radius:10px;       
   overflow:hidden;         
   background-color:#264db5; 
@@ -127,7 +127,7 @@ min-height: 300px;
 	
 }
 .indextr{
-    width: 100px;
+   width: 131px;
 }
 .agetr{
 	    width: 85px;
