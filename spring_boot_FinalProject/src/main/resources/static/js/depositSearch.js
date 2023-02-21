@@ -7,9 +7,7 @@
 	$.ajax({
 		type:"post",
 		url:"/depositListAll",
-		
 		success:function(result){
-		 
 		  $('#searchResultBox').html(result);
 		},
 		error:function(){
