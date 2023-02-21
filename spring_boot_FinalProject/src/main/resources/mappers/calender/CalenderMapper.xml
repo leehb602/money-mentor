@@ -84,7 +84,7 @@
 				</when>
 				<when test="kind == 'insu'">
 					SELECT 
-						id AS prdID,
+						insuId AS prdID,
 						insuName AS prdName,
 						insuJoinURL AS prdURL,
 						prdName AS prdCom,
