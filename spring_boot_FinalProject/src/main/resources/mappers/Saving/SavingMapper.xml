@@ -42,12 +42,12 @@
 		<!--  SELECT * FROM savingBase as sb	inner join savingOption as so
 		on sb.savingID = so.savingID -->
 		
-	SELECT sb.savingID, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember, etcNote, intrRate,<!-- intrRate,MAX(intrRate2) as intrRate2-->intrRate2, saveTrm,rsrvTypeName, intrRateTypeName
+	SELECT sb.savingID, comName, prdName, joinWay, interest, spclCnd, maxLimit, joinMember, etcNote, intrRate, intrRate,MAX(intrRate2) as intrRate2, MAX(saveTrm) as saveTrm,rsrvTypeName, intrRateTypeName
 		FROM savingBase as sb
 		inner join savingOption as so
 		on sb.savingID = so.savingID
-		<!-- group by prdName
-		  -->
+		group by prdName
+		
 	</select>	
 <!-- 		
 	WHERE prdName like CONCAT('%', #{prdName}, '%') OR
