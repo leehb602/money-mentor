@@ -338,7 +338,7 @@ $(document).ready(function(){
 			);
 			return false;
 		}
-		else if(transfer.val() == ""  && (kind != "deposit" || kind != "saving")){
+		else if(transfer.val() == ""){
 			transfer.focus();
 			transfer.css('outline', '1px solid red');
 			$('.plan-warning-text').eq(clickBtn).append(
@@ -354,7 +354,7 @@ $(document).ready(function(){
 			);
 			return false;
 		}
-		else if(payment.val() == "" && (kind != "deposit" || kind != "saving")){
+		else if(payment.val() == ""){
 			payment.focus();
 			payment.css('outline', '1px solid red');
 			$('.plan-warning-text').eq(clickBtn).append(
@@ -362,7 +362,7 @@ $(document).ready(function(){
 			);
 			return false;
 		}
-		else if(deposit.val() == "" && (kind == "deposit" || kind == "saving")){
+		else if((deposit.val() == "") && (kind == "deposit" || kind == "saving")){
 			deposit.focus();
 			deposit.css('outline', '1px solid red');
 			$('.plan-warning-text').eq(clickBtn).append(
@@ -371,18 +371,21 @@ $(document).ready(function(){
 			return false;
 		}
 		
+		
+		console.log("됨?");
 		const calSubDate = subDate.val();
 		let calTransfer = transfer.val();
 		const calMaturity = maturity.val();
 		let calPayment = payment.val();
 		let calDeposit = deposit.val();
 		let prdName = name.val();
+		
+		console.log(calDeposit);
+		console.log(calSubDate);
+		console.log(calDeposit == undefined);
 			
 		if(prdName.length == 0){
 			prdName = $('.prd-name').eq(Number(prdID)-1).text();
-		}
-		if(calDeposit.length == 0){
-			calDeposit = 0;
 		}
 		if(calTransfer.length == 0){
 			calTransfer = 0;
@@ -390,6 +393,10 @@ $(document).ready(function(){
 		if(calPayment.length == 0){
 			calPayment = 0;
 		}
+		if(calDeposit == undefined || calDeposit.length == 0){
+			calDeposit = 0;
+		}
+		
 	
 
 		$.ajax({

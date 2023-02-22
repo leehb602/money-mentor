@@ -80,14 +80,13 @@ public class CalenderController {
 											@RequestParam("calTransfer") int calTransfer,
 											@RequestParam("calMaturity") int calMaturity,
 											@RequestParam("calPayment") int calPayment,
-											@RequestParam("calDeposit") int calDeposit,
+											@RequestParam("calDeposit") String calDeposit,
 											@RequestParam("prdName") String prdName,
 											HttpSession session) {
 		
 		String memId = (String)session.getAttribute("sid");
 		String result = "";
 		int planCount = 0;
-
 
 		//vo에 올리기 전, 중복이 있는지 검사 / 사용자 지정 데이터는 중복 검사 X
 		if(!prdID.equals("0")) {
@@ -105,7 +104,7 @@ public class CalenderController {
 			vo.setPrdType(prdType);
 			vo.setCalPayment(calPayment);
 			vo.setPrdName(prdName);
-			vo.setCalDeposit(calDeposit);
+			vo.setCalDeposit(Integer.parseInt(calDeposit));
 			service.insertPlan(vo);
 		}
 		else {
@@ -158,15 +157,19 @@ public class CalenderController {
 							@PathVariable int dataID,
 							@RequestParam("calSubDate") String calSubDate,
 							@RequestParam("calTransfer") int calTransfer,
+							@RequestParam("calDeposit") int calDeposit,
 							@RequestParam("calMaturity") int calMaturity,
 							@RequestParam("calPayment") int calPayment,
 							@RequestParam("prdName") String prdName) {
 		
 		String userID = (String)session.getAttribute("sid");
+
+		
 		vo.setCalSubDate(calSubDate);
 		vo.setCalTransfer(calTransfer);
 		vo.setCalMaturity(calMaturity);
 		vo.setCalPayment(calPayment);
+		vo.setCalDeposit(calDeposit);
 		vo.setPrdName(prdName);
 		vo.setDataID(dataID);
 		vo.setUserID(userID);

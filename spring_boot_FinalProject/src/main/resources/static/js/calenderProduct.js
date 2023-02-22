@@ -286,7 +286,7 @@ $(document).ready(function(){
 																		</tr>
 																		<tr class="prdTransfer">
 																			<td class="prd-table-title">이체일</td>
-																			<td><input type="text" id="calTransfer" class="calTransfer" name="calTransfer"> 일</td>
+																			<td><input type="text" id="calTransfer" class="calTransfer" name="calTransfer" placeholder="정기예적금 X면 0"> 일</td>
 																		</tr>
 																		<tr class="prdMaturity">
 																			<td class="prd-table-title">만기</td>
@@ -294,7 +294,7 @@ $(document).ready(function(){
 																		</tr>
 																		<tr class="prdMaturity">
 																			<td class="prd-table-title">납부금</td>
-																			<td><input type="text" id="calPayment" class="calPayment" name="calPayment"> 원</td>
+																			<td><input type="text" id="calPayment" class="calPayment" name="calPayment" placeholder="정기예적금 X면 0"> 원</td>
 																		</tr>
 																		<tr class="prdDeposit">
 																			<td class="prd-table-title">예치금</td>

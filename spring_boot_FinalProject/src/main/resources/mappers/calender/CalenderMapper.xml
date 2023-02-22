@@ -129,7 +129,9 @@
 	  <select id="calenderView" resultMap="planResult">
 			SELECT *
 			FROM calender
-	        WHERE userID = #{userID} ORDER BY calTransfer
+	        WHERE userID = #{userID} 
+	        AND calTransfer != 0
+	        ORDER BY calTransfer
 	  </select> 
 	  <select id="planDuplicateCheck" resultType="int">
 			SELECT COUNT(*) FROM calender 
