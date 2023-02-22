@@ -28,7 +28,7 @@
 			);
 			return false;
 		}
-		else if(transfer.val() == "" && (kind != "deposit" || kind != "saving")){
+		else if(transfer.val() == ""){
 			transfer.focus();
 			transfer.css('outline', '1px solid red');
 			$('.plan-warning-text').append(
@@ -44,7 +44,7 @@
 			);
 			return false;
 		}
-		else if(payment.val() == "" && (kind != "deposit" || kind != "saving")){
+		else if(payment.val() == ""){
 			payment.focus();
 			payment.css('outline', '1px solid red');
 			$('.plan-warning-text').append(
@@ -72,9 +72,6 @@
 		
 		if(prdName.length == 0){
 			prdName = "사용자 정의 상품";
-		}
-		if(calDeposit.length == 0){
-			calDeposit = 0;
 		}
 		if(calTransfer.length == 0){
 			calTransfer = 0;
@@ -115,6 +112,8 @@
 		const kind = $('#prd-type-select option:selected').val();
 		
 		if(kind == "deposit" || kind == "saving"){
+			$('#calTransfer').attr('placeholder', '정기예적금 X면 0');
+			$('#calPayment').attr('placeholder', '정기예적금 X면 0');
 			$('#prdDeposit').show();
 		}
 		else{

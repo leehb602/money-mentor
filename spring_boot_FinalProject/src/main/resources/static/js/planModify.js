@@ -35,7 +35,7 @@
 		if(calPayment.length == 0){
 			calPayment = payment.attr("placeholder");
 		}
-		if(calPayment.length == 0){
+		if(calDeposit.length == 0){
 			calDeposit = deposit.attr("placeholder");
 		}
 		
