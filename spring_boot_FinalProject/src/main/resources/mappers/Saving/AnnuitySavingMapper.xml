@@ -62,7 +62,8 @@
 	<!-- 연금 검색 -->
 	<select id="AnnuitySavingSearch" parameterType="hashmap" resultMap="AnnuitySavingResult" > 
 		<![CDATA[
-		SELECT * FROM annuitySavingBase 
+		SELECT * FROM annuitySavingBase as b	inner join annuitySavingOption as o
+		on b.annuitySavingID = o.annuitySavingID
 		WHERE 
 			  comName like CONCAT('%', #{prdName}, '%') and
 			  prdtTypeName like CONCAT('%', #{prdtTypeName}, '%') and
