@@ -54,7 +54,7 @@
  		var checked = $('.chkDelete').is(':checked');
  		
  		if(checked){ // 하나라도 선택한 경우
- 		var answer = confirm("선택된 상품을 삭제하시겠습니까?");
+ 		var answer = confirm("전체 상품을 삭제하시겠습니까?");
  		if(answer){
  		 for(var i=$('.chkDelete').length-1; i>-1; i--){ 
 
